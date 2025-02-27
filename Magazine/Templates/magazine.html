@@ -1,0 +1,607 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Articles{% endblock title %} 
+
+
+{% block meta_tags %}
+    <meta name="title" content="{{ magazine.meta_title }}">
+    <meta name="description" content="{{ magazine.meta_description }}">
+    <meta name="keywords" content="{{ magazine.meta_keywords }}">
+    <title>{{ magazine.title }}</title>
+{% endblock meta_tags %}
+
+
+
+
+{% block page_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    
+    body {
+    background-image: url("{% static 'images/back.jpg' %}");
+    }
+
+    header {
+        background-color: transparent;
+        color: black!important;
+        -webkit-box-shadow:0px 1px 1px black;
+        -moz-box-shadow:0px 1px 1px black;
+        box-shadow: 0px -5px 7px black;
+    }
+    .nav-links a{
+        color: black!important;
+    }
+
+    /* {% comment %} banner start {% endcomment %} */
+
+
+    /*  */
+    /* style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;" */
+
+
+    .container-fluid {
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        /* margin-bottom: 15%;  */
+        margin-bottom: 100px;       
+    }
+    
+
+
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+        
+    }
+
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .col-lg-8 {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        flex: 0 0 66.666667%;
+        max-width: 800px;
+        margin: 0 auto;
+    
+
+    }
+
+
+
+    @media (max-width: 992px) {
+        .col-lg-8 {
+            padding: 10px;
+            box-shadow: none;
+        }
+        .smlhead h5, .share-container .smlbtn, .icons h5 {
+            font-size: 14px;
+        }
+        .icons i {
+            font-size: 18px;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        .col-lg-8 {
+            padding: 10px;
+        }
+        .form-row {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            width: 100%;
+        }
+        .input-field, .textarea-field {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .share-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .share-title {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .col-lg-8 {
+            padding: 5px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .comment-btn {
+            font-size: 16px;
+        }
+        .smlhead h5 {
+            font-size: 12px;
+        }
+    }
+
+
+    .MAGAZINE-img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+
+    a {
+        color: #ff5000;
+        text-decoration: none;
+        background-color: transparent;
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #212529;
+        font-size: 2.5rem;
+    }
+
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* {% comment %} banner end {% endcomment %} */
+
+
+    /* {% comment %} comment start {% endcomment %} */
+
+
+
+    .comment-img {
+        width: 100%;
+        max-width: 60px;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .comment-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+        color: #ff5000;
+        background-color: transparent;
+        /* border: 1px solid #007bff; */
+        border-radius: 4px;
+        font-weight: bold;
+        
+    }
+
+
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* {% comment %} comment end {% endcomment %} */
+
+    /* {% comment %} comment form start {% endcomment %} */
+
+
+    .input-field, .textarea-field {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .submit-btn {
+        padding: 5px 5px;
+        color: #fff;
+        background-color: #ff5000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background-color:chocolate;
+    }
+
+
+
+    /* {% comment %} share buttons {% endcomment %} */
+    .smlhead h5 {
+        /* background-color: #0185AE; */
+        padding: 5px 10px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+
+    .share-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        
+    }
+
+    .smlbtn {
+        display: flex;
+        align-items: center;
+    }
+
+    .smlbtn .likeit{
+        color:#ff5000 ;
+        font-weight: bold;
+        font-size: 1.5rem;
+    
+
+    }
+
+    .overlay {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #ff5000;
+        color: white;
+        text-decoration: none;
+        border-radius: 20px;
+    }
+
+    .overlay:hover {
+        background-color:chocolate;
+        color: white;
+    }
+
+    .icons {
+        display: flex;
+        gap: 10px;
+       
+    }
+    
+
+    .icons i {
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.3s;
+    cursor: pointer;
+
+
+
+    
+        
+    }
+
+    .icons i:hover {
+        color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+        .share-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+
+
+    /* trending item start */
+
+    .Load-more {
+    
+
+        color:black;
+        padding: 5px 5px;
+        background-color:white;
+    }
+
+    .Load-more:hover {
+        color:#6c757d;
+        padding: 5px 5px;
+        
+    }
+
+  
+    .trending-item {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin-bottom: 15px;
+        height: 110px;
+        border: 1px solid #ddd;
+    }
+
+    .trending-item img {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+    }
+
+    .trending-item div {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .trending-item a {
+        color: black;
+        text-decoration: none;
+        font-size: 0.80rem;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .trending-item {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .trending-item img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .trending-item a:hover {
+        text-decoration: underline;
+    }
+
+    .trending-item small {
+        color: #6c757d;
+    }
+
+
+
+
+
+
+
+
+    .fullMagazineletter {
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .Magazineletter-input-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Magazineletter-input-group input {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 70%;
+    }
+
+    .fullMagazineletter button {
+        padding: 5px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+       
+    }
+
+    .fullMagazineletter button:hover {
+        background-color: #0056b3;
+    }
+
+    .fullMagazineletter small {
+        display: block;
+        margin-top: 10px;
+        color: #6c757d;
+    }
+
+
+    .Magazineletter-container p {
+        font-weight: bold;
+    }
+
+
+    .signUp {
+        background: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+      font-weight: bold;
+    }
+    
+                 
+</style>
+{% endblock page_css %}
+
+
+
+{% block content %}
+
+    <!-- Magazine With Sidebar Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+                <div class="col-lg-8" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+                    {% if magazine %}
+                    <div>
+                        <a href="">{{ magazine.category.name }}</a>
+                        <h1>{{ magazine.title }}</h1>
+                        <a href="">{{ magazine.published_at|date:"M d, Y" }}</a>
+                        {% if magazine.cover_image.url %}
+                        <img src="{{ magazine.cover_image.url }}" class="MAGAZINE-img" alt="{{ magazine.title }}" style="width: 100%; height: auto;">
+                        {% endif %}
+                        {% if magazine.cover_video %}
+                            <video autoplay loop muted style="width: 100%; height: auto;">
+                                <source src="{{ magazine.cover_video.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% endif %}
+                    </div>
+                    <br>
+
+                    <!-- Loop through dynamically added sections -->
+                    {% for section in magazine.sections.all %}
+                    <div>
+                        {% if section.heading %}
+                            <h2>{{ section.heading }}</h2>
+                        {% endif %}
+
+                        {% if section.content_top %}
+                            <p>{{ section.content_top|safe }}</p>
+                        {% endif %}
+
+                        {% if section.image %}
+                            <img src="{{ section.image.url }}" alt="{{ section.image_caption }}" style="width: 100%; height: auto;">
+                            {% if section.image_caption %}
+                                <p><em>{{ section.image_caption }}</em></p>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if section.video %}
+                            <video autoplay loop muted style="width: 100%; height: auto;">
+                                <source src="{{ section.video.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% elif section.external_video_url %}
+                            <iframe width="100%" height="400" src="{{ section.external_video_url }}" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+
+                        {% if section.content_bottom %}
+                            <p>{{ section.content_bottom|safe }}</p>
+                        {% endif %}
+                    </div>
+                    <br>
+                    {% endfor %}
+
+
+                    <div class="smlhead">
+                        <h5>Subscribe to our channels on <a href="">Telegram</a> & <a href="">YouTube</a>. Follow us on <a href="">Twitter</a> and <a href="">Facebook</a></h5>
+                    </div>
+
+                    <div class="share-container">
+                        <div class="smlbtn">
+                            <small class="likeit">Like it?</small>
+                            <a class="overlay" href="#"><span class="arrow-btn"> Support Us</span></a>
+                        </div>
+                        <div class="icons">
+                            <h5 class="share-title">Share:</h5>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div>
+                        <h4 style="color: #ff5000; font-weight: bold;">{{ magazine.comments.count }} Comments</h4>
+                        {% for comment in magazine.comments.all %}
+                        <div>
+                            <img src="{% static '/img/default-user.png' %}" alt="User" class="comment-img" style="width: 100%; max-width: 60px; height: auto; border-radius: 50%;">
+                            <div>
+                                <h6><a href="">{{ comment.user.username }}</a> <small><i>{{ comment.created_at|date:"M d, Y" }}</i></small></h6>
+                                <p>{{ comment.content }}</p>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>No comments yet. Be the first to comment!</p>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Comment Form -->
+                    <div>
+                        <h4 style="color: #ff5000; font-weight: bold;">Leave a comment</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_type" value="comment">  <!-- Identify form submission -->
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea name="content" id="message" cols="30" rows="5" class="textarea-field" style="width: 100%;"></textarea>
+                            </div>
+                            <input type="submit" value="Post comment" class="submit-btn">
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-lg-4" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; position: -webkit-sticky; position: sticky; top: 0;">
+                    <div class="Latest_Articles" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+                        <h4 style="color: #ff5000; font-weight: bold;">Latest Articles</h4>
+                        {% for latest in latest_magazines %}
+                        <div class="trending-item" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 5px;">
+                            <div>
+                                <a href="{% url 'magazine_detail' latest.slug %}">{{ latest.title|truncatechars:50 }}</a>
+                                <div style="padding-left: 0;">
+                                    <a href=""><small>{{ latest.published_at|date:"M d, Y" }}</small></a>
+                                </div>
+                            </div>
+                            {% if latest.cover_image.url != None %}
+                                <img src="{{ latest.cover_image.url }}" alt="{{ latest.title }}">
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <input type="submit" value="Load more >" class="Load-more"><br>
+                    </div>
+
+                    
+                    <div class="fullMagazineletter" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+                        <img src="{% static '/img/Namaste.jpg' %}" alt="" style="width: 30%; max-width: 400px; height: auto;">
+                        <div class="Magazineletter-container">
+                            <p>Sign up to receive FT-Magazine content in your inbox</p>
+                    
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="form_type" value="subscription">  <!-- Identify form submission -->
+                                <div class="Magazineletter-input-group">
+                                    {{ subscription_form.email }}
+                                </div>
+                                <button type="submit" name="subscribe" class="signUp">Sign Up</button>
+                            </form>
+                    
+                            <div>
+                                <small>We don’t spam! Read our <a href="">privacy policy</a> for more info.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-square back-to-top" style="position:fixed; right: 50px; bottom: 50px;"><i class="fa fa-arrow-up"></i></a>
+    <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock content %} 
+        

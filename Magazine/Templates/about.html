@@ -1,0 +1,532 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}About us{% endblock title %} 
+
+
+{% block meta_tags %} 
+{% endblock meta_tags %}
+
+
+
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            header {
+        background-color: transparent;
+        color: black!important;
+        -webkit-box-shadow:0px 1px 1px black;
+        -moz-box-shadow:0px 1px 1px black;
+        box-shadow: 0px -5px 7px black;
+    }
+    .nav-links a{
+        color: black!important;
+    }
+
+    /* .contant-balance{
+        display: none;
+    } */
+            /* {% comment %} about owner {% endcomment %} */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff;
+                color: rgb(0, 0, 0);
+            }
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: auto;
+                padding: 150px 0 50px; /* Increased top padding further to prevent overlap */
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 20px;
+            }
+            .col-6 {
+                flex: 1;
+                min-width: 300px;
+            }
+
+
+            .col-6 h1 {
+                color: black;
+            }
+            .about-img img {
+                width: 100%;
+                border-radius: 10px;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+            .btn-primary {
+                background: #007bff;
+                color: white;
+                border: none;
+            }
+            .btn-outline-primary {
+                border: 1px solid #007bff;
+                color: #007bff;
+                background: transparent;
+            }
+            .btn-outline-primary:hover {
+                background: #007bff;
+                color: white;
+            }
+            .features {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .feature-item i {
+                color: #007bff;
+            }
+            .social-icons a {
+                display: inline-block;
+                padding: 10px;
+                margin-right: 10px;
+                text-align: center;
+                border-radius: 20%;
+                border: 1px solid #007bff;
+                color: #007bff;
+                transition: 0.3s;
+            }
+            .social-icons a:hover {
+                background: #007bff;
+                color: white;
+            }
+
+
+            h3 {
+
+                font-family: "IM Fell English", serif;
+                font-weight: 800;
+                font-style: normal;
+            }
+            @media (max-width: 768px) {
+                .container {
+                    padding: 180px 0 50px; /* Extra padding for small screens */
+                }
+            }
+            
+            
+    /* {% comment %} magazine downlode {% endcomment %} */
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: auto;
+                padding: 150px 0 50px;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 20px;
+            }
+            .col-6 {
+                flex: 1;
+                min-width: 300px;
+            }
+            .about-img img {
+                width: 100%;
+                border-radius: 10px;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+            .btn-primary {
+                background: #007bff;
+                color: white;
+                border: none;
+            }
+            .btn-outline-primary {
+                border: 1px solid #007bff;
+                color: #007bff;
+                background: transparent;
+            }
+            .btn-outline-primary:hover {
+                background: #007bff;
+                color: white;
+            }
+            .features {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .feature-item i {
+                color: #007bff;
+            }
+            
+            @media (max-width: 768px) {
+                .container {
+                    padding: 180px 0 50px;
+                }
+                .row {
+                    flex-direction: column;
+                }
+            }
+
+
+
+        /* {% comment %} memmber {% endcomment %} */
+    .container-fluid {
+        background-color: #f8f9fa;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    /* Left Section */
+    .col-left {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid #007bff;
+        border-radius: 50px;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #444444;
+        font-family: "IM Fell English", serif;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    p {
+        font-size: 19px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        font-family: "IM Fell English", serif;
+        /* font-weight: 800; */
+        font-style: italic;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+    }
+
+    /* Right Section */
+    .col-right {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .team-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .team-item {
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        width: 45%;
+    }
+
+    .team-item img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 3px solid #007bff;
+    }
+
+    .team-item h5 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+
+        
+    }
+
+    .team-item small {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 5%
+    }
+
+    .social-icons a {
+        display: inline-block;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 20%;
+        text-align: center;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+    .social-icons.team a {
+        display: inline-block;
+        padding: 2px 10px;
+        margin-right: 0;
+        margin-top: 5px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+    .social-icons a:hover {
+        background-color: #0056b3;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+
+        .col-left, .col-right {
+            width: 100%;
+        }
+
+        .team-item {
+            width: 100%;
+        }
+    }
+
+
+
+
+    @keyframes bounce-in-left-normal {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        60% {
+            transform: translateX(30px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .bounce-in-left-normal { 
+        animation: bounce-in-left-normal 3.1s ease 0s 1 normal both; 
+    }
+
+
+
+
+
+
+    @keyframes bounce-in-bottom-normal {
+        0% {
+            transform: translateY(2000px);
+            opacity: 0;
+        }
+        60% {
+            transform: translateY(-30px);
+            opacity: 1;
+        }
+        80% {
+            transform: translateY(10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+
+    .bounce-in-bottom-normal { 
+        animation: bounce-in-bottom-normal 2.1s ease-out both; 
+    }
+
+
+        
+        
+            </style>
+
+
+{% endblock page_css %}
+
+    
+
+
+{% block content %}
+
+{% comment %} MAGAZINE {% endcomment %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-6">
+            
+            <h1>Future Technologies Magazine</h1>
+            <p>FT Magazines is the premier publication dedicated to exploring cutting-edge technologies and their transformative impact on industries, society, and our daily lives. It serves as a trusted platform where innovation meets insight, offering readers an in-depth understanding of emerging trends and their implications for the future. </p>
+            <p>Launched by the Livingstone Institute of Future Technologies, the magazine aims to empower individuals and organizations to stay ahead in the fast-evolving world of innovation. </p>
+            
+        </div>
+        <div class="col-6">
+            <div class="about-img  bounce-in-left-normal">
+                <img src="{% static '/img/magazine.jpg' %}" alt="About Us">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %} ABOUT CEO {% endcomment %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+ 
+            <div class="about-img bounce-in-bottom-normal"> <!-- Add the animation class here -->
+                <img src="{% static '/img/ceo.jpg' %}" alt="About Us">
+            </div>
+        </div>
+        <div class="col-6">
+            <h1>EDITORS NOTE </h1>
+            <h3>Lt. Commander John Livingstone
+                Editor- in- Chief
+                CEO & Founder,
+                Livingstone Institute of Future Technologies</h3>
+            <p>Welcome to a new era of innovation—one that is fueled by the relentless pursuit of excellence and defined by disruptive technologies that are transforming industries at an unprecedented pace. As we delve into the landscape of Future Technologies, I am reminded of the words of the legendary futurist Arthur C. Clarke: “The only way to discover the limits of the possible is to go beyond them into the impossible.” At FutureTech, we are committed to bringing you the most compelling stories of how cutting-edge technologies—driven by the brilliance of AI, robotics, and advanced analytics—are redefining industries and reshaping our world. ​</p>
+            <p>The future isn't something we simply step into—it's something we shape. Let's be bold, challenge the status quo, and fuel the kind of innovation that doesn't just anticipate what's next but creates it. Whether you're a tech pioneer, an investor with a vision, or an entrepreneur ready to take on the world, now is the time to act. Because in this fast-changing world, those who dare to lead will always be the ones defining the future. Together, let's turn ideas into impact and ambition into reality, setting a course for greatness that others will follow.</p>
+            
+            <div class="social-icons">
+                <a href="#" class="btn-outline-primary"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="btn-outline-primary"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="btn-outline-primary"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="btn-outline-primary"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% comment %} TEAM MEMBER DETAILS {% endcomment %}
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-left">
+                {% comment %} <div class="btn btn-sm">Our Team</div> {% endcomment %}
+                <h1>Meet Our Experienced Team Members</h1>
+                <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet.</p>
+                {% comment %} <a class="btn btn-primary" href="">Read More</a> {% endcomment %}
+            </div>
+            <div class="col-right">
+                <div class="team-row">
+                    <div class="team-item">
+                        <img src="{% static '/img/about/john.jpg' %}" alt="Boris Johnson">
+                        <h5>John Livingstone</h5>
+                        <small>Founder & CEO</small>
+                        <div class="social-icons team">
+                            <!-- <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a> -->
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static '/img/about/safa.png' %}" alt="Adam Crew">
+                        <h5>Safaa Mehboob</h5>
+                        <small>Associate Editor</small>
+                        <div class="social-icons team">
+                            <!-- <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a> -->
+                            <a href="" style="text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static '/img/about/kausal.png' %}" alt="Kate Winslet">
+                        <h5>Kaushal Kumar</h5>
+                        <small>Designer</small>
+                        <div class="social-icons team">
+                            <!-- <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a> -->
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static '/img/about/shivam.png' %}" alt="Cody Gardner">
+                        <h5>Shivam Mishra</h5>
+                        <small>Designer</small>
+                        <div class="social-icons team">
+                            <!-- <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a> -->
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %} 
