@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block page_css %}
+{% endblock page_css %}
+
+
+
+
+{% block content %}
+
+<div class="container">
+    <!-- Article Title -->
+    <h1>{{ article.title }}</h1>
+    <p><strong>Author:</strong> {{ article.author.username }}</p>
+    <p><strong>Category:</strong> {{ article.category.name }}</p>
+    <p><strong>Published On:</strong> {{ article.published_at|date:"F d, Y" }}</p>
+
+    <!-- Tags -->
+    <p><strong>Tags:</strong> 
+        {% for tag in article.tags.all %}
+            <span class="tag">{{ tag.name }}</span>
+        {% endfor %}
+    </p>
+
+    <!-- Article Images -->
+    {% for image in article.images.all %}
+        <img src="{{ image.image.url }}" style="width: 100%;" alt="{{ image.caption }}" class="article-image">
+        {% if image.caption %}
+            <p class="caption">{{ image.caption }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <!-- Article Sections -->
+    <div class="article-content">
+        {% for section in article.sections.all %}
+            {% if section.heading %}
+                <h2>{{ section.heading }}</h2>
+            {% endif %}
+            <p>{{ section.content }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Comments Section -->
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in article.comments.all %}
+            <li>
+                <strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"F d, Y H:i" }}):
+                <p>{{ comment.content }}</p>
+            </li>
+        {% empty %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+    </ul>
+
+    <!-- Comment Form -->
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="comment" rows="4" placeholder="Write your comment..." required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+    {% endif %}
+</div>
+
+{% endblock content %}
+
+
+
+{% block page_js %}
+{% endblock page_js %}
