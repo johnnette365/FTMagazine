@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Arrows Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        
+        .arrow-button {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .left-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(10px);
+            animation: left-slideArrows 1s infinite linear;
+        }
+
+        .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
+        .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .left-arrows span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes left-slideArrows {
+            0% { opacity: 0; transform: translateX(10px); }
+            50% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(-10px); }
+        } 
+
+
+        
+
+        .right-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: right-slideArrows 1s infinite linear;
+        }
+
+        .right-arrows span:nth-child(1) { animation-delay: 0s; }
+        .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes right-slideArrows {
+            0% { opacity: 0; transform: translateX(-10px); }
+            50% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(10px); }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <button class="arrow-button">
+        <span class="left-arrows">
+            <span>&lt;</span>
+            <span>&lt;</span>
+            <span>&lt;</span>
+        </span>
+        Content
+        <span class="right-arrows">
+            <span>&gt;</span>
+            <span>&gt;</span>
+            <span>&gt;</span>
+        </span>
+    </button>
+
+</body>
+</html>

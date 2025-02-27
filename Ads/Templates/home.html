@@ -1,0 +1,537 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Home{% endblock title %} 
+
+{% block meta_tags %} 
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* width: 100%; */
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /* .swiper-button-next{
+        color: transparent;
+        top: 70%;
+        margin-right: 30px;
+    }
+    .swiper-button-prev{
+        color: transparent;
+        top: 70%;
+        margin-left: 50px;
+    } */
+    </style>
+    <style>
+        .video-container {
+            /* position: relative; */
+            width: 500px;
+            cursor: pointer;
+        }
+
+        .video-container img {
+            width: 100%;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+        }
+
+        .fullscreen-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-video video {
+            width: 50%;
+            height: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 50px;
+            right: 60px;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        /* ============== arrow buttons ============= */
+        .arrow-button {
+            font-size: 40px;
+            font-weight: bold;
+            /* padding: 10px 20px; */
+            padding: 0px 0px;
+            border: none;
+            background: transparent;
+            color: rgb(0, 102, 255);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ========== Left Button ======== */
+        .left-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(10px);
+            animation: left-slideArrows 1s infinite linear;
+        }
+
+        .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
+        .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .left-arrows span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes left-slideArrows {
+            0% { opacity: 0; transform: translateX(10px); }
+            50% { opacity: 1; transform: translateX(0px); }
+            100% { opacity: 0; transform: translateX(-10px); }
+        } 
+
+
+        /* ========== Right Button ======== */
+        .right-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: right-slideArrows 1s infinite linear;
+        }
+
+        .right-arrows span:nth-child(1) { animation-delay: 0s; }
+        .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes right-slideArrows {
+            0% { opacity: 0; transform: translateX(-10px); }
+            50% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(10px); }
+        }
+    </style>
+{% endblock page_css %} 
+
+
+
+
+{% block content %}
+<div class="banner-container" style="z-index: -1; position: relative; margin-bottom: -6px;">
+    <video autoplay loop muted style="width: 100%;">
+        <source src="{% static '/videos/banner.mp4' %}" type="video/mp4">
+    </video>
+    <div class="banner-text" style="color: white; max-width: 800px; position: absolute; left: 100px; top: 30%;">
+        <h1 style="font-size: 70px; font-weight: bold;">Vertically centered hero sign-up form</h1>
+        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <br>
+        <button class="btn btn-primary btn-lg">Read More</button>
+    </div>
+</div>
+
+
+<div class="ad-thumbnail-video-container" style="padding: 70px 0;">
+    <h2 class="ad-title" style="font-size: 70px; font-weight: bold; text-align: center; padding: 0 150px; color: rgb(0, 102, 255);">Promote, Connect, Succeed – Your Brand Deserves the Spotlight Now!</h2>
+    <div class="ad-thumbnail" style="display: flex; padding: 0 10px; gap: 20px; align-items: center; margin-top: 50px;">
+        <div class="btn-l">
+            <button class="arrow-button">
+                <span class="left-arrows" style="display: flex;">
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span><i class="fas fa-chevron-left"></i></span>
+                    <span><i class="fas fa-chevron-left"></i></span>
+                </span>
+            </button>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="ad-1">
+                        <div class="video-container" onclick="openVideo1()" style="width: 100%;">
+                            <img src="{% static '/img/ad1.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
+                            <button class="play-button">▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ad-2">
+                        <div class="video-container" onclick="openVideo2()" style="width: 100%;">
+                            <img src="{% static '/img/ad2.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
+                            <button class="play-button">▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ad-3">
+                        <div class="video-container" onclick="openVideo3()" style="width: 100%;">
+                            <img src="{% static '/img/ad3.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
+                            <button class="play-button">▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ad-4">
+                        <div class="video-container" onclick="openVideo4()" style="width: 100%;">
+                            <img src="{% static '/img/ad4.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
+                            <button class="play-button">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-r">
+            <button class="arrow-button">
+                <span class="right-arrows" style="display: flex;">
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                </span>
+            </button>
+        </div>   
+    </div>
+    <div class="ad-video-box">
+        <div class="ad-video-1">
+            <div class="fullscreen-video1 fullscreen-video" id="fullscreenVideo1" style="z-index: 2;">
+                <span class="close-button" onclick="closeVideo1()">&times;</span>
+                <video id="videoPlayer" controls>
+                    <source src="{% static '/videos/ad1.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="ad-video-2">
+            <div class="fullscreen-video2 fullscreen-video" id="fullscreenVideo2" style="z-index: 2;">
+                <span class="close-button" onclick="closeVideo2()">&times;</span>
+                <video id="videoPlayer" controls>
+                    <source src="{% static '/videos/ad2.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="ad-video-3">
+            <div class="fullscreen-video3 fullscreen-video" id="fullscreenVideo3" style="z-index: 2;">
+                <span class="close-button" onclick="closeVideo3()">&times;</span>
+                <video id="videoPlayer" controls>
+                    <source src="{% static '/videos/ad3.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="ad-video-4">
+            <div class="fullscreen-video4 fullscreen-video" id="fullscreenVideo4" style="z-index: 2;">
+                <span class="close-button" onclick="closeVideo4()">&times;</span>
+                <video id="videoPlayer" controls>
+                    <source src="{% static '/videos/ad4.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<main class="" style="padding: 0 100px;">
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+            <h3 class="mb-0">Featured post</h3>
+            <div class="mb-1 text-body-secondary">Nov 12</div>
+            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+            <h3 class="mb-0">Post title</h3>
+            <div class="mb-1 text-body-secondary">Nov 11</div>
+            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row g-5">
+      <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+          From the Firehose
+        </h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+                    <h3 class="mb-0">Featured post</h3>
+                    <div class="mb-1 text-body-secondary">Nov 12</div>
+                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                      Continue reading
+                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+                <h3 class="mb-0">Post title</h3>
+                <div class="mb-1 text-body-secondary">Nov 11</div>
+                <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Continue reading
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+                    <h3 class="mb-0">Featured post</h3>
+                    <div class="mb-1 text-body-secondary">Nov 12</div>
+                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                      Continue reading
+                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+                    <h3 class="mb-0">Post title</h3>
+                    <div class="mb-1 text-body-secondary">Nov 11</div>
+                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Continue reading
+                        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+                    <h3 class="mb-0">Featured post</h3>
+                    <div class="mb-1 text-body-secondary">Nov 12</div>
+                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                      Continue reading
+                      <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                  </div>
+                  <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
+                    <h3 class="mb-0">Post title</h3>
+                    <div class="mb-1 text-body-secondary">Nov 11</div>
+                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Continue reading
+                        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem;">
+          <div class="p-4 mb-3 bg-body-tertiary rounded">
+            <h4 class="fst-italic">About</h4>
+            <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+          </div>
+  
+          <div>
+            <h4 class="fst-italic">Recent posts</h4>
+            <ul class="list-unstyled">
+              <li>
+                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                  <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                  <div class="col-lg-8">
+                    <h6 class="mb-0">Example blog post title</h6>
+                    <small class="text-body-secondary">January 15, 2024</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                  <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                  <div class="col-lg-8">
+                    <h6 class="mb-0">This is another blog post title</h6>
+                    <small class="text-body-secondary">January 14, 2024</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                  <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                  <div class="col-lg-8">
+                    <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
+                    <small class="text-body-secondary">January 13, 2024</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+</main>
+
+
+
+
+{% endblock content %} 
+
+
+
+
+{% block page_js %}
+
+    <script>
+        function openVideo1() {
+            document.getElementById("fullscreenVideo1").style.display = "flex";
+            document.getElementById("videoPlayer1").play();
+        }
+        function closeVideo1() {
+            document.getElementById("fullscreenVideo1").style.display = "none";
+            document.getElementById("videoPlayer1").pause();
+        }
+
+
+        function openVideo2() {
+            document.getElementById("fullscreenVideo2").style.display = "flex";
+            document.getElementById("videoPlayer2").play();
+        }
+        function closeVideo2() {
+            document.getElementById("fullscreenVideo2").style.display = "none";
+            document.getElementById("videoPlayer2").pause();
+        }
+
+
+        function openVideo3() {
+            document.getElementById("fullscreenVideo3").style.display = "flex";
+            document.getElementById("videoPlayer3").play();
+        }
+        function closeVideo3() {
+            document.getElementById("fullscreenVideo3").style.display = "none";
+            document.getElementById("videoPlayer3").pause();
+        }
+
+
+        function openVideo4() {
+            document.getElementById("fullscreenVideo4").style.display = "flex";
+            document.getElementById("videoPlayer4").play();
+        }
+        function closeVideo4() {
+            document.getElementById("fullscreenVideo4").style.display = "none";
+            document.getElementById("videoPlayer4").pause();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: ".btn-r",
+            prevEl: ".btn-l",
+            // nextEl: ".swiper-button-next",
+            // prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+            autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        loop: true,
+        });
+    </script>
+    
+{% endblock page_js %}
