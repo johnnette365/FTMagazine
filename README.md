@@ -1,1 +1,1 @@
-# ftmagazine
+# FT-Magazine
