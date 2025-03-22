@@ -1,0 +1,163 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Subscribe{% endblock title %} 
+
+
+{% block meta_tags %} 
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+    {% comment %} body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #444;
+        color: white;
+    } {% endcomment %}
+
+    
+    .sub-container {
+        position: relative;
+        background: #f8fdf8;
+        padding: 80px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        margin: 10% auto; /* Adjust margin for better small-screen layout */
+        width: 90%;
+        max-width: 1000px;
+        margin-top: 20%;
+
+    }
+    
+    .sub-container::before {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        background: linear-gradient(90deg, cyan, red);
+        z-index: -1;
+        border-radius: 15px;
+    }
+    
+    .newsletter-box {
+        background: #b0cbea;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .newsletter-box img {
+        width: 50px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-box h2 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .input-group {
+        display: flex;
+        width: 100%;
+    }
+    
+    .input-group input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+    }
+    
+    .input-group button {
+        padding: 10px 20px;
+        border: none;
+        background: #1a2b47;
+        color: white;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    @media (max-width: 600px) {
+        .sub-container {
+            width: 95%;
+            padding: 20px; /* Reduced padding for smaller screens */
+            margin: 5% auto; /* Adjust margin to reduce empty space */
+            margin-top: 139px;
+        }
+    
+        .newsletter-box {
+            padding: 20px; /* Reduced padding for smaller screens */
+        }
+    
+        .newsletter-box h2 {
+            font-size: 18px; /* Slightly smaller font size */
+        }
+    
+        .input-group {
+            flex-direction: column;
+            gap: 10px; /* Add spacing between input and button */
+        }
+    
+        .input-group input, .input-group button {
+            width: 100%; /* Ensure input and button take full width */
+            border-radius: 5px; /* Same border-radius for a consistent look */
+        }
+
+
+
+        .sub-container::before {
+            content: "";
+            position: absolute;
+            top: -19px;
+            left: -11px;
+            right: -9px;
+            bottom: -16px;
+            background: linear-gradient(90deg, cyan, red);
+            z-index: -1;
+            border-radius: 15px;
+    }
+    
+    }
+</style>
+{% endblock page_css %} 
+
+
+
+
+{% block content %}
+
+<div class="sub-container">
+    <div class="newsletter-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="mail icon">
+        <h2>Join Our Newsletter</h2>
+        <div class="input-group">
+            <input type="email" placeholder="Enter email">
+            <button>Subscribe</button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block page_js %}
+{% endblock page_js %}

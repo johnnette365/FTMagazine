@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Magazine, MagazineSection, Comment, Subscriber
+from .models import Category, Tag, Magazine, MagazineSection, Comment, Subscriber, Contact_Us
 
 # Category Admin
 @admin.register(Category)
@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)} 
 
-
+admin.site.register(Contact_Us)  
 
 # Tag Admin
 @admin.register(Tag)

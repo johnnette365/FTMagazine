@@ -1,420 +1,2604 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block title %}Home{% endblock title %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
 
-{% block meta_tags %} 
+
+{% block meta_tags %}
 {% endblock meta_tags %}
 
 {% block page_css %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .contant-balance{
-            display: none;
-        }
-    .swiper {
-        width: 100%;
-        height: 100%;
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'VogueFont', sans-serif!important;
+
+      }
+
+
+ /*first card */
+
+h5 {
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 1.20rem;
+    color:black;
+}
+
+ .card {
+    width: 90%;
+    max-width: 900px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-body {
+    padding: 20px;
+}
+
+
+.card-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: black;
+}
+
+
+.card-text {
+    font-size: 1.25rem;
+    color: black;
+    margin-bottom: 12px;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+.card-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-footer {
+    font-size: 0.875rem;
+    color:black;
+}
+
+@media screen and (max-width: 1024px) {
+    .card {
+        width: 95%;
     }
 
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: transparent;
-        display: flex;
-        justify-content: center;
+    .card-title {
+        font-size: 1.8rem;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 95%;
+        margin-top: 3%;
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 98%;
+        margin-top: 4%;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+    /* second box */
+
+
+    {% comment %} .secondbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.secondcard {
+    width: 28rem;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+
+.box-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.box-body {
+    padding: 16px;
+}
+
+
+.box-text {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 12px;
+
+
+
+    font-style: normal;
+}
+
+
+.box-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .secondcard {
+        width: 18rem;
+    }
+
+    .box-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .secondbox {
+        flex-direction: column;
         align-items: center;
-        /* width: 100%; */
     }
 
-    .swiper-slide img {
-        display: block;
+    .secondcard {
+        width: 90%;
+    }
+
+    .box-img {
+        height: 300px;
+    }
+
+    .box-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .secondcard {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
-    /* .swiper-button-next{
-        color: transparent;
-        top: 70%;
-        margin-right: 30px;
+
+    .box-img {
+        height: 250px;
     }
-    .swiper-button-prev{
-        color: transparent;
-        top: 70%;
-        margin-left: 50px;
-    } */
-    </style>
-    <style>
-        .video-container {
-            /* position: relative; */
-            width: 500px;
-            cursor: pointer;
-        }
 
-        .video-container img {
-            width: 100%;
-            display: block;
-        }
+    .box-body {
+        padding: 12px;
+    }
 
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            text-align: center;
-            line-height: 60px;
-            cursor: pointer;
-        }
+    .box-text {
+        font-size: 0.9rem;
+    }
+} {% endcomment %}
 
-        .fullscreen-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            justify-content: center;
+
+
+.secondbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.secondcard {
+    width: 28rem;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.box-body {
+    padding: 16px;
+}
+
+.box-text {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 12px;
+    font-style: normal;
+}
+
+.box-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .secondcard {
+        width: 18rem;
+    }
+
+    .box-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .secondbox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secondcard {
+        width: 90%;
+    }
+
+    .box-img {
+        height: 350px;
+    }
+
+    .box-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box-img {
+        height: 300px;
+    }
+
+    .box-body {
+        padding: 14px;
+    }
+
+    .box-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .secondcard {
+        width: 100%;
+    }
+
+    .box-img {
+        height: 250px;
+    }
+
+    .box-body {
+        padding: 12px;
+    }
+
+    .box-text {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+    /* 3rd box left */
+
+
+.thrdbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:space-around;
+    padding: 20px;
+}
+
+
+.thrdboxcard {
+    width: 400px;
+    max-width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+
+.thrdboxcard:hover {
+    transform: translateY(-5px);
+}
+
+
+.thrdbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+    object-fit: cover;
+}
+
+
+.thrdbox-body {
+    padding: 15px;
+}
+
+
+.thrdbox-body a {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    text-decoration: underline;
+}
+
+
+.thrdbox-body a:hover {
+    color: #42586f;
+}
+
+.thrdbox-text {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 10px;
+
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+.thrdbox-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.card-footer {
+    font-size: 12px;
+    color: black;
+
+    padding: 10px;
+
+}
+
+
+
+
+
+
+.sidebar {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+
+}
+
+
+.sticky {
+    position: sticky;
+    top: 60px;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+}
+
+.custom-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.card-cover {
+    background-image: url('{% static "img/Drone2.jpg" %}');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 20px 20px;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+}
+
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+
+.card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+
+
+
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .thrdbox-img {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thrdbox-img {
+        max-height: 250px;
+    }
+}
+@media (max-width: 1024px) {
+    .thrdbox {
+        gap: 15px;
+    }
+
+    .thrdboxcard {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .thrdbox-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .thrdbox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .thrdboxcard {
+        width: 90%;
+    }
+
+    .thrdbox-img {
+        height: auto;
+    }
+
+    .thrdbox-text {
+        font-size: 1rem;
+    }
+
+    .sidebar {
+        max-width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-cover {
+        padding: 2rem 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .thrdboxcard {
+        width: 95%;
+    }
+
+    .thrdbox-img {
+        height: auto;
+    }
+
+    .thrdbox-body {
+        padding: 12px;
+    }
+
+    .thrdbox-text {
+        font-size: 0.9rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-footer {
+        font-size: 0.75rem;
+    }
+
+    .sidebar {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+/* subscribe */
+.subscription-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.magazine-cover img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.text {
+    font-size: 1.2rem;
+
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.scndbtn {
+    background: black;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.scndbtn:hover {
+    background: #333;
+}
+
+@media (max-width: 768px) {
+    .subscription-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .magazine-cover img {
+        width: 60px;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+
+    .scndbtn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+        .firstsubscription-container {
+            display: flex;
             align-items: center;
-        }
+            gap: 15px;
+            padding: 5px;
+            justify-content: center;
 
-        .fullscreen-video video {
-            width: 50%;
+            margin-top: calc(5vh + 5px);
+            flex-wrap: wrap;
+            text-align: center;
+
+        }
+        {% comment %} margin-top: calc(20vh + 80px);  {% endcomment %}
+
+        .firstmagazine-cover img {
+            width: 80px;
             height: auto;
+            border-radius: 5px;
+            object-fit: cover;
         }
 
-        .close-button {
-            position: absolute;
-            top: 50px;
-            right: 60px;
-            font-size: 50px;
-            font-weight: bold;
+        .firsttext {
+            font-size: 1.2rem;
+
+            font-weight: 400;
+            font-style: normal;
+            max-width: 300px;
+        }
+
+        .firstbtn {
+            background: black;
             color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .firstbtn:hover {
+            background: #333;
+        }
+
+
+        @media (max-width: 768px) {
+            .firstsubscription-container {
+                flex-direction: column;
+                margin-top: calc(12vh + 20px);
+            }
+
+            .firstmagazine-cover img {
+                width: 70px;
+            }
+
+            .firsttext {
+                font-size: 1rem;
+            }
+
+            .firstbtn {
+                font-size: 13px;
+                padding: 12px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .firstsubscription-container {
+                margin-top: calc(1vh);
+            }
+
+            .firstmagazine-cover img {
+                width: 60px;
+            }
+
+            .firsttext {
+                font-size: 0.9rem;
+            }
+
+            .firstbtn {
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+        }
+
+
+
+
+
+
+{% comment %} popular article {% endcomment %}
+
+{% comment %} right side add {% endcomment %}
+
+{% comment %} sidebar addvertise {% endcomment %}
+
+
+
+.col-lg-3.col-md-5 {
+    padding-left: 20px;
+}
+
+.col-lg-3 .sidebar {
+    border: 1px solid #eaeaea;
+    padding: 0px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+
+}
+
+.col-lg-3 .sticky img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: 992px) {
+    .col-lg-9 {
+        flex: 0 0 auto;
+        width: 80%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 20%;
+}
+
+}
+
+@media (max-width: 991px) {
+    .col-lg-3.col-md-5 {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .col-lg-3 .sidebar {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .col-lg-3 .sticky img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+        .wrapper {
+            max-width: 2000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+
+
+
+        .wrappertitle {
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+            font-size: 30px;
+
+            font-style: normal;
+        }
+
+        .container {
+            display: flex;
+            margin: auto;
+            max-width: 100%;
+
+        }
+        .left-column, .right-column {
+            width: 30%;
             cursor: pointer;
         }
-    </style>
-    <style>
-        /* ============== arrow buttons ============= */
-        .arrow-button {
-            font-size: 40px;
-            font-weight: bold;
-            /* padding: 10px 20px; */
-            padding: 0px 0px;
-            border: none;
-            background: transparent;
-            color: rgb(0, 102, 255);
+
+        .main-column {
+            width: 60%;
+            text-align: center;
             cursor: pointer;
-            position: relative;
+
+        }
+
+
+        .article-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .middle-img{
+            height:420px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .left-img{
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .right-img{
+            height: 120px;
+            width: 99px;
+            object-fit: cover;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 10px 0;
+
+            font-style: normal;
+        }
+
+        .mainarticle-title {
+            font-size: 38px;
+            font-weight: 500;
+            margin: 10px 0;
+
+            font-style: normal;
+            text-decoration: none;
+        }
+
+        .mainarticle-title:hover {
+            cursor: pointer;
+            text-decoration: underline;
+
+        }
+
+
+        .article-title:hover {
+            text-decoration: underline;
+        }
+
+        .leftarticle-title {
+
+            margin: 10px 0;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+
+            font-style: normal;
+
+        }
+        .leftarticle-title:hover {
+            text-decoration: underline;
+        }
+
+        .leftcard-footer {
+            font-size: 0.875rem;
+            color: black;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+
+        }
+        .catagory-link {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            color: black;
+
+            font-size: 12px;
+            margin-top: 1%;
+
+        }
+        .rightcatagory-link {
+            display: flex;
+            color: gray;
+
+            font-size: 12px;
+            margin-top: 1%;
+
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: gray;
+        }
+        .article-container {
+            margin-bottom: 20px;
+        }
+        .right-column .article-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* ========== Left Button ======== */
-        .left-arrows span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateX(10px);
-            animation: left-slideArrows 1s infinite linear;
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .left-column, .right-column {
+                width: 100%;
+                text-align: center;
+            }
+            .main-column {
+                width: 100%;
+            }
         }
 
-        .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
-        .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
-        .left-arrows span:nth-child(3) { animation-delay: 0s; }
-
-        @keyframes left-slideArrows {
-            0% { opacity: 0; transform: translateX(10px); }
-            50% { opacity: 1; transform: translateX(0px); }
-            100% { opacity: 0; transform: translateX(-10px); }
-        } 
 
 
-        /* ========== Right Button ======== */
-        .right-arrows span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateX(-10px);
-            animation: right-slideArrows 1s infinite linear;
+{% comment %} slider card {% endcomment %}
+
+
+        {% comment %} .slider-container {
+            max-width: 1450px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
         }
 
-        .right-arrows span:nth-child(1) { animation-delay: 0s; }
-        .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
-        .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
 
-        @keyframes right-slideArrows {
-            0% { opacity: 0; transform: translateX(-10px); }
-            50% { opacity: 1; transform: translateX(0); }
-            100% { opacity: 0; transform: translateX(10px); }
+        .slider-container {
+            max-width: 1450px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
         }
-    </style>
-{% endblock page_css %} 
+
+
+
+        .swiper-wrapper {
+            padding: 10px 10px 10px 10px;
+        }
+
+
+        .slider-card {
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+
+
+        .slider-img {
+            width: 95%;
+            height: 350px;
+            object-fit: cover;
+            padding: 5px 5px 5px 5px;
+        }
+
+        .slider-content {
+            padding: 15px;
+        }
+
+        .slider-category {
+            font-size: 12px;
+            color: gray;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .slider-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .slider-text {
+            font-size: 14px;
+        }
+
+        .slider-footer {
+            font-size: 12px;
+            color: gray;
+            margin-top: 10px;
+        }
+
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: black;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+
+            transition: background 0.3s;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: white;
+        }
+
+
+        .swiper-pagination-bullet {
+            background: black;
+        }
+
+        @media (max-width: 768px) {
+            .slider-container {
+                padding: 10px;
+            }
+
+            .slider-img {
+                height: 200px;
+            }
+
+            .slider-title {
+                font-size: 16px;
+            }
+
+            .slider-text {
+                font-size: 12px;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider-container {
+                padding: 5px;
+            }
+
+
+            .slider-card {
+
+                height: 400px;
+            }
+
+            .slider-img {
+                height: 150px;
+            }
+
+            .slider-title {
+                font-size: 14px;
+            }
+
+            .slider-text {
+                font-size: 12px;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                padding: 10px;
+            }
+
+            .slider-footer {
+                font-size: 9px;
+
+            }
+
+
+        } {% endcomment %}
+
+
+        .slider-container {
+            max-width: 1450px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+
+        .swiper-wrapper {
+            padding: 10px;
+        }
+        {% comment %} background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 500px; {% endcomment %}
+        .slider-card {
+
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Ensures uniform alignment */
+            height: 300px;
+        }
+        {% comment %} width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            padding: 5px; {% endcomment %}
+        .slider-img {
+            width: 100%;
+           height: 300px; /* Fixed height for uniformity */
+           object-fit: cover;
+           display: block;
+        }
+
+        {% comment %} .slider-content {
+            padding: 15px;
+            height: 100%;
+        }
+         {% endcomment %}
+
+         .slider-content {
+            padding: 15px;
+            height: 100%; /* Adjust height dynamically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Keeps content aligned */
+        }
+
+        .slider-category {
+            font-size: 12px;
+            color: gray;
+
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .slider-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-decoration: none;
+        }
+        .slider-title:hover{
+            text-decoration: underline;
+
+        }
+        .slider-text {
+            font-size: 14px;
+        }
+
+        .slider-footer {
+            font-size: 12px;
+            color: gray;
+            margin-top: 10px;
+        }
+
+        .swiper-slide {
+            height: 500px; /* Default height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        {% comment %} .swiper-button-prev,
+        .swiper-button-next {
+            color: black;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            transition: background 0.3s;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: white;
+        }
+
+        .swiper-pagination-bullet {
+            background: black;
+        } {% endcomment %}
+
+
+        @media (max-width: 768px) {
+            .slider-container {
+                padding: 10px;
+            }
+
+            .slider-content {
+                padding: 12px;
+                height: 100%;
+            }
+
+            .slider-card {
+                height: 450px;
+            }
+            .slider-img {
+                height: 200px;
+            }
+            .slider-title {
+                font-size: 16px;
+            }
+
+            .slider-category {
+                font-size: 11px;
+            }
+
+            .slider-footer {
+                font-size: 11px;
+            }
+
+            .swiper-slide {
+                height: 350px;
+            }
+        }
+
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .slider-container {
+                padding: 5px;
+            }
+
+            .slider-content {
+
+                height: 100%; /* Adjust based on content */
+            }
+
+            .slider-card {
+                height: 400px;
+            }
+
+            .slider-img {
+                height: 110px;
+            }
+
+            .slider-title {
+                font-size: 9px;
+            }
+
+            .slider-category {
+                font-size: 6px;
+            }
+
+            .slider-footer {
+                font-size: 7px;
+            }
+
+            .swiper-slide {
+                height: 250px;
+            }
+
+
+
+
+        }
+        {% comment %} .swiper-button-prev,
+            .swiper-button-next {
+                padding: 10px;
+            } {% endcomment %}
+
+
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                color: black;
+                background: rgba(255, 255, 255, 0.8);
+                width: 50px; /* Adjusted size */
+                height: 50px; /* Adjusted size */
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease-in-out;
+                font-size: 18px; /* Ensures arrow icon is properly sized */
+            }
+
+            .swiper-button-prev:hover,
+            .swiper-button-next:hover {
+                background: white;
+                transform: scale(1.1);
+            }
+        .swiper-pagination-bullet {
+            background: black;
+            opacity: 0.6;
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+.swiper-pagination-bullet-active {
+    background: black;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 40px; /* Smaller size for tablets */
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+
+        display: none;
+    }
+
+    .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+
+
+
+{% comment %} 4th card {% endcomment %}
+
+
+
+.must-read-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.MUSTtitle {
+
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 30px;
+
+    font-style: normal;
+}
+
+.lastarticles {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+}
+
+.lastarticle {
+    display: flex;
+    width: 35%;
+    background: #fff;
+
+}
+
+.lastarticle img {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
+}
+
+.lastcontent {
+    padding-left: 10px;
+    text-align: left;
+    color: black;
+}
+
+
+
+.headline {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+
+    font-style: normal;
+    text-decoration: none;
+}
+
+.headline:hover {
+    text-decoration: underline;
+    cursor: pointer;
+
+
+}
+
+.author {
+    font-size: 12px;
+    color: #555;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .lastarticle {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .lastarticles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lastarticle {
+        width: 90%;
+    }
+
+    .lastarticle img {
+        width: 120px; /* Keeps images readable without shrinking too much */
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .lastarticle {
+        width: 100%;
+    }
+
+    .lastarticle img {
+        width: 100px; /* Slightly reduced for very small screens */
+    }
+
+    .headline {
+        font-size: 14px;
+}
+}
+
+
+            main {
+            display: grid;
+            grid-template-columns: 1.5fr 3fr 2fr;
+            gap: 20px;
+
+
+        }
+
+        {% comment %} padding: 10px 50px 50px 50px; {% endcomment %}
+        .featured {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+
+
+        .featured p {
+            padding: 10px 10px 10px 10px;
+
+        }
+        .article {
+
+            padding: 10px;
+
+        }
+        {% comment %}  background: #f5f5f5; {% endcomment %}
+        {% comment %} .article img {
+            width: 100%;
+            height: 250px
+
+        } {% endcomment %}
+
+
+        .article img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .main-news {
+            text-align: left;
+        }
+        .main-news img {
+            width: 100%;
+            height: 400px;
+            padding: 5px 5px 5px 5px;
+
+        }
+        .main-news h2 {
+
+            font-weight: 500;
+           margin: 10px 0;
+
+           font-style: normal;
+           text-decoration: none;
+           padding: 5px 5px 5px 5px;
+           text-align: center;
+
+        }
+        .main-news h2:hover {
+            text-decoration: underline;
+
+        }
+
+
+
+        {% comment %} @media screen and (max-width: 480px) {
+            .main-news img {
+                height: 350px;
+
+            }
+
+        } {% endcomment %}
+
+
+        @media screen and (max-width: 480px) {
+            .main-news img {
+                width: 100%;
+                height: auto;
+                max-height: 350px;
+                object-fit: cover;
+            }
+        }
+
+
+
+
+
+
+
+
+        .most-recent {
+
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 10px 0;
+
+            font-style: normal;
+
+        }
+        {% comment %} .most-recent h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+            width:120px;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            margin-left: 8%;
+        } {% endcomment %}
+
+
+        .most-recent h3 {
+            font-size: 18px;
+        }
+
+        .TodaysPicks h2 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+            width:150px;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            margin-left: 3.5%;
+
+        }
+        .most-recent ul {
+            list-style: none;
+            display:contents;
+        }
+        .most-recent li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+
+            padding: 10px;
+
+            background: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .most-recent img {
+            width: 90px;
+            height: 100px;
+
+        }
+
+        {% comment %} border: 1px solid #ddd; {% endcomment %}
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .most-recent h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .most-recent h3 {
+                font-size: 14px;
+            }
+        }
+
+
+
+
+
+
+
+
+        .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    animation: showPopup 2s ease-in-out 1s forwards;
+    padding: 10px;
+}
+
+/* Animation for showing the popup */
+@keyframes showPopup {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+
+/* Animation for hiding the popup */
+@keyframes hidePopup {
+    from {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.8);
+    }
+}
+
+/* Apply hide animation */
+.popup-container-hidden {
+    animation: hidePopup 2s ease-in-out forwards;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    height: 500px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: black;
+
+    font-style: normal;
+}
+
+.popup-content .bold_title {
+    text-align: center;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+    font-size: 30px;
+
+    font-style: normal;
+}
+
+.popup-content input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content button {
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    max-width: 150px;
+}
+
+.close-btn {
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .popup-content {
+        width: 95%;
+        max-width: 350px;
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .popup-content .bold_title {
+        font-size: 24px;
+    }
+
+    .popup-content h2 {
+        font-size: 1rem;
+    }
+
+    .popup-content input {
+        padding: 6px;
+    }
+
+    .popup-content button {
+        width: 70%;
+        padding: 6px;
+    }
+
+    .close-btn {
+        font-size: 18px;
+    }
+}
+{% comment %}  addvertisement {% endcomment %}
+
+
+
+.ad-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 180px auto 20px auto;
+    overflow: hidden;
+    height: 280px;
+}
+
+.ad-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ad-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 10px 10px;
+}
+
+
+
+.ad-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.ad-text span {
+    font-size: 60px;
+    display: block;
+    margin-top: 10px;
+}
+
+
+.addtitle {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.ad-label {
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    margin-bottom: 2px;
+}
+
+
+.addclose-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    color: skyblue;
+    background: white;
+}
+
+.addclose-btn:hover {
+    background: lightgray;
+}
+
+
+@media screen and (max-width: 768px) {
+    .ad-container {
+        height: 200px;
+        width: 95%;
+        object-fit:cover;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .ad-container {
+        height: 73%;
+        width: 98%;
+        margin-top: 100px;
+        object-fit:cover;
+    }
+
+
+
+
+}
+
+
+
+
+{% comment %} second adds {% endcomment %}
+
+
+{% comment %} .sndad-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto 20px auto;
+    overflow: hidden;
+    height: 280px;
+
+}
+
+
+
+.sndad-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sndad-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+} {% endcomment %}
+
+
+.sndad-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto 10px auto;
+    overflow: hidden;
+    height: 280px;
+}
+
+.sndad-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sndad-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 10px 10px;
+}
+
+
+
+{% comment %} end {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .sndad-container {
+        height: 200px;
+        width: 95%;
+    }
+
+    .sndad-text {
+        font-size: 18px;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .sndad-container {
+        height: 58%;
+        width: 56%;
+        margin-top: 50px;
+        object-fit:cover;
+    }
+
+    .sndad-banner img {
+        width: 100%;
+        height: 57%;
+        object-fit: cover;
+        padding: 10px 10px;
+
+
+    }
+
+}
+
+
+
+{% comment %} subscribe last video {% endcomment %}
+
+
+.video-ad-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto 10px auto;
+    overflow: hidden;
+    height: 140px;
+}
+
+.video-ad-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-ad-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 10px 10px;
+}
+
+
+
+{% comment %} end {% endcomment %}
+
+@media screen and (max-width: 768px) {
+    .sndad-container {
+        height: 200px;
+        width: 95%;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .sndad-container {
+        height: 88%;
+        width: 98%;
+        margin-top: 50px;
+    }
+}
+
+
+{% comment %} all advertise section {% endcomment %}
+
+
+
+
+
+</style>
+{% endblock page_css %}
 
 
 
 
 {% block content %}
-<div class="banner-container" style="position: relative; margin-bottom: -6px;">
-    <video autoplay loop muted style="width: 100%; z-index: -1;">
-        <source src="{% static '/videos/banner.mp4' %}" type="video/mp4">
-    </video>
-    <div class="banner-text" style="color: white; max-width: 800px; position: absolute; left: 100px; top: 30%;">
-        <h1 style="font-size: 70px; font-weight: bold;">Future Technologies Magazine</h1>
-        <p class="col-lg-10 fs-4">Launched by the Livingstone Institute of Future Technologies, the magazine aims to empower individuals and organizations to stay ahead in the fast-evolving world of innovation.</p>
-        <br>
-        <a href="/about" style="cursor: pointer;"><button class="btn btn-primary btn-lg">Read More</button></a>
+{% comment %} first add {% endcomment %}
+
+
+
+
+
+<div class="ad-container">
+    <div class="ad-banner">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+
+        </a>
+
     </div>
 </div>
+{% comment %} <div class="ad-container">
+    <div class="ad-banner">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+        </a>
+    </div>
+    <div class="ad-banner ad-square">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/FTVOL1.JPg' %}" alt="Advertisement 2">
+        </a>
+    </div>
+</div> {% endcomment %}
 
 
-<div class="ad-thumbnail-video-container" style="padding: 70px 0;">
-    <h2 class="ad-title" style="font-size: 70px; font-weight: bold; text-align: center; padding: 0 150px; color: rgb(0, 102, 255);">Promote, Connect, Succeed – Your Brand Deserves the Spotlight Now!</h2>
-    <div class="ad-thumbnail" style="display: flex; padding: 0 10px; gap: 20px; align-items: center; margin-top: 50px;">
-        <div class="btn-l">
-            <button class="arrow-button">
-                <span class="left-arrows" style="display: flex;">
-                    <span><i class="fas fa-chevron-left"></i></span>
-                    <span><i class="fas fa-chevron-left"></i></span>
-                    <span><i class="fas fa-chevron-left"></i></span>
-                </span>
-            </button>
-        </div>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="ad-1">
-                        <div class="video-container" onclick="openVideo1()" style="width: 100%;">
-                            <img src="{% static '/img/ad1.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
-                            <button class="play-button">▶</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="ad-2">
-                        <div class="video-container" onclick="openVideo2()" style="width: 100%;">
-                            <img src="{% static '/img/ad2.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
-                            <button class="play-button">▶</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="ad-3">
-                        <div class="video-container" onclick="openVideo3()" style="width: 100%;">
-                            <img src="{% static '/img/ad3.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
-                            <button class="play-button">▶</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="ad-4">
-                        <div class="video-container" onclick="openVideo4()" style="width: 100%;">
-                            <img src="{% static '/img/ad4.png' %}" style="border-radius: 10px;" alt="ad Thumbnail">
-                            <button class="play-button">▶</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="btn-r">
-            <button class="arrow-button">
-                <span class="right-arrows" style="display: flex;">
-                    <span><i class="fas fa-chevron-right"></i></span>
-                    <span><i class="fas fa-chevron-right"></i></span>
-                    <span><i class="fas fa-chevron-right"></i></span>
-                </span>
-            </button>
-        </div>   
+
+
+
+
+
+
+
+<hr>
+<div class="firstsubscription-container">
+    <div class="firstmagazine-cover">
+        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
     </div>
-    <div class="ad-video-box">
-        <div class="ad-video-1">
-            <div class="fullscreen-video1 fullscreen-video" id="fullscreenVideo1" style="z-index: 2;">
-                <span class="close-button" onclick="closeVideo1()">&times;</span>
-                <video id="videoPlayer" controls>
-                    <source src="{% static '/videos/ad1.mp4' %}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="ad-video-2">
-            <div class="fullscreen-video2 fullscreen-video" id="fullscreenVideo2" style="z-index: 2;">
-                <span class="close-button" onclick="closeVideo2()">&times;</span>
-                <video id="videoPlayer" controls>
-                    <source src="{% static '/videos/ad2.mp4' %}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="ad-video-3">
-            <div class="fullscreen-video3 fullscreen-video" id="fullscreenVideo3" style="z-index: 2;">
-                <span class="close-button" onclick="closeVideo3()">&times;</span>
-                <video id="videoPlayer" controls>
-                    <source src="{% static '/videos/ad3.mp4' %}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="ad-video-4">
-            <div class="fullscreen-video4 fullscreen-video" id="fullscreenVideo4" style="z-index: 2;">
-                <span class="close-button" onclick="closeVideo4()">&times;</span>
-                <video id="videoPlayer" controls>
-                    <source src="{% static '/videos/ad4.mp4' %}" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </div>
+    <div class="firsttext">
+        Future Technologies</div>
+        <a href="{% url 'subscribe' %}" target="_blank">
+            <button class="firstbtn">SUBSCRIBE NOW</button>
+        </a>
 </div>
+<hr>
 
-
-<main id="Megazine-Home" class="" style="padding: 0 100px;">
-    <div class="row mb-2">
-        {% for item in latest_magazines %}
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary-emphasis">{{ item.category }}</strong>
-                    <h3 class="mb-0">{{ item.title }}</h3>
-                    <div class="mb-1 text-body-secondary">{{ item.published_at|date:"M d, Y" }}</div>
-                    <p class="card-text mb-auto">
-                        {% with item.sections.first as section %}
-                            {% if section %}
-                                {{ section.content_top|striptags|truncatechars:150 }}
-                            {% endif %}
-                        {% endwith %}
-                    </p>
-                    <a href="{% url 'magazine_detail' item.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
-                    Continue reading
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                    </a>
-                </div>
-                <div class="col-auto d-none d-lg-block" style="width: 250px;background-image: url('{{ item.cover_image.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-                </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-  
-    <div class="row g-5">
-      <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">
-          From the FT-Magazine
-        </h3>
-        <div class="row">
-            {% for item in old_magazines %}
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary-emphasis">{{ item.category }}</strong>
-                    <h3 class="mb-0">{{ item.title|striptags|truncatechars:50 }}</h3>
-                    <div class="mb-1 text-body-secondary">{{ item.published_at|date:"M d, Y" }}</div>
-                    <p class="card-text mb-auto"> 
+<div class="secondbox">
+    {% for item in latest_magazines %}
+        {% if item.category.name == 'News' %}
+                {% url 'news_detail' item.slug as item_url %}
+        {% else %}
+            {% url 'magazine_detail' item.slug as item_url %}
+        {% endif %}
+        <a href="{{ item_url }}" style="text-decoration: none;">
+            <div class="secondcard">
+                <img src="{{ item.cover_image.url }}" alt="Card Image" class="box-img">
+                <div class="box-body" style="height: 300px;">
+                    <small class="catagory-link" >{{ item.category }}</small>
+                    <h3 class="title" style="font-size: 18px; color:black; text-decoration: none; font-weight: 600;">{{ item.title }}</h3>
+                    <p class="box-text">
                         {% with item.sections.first as section %}
                             {% if section %}
                                 {% if section.content_top %}
-                                    {{ section.content_top|striptags|truncatechars:50 }}
+                                    {{ section.content_top|striptags|truncatechars:95 }}
                                 {% else %}
-                                    {{ section.content_bottom|striptags|truncatechars:50 }}
+                                    {{ section.content_bottom|striptags|truncatechars:95 }}
                                 {% endif %}
                             {% endif %}
                         {% endwith %}
                     </p>
-                    <a href="{% url 'magazine_detail' item.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
-                        Continue reading
-                        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                    </a>
-                  </div>
-                  <div class="col-auto d-none d-lg-block" style="width: 250px;background-image: url('{{ item.cover_image.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-                </div>
+                    <p class="card-footer">{{ item.published_at|date:"M d, Y" }}</p>
                 </div>
             </div>
+        </a>
+    {% endfor %}
+</div>
+
+
+
+
+
+   <div class="sndad-container">
+    <div class="sndad-banner">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+        </a>
+
+       </div>
+   </div>
+
+
+{% comment %} 3rd container {% endcomment %}
+
+{% comment %} <div class="wrapper">
+    <hr>
+    <h2 class="wrappertitle">POPULAR ARTICLES</h2>
+    <hr>
+    <main>
+        <section class="featured">
+            {% for item in latest_magazines_3_5 %}
+                {% if item.category.name == 'News' %}
+                        {% url 'news_detail' item.slug as item_url %}
+                {% else %}
+                    {% url 'magazine_detail' item.slug as item_url %}
+                {% endif %}
+            <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                <div class="article">
+                    <img src="{{ item.cover_image.url }}" alt="Card Image">
+                    <small class="catagory-link">{{ item.category }}</small>
+                    <h3 style="font-size: 18px; text-decoration: none; text-align: center; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                        {{ item.title }}
+                    </h3>
+
+                    <p class="card-footer" style='text-align: center'>{{ item.published_at|date:"M d, Y" }}</p>
+                </div>
+            </a>
             {% endfor %}
-        </div>
-      </div>
-  
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <h4 class="fst-italic">About</h4>
-            <p class="mb-0">FT Magazines is the premier publication dedicated to exploring cutting-edge technologies and their transformative impact on industries, society, and our daily lives. It serves as a trusted platform where innovation meets insight, offering readers an in-depth understanding of emerging trends and their implications for the future.</p>
-            <br>
-            <a href="/about" class="icon-link gap-1 icon-link-hover">Read More >>></a>
-          </div>
-  
-          <div>
-            <h4 class="fst-italic">Recent posts</h4>
-            <ul class="list-unstyled">
-                {% for item in recent %}
+        </section>
+
+        <section class="main-news">
+            {% for item in most_popular %}
+                {% if item.category.name == 'News' %}
+                        {% url 'news_detail' item.slug as item_url %}
+                {% else %}
+                    {% url 'magazine_detail' item.slug as item_url %}
+                {% endif %}
+            <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                <img src="{{ item.cover_image.url }}" alt="Card Image">
+                <small class="catagory-link">{{ item.category }}</small>
+                <h2 style="text-decoration: none; font-weight: 600" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                    {{ item.title }}
+                </h2>
+                <br>
+                <p class="card-footer" style='text-align: center'>{{ item.published_at|date:"M d, Y" }}</p>
+            </a>
+            {% endfor %}
+        </section>
+
+        <aside class="most-recent" style="margin-top: 5px; margin-bottom: 17px;">
+            <h2>Most Recent</h2>
+            <ul>
+                {% for item in latest_magazines_5_8 %}
+                {% if item.category.name == 'News' %}
+                        {% url 'news_detail' item.slug as item_url %}
+                {% else %}
+                    {% url 'magazine_detail' item.slug as item_url %}
+                {% endif %}
+
+                <a href="{{ item_url }}" style="text-decoration: none; color: black;">
                     <li>
-                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="{% url 'magazine_detail' item.slug %}">
-                        <img src="{{ item.cover_image.url }}" style="width: 100px; height: 70px;" class="img-fluid" alt="">
-                        <div class="col-lg-8">
-                            <h6 class="mb-0">{{ item.title }}</h6>
-                            <small class="text-body-secondary">{{ item.published_at|date:"M d, Y" }}</small>
+                        <div style="width: 100%;">
+                            <h3 style="text-decoration: none; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                {{ item.title }}
+                            </h3>
+                            <p class="card-footer" style="text-align: left">{{ item.published_at|date:"M d, Y" }}</p>
+
                         </div>
-                        </a>
+                        <img src="{{ item.cover_image.url }}" alt="Card Image">
                     </li>
+                </a>
                 {% endfor %}
             </ul>
-          </div>
+        </aside>
+    </main>
+</div> {% endcomment %}
 
+
+
+<div class="wrapper">
+    <hr>
+    <h2 class="wrappertitle">POPULAR ARTICLES</h2>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <!-- Left side content -->
+            <div class="col-lg-9 col-md-7">
+                <main>
+                    <section class="featured">
+                        {% for item in latest_magazines_3_5 %}
+                        {% if item.category.name == 'News' %}
+                            {% url 'news_detail' item.slug as item_url %}
+                        {% else %}
+                            {% url 'magazine_detail' item.slug as item_url %}
+                        {% endif %}
+                        <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                            <div class="article">
+                                <img src="{{ item.cover_image.url }}" alt="Card Image" class="img-fluid">
+                                <small class="category-link">{{ item.category }}</small>
+                                <h3 style="font-size: 18px; text-decoration: none; text-align: center; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                    {{ item.title }}
+                                </h3>
+                                <p class="card-footer" style='text-align: center'>{{ item.published_at|date:"M d, Y" }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </section>
+
+                    <section class="main-news">
+                        {% for item in most_popular %}
+                        {% if item.category.name == 'News' %}
+                            {% url 'news_detail' item.slug as item_url %}
+                        {% else %}
+                            {% url 'magazine_detail' item.slug as item_url %}
+                        {% endif %}
+                        <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                            <img src="{{ item.cover_image.url }}" alt="Card Image" class="img-fluid">
+                            <small class="category-link">{{ item.category }}</small>
+                            <h2 style="text-decoration: none; font-weight: 600" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                {{ item.title }}
+                            </h2>
+                            <br>
+                            <p class="card-footer" style='text-align: center'>{{ item.published_at|date:"M d, Y" }}</p>
+                        </a>
+                        {% endfor %}
+                    </section>
+
+                    <aside class="most-recent" style="margin-top: 5px; margin-bottom: 17px;">
+                        <h2>Most Recent</h2>
+                        <ul>
+                            {% for item in latest_magazines_5_8 %}
+                                {% if item.category.name == 'News' %}
+                                    {% url 'news_detail' item.slug as item_url %}
+                                {% else %}
+                                    {% url 'magazine_detail' item.slug as item_url %}
+                                {% endif %}
+                                <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                                <li>
+                                    <div style="width: 100%;">
+                                        <h3 style="text-decoration: none; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+                                            {{ item.title }}
+                                        </h3>
+                                        <p class="card-footer" style="text-align: left">{{ item.published_at|date:"M d, Y" }}</p>
+                                    </div>
+                                    <img src="{{ item.cover_image.url }}" alt="Card Image" class="img-fluid">
+                                </li>
+                            </a>
+                            {% endfor %}
+                        </ul>
+                    </aside>
+                </main>
+            </div>
+
+            <!-- Right side space -->
+            <div class="col-lg-3 col-md-5">
+                <div class="sidebar">
+                    <div class="sticky">
+                        <a href="https://www.livingstonecoffee.in/" target="_blank">
+                            <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                        </a>
+                    </div>
+                    <div class="sticky">
+                        <a href="https://www.softlabsgroup.com/" target="_blank">
+                            <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
-  
-</main>
+</div>
 
 
 
 
-{% endblock content %} 
+
+
+
+
+<div class="sndad-container">
+    <div class="sndad-banner">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+        </a>
+    </div>
+</div>
+
+
+{% comment %} big advertise section {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<div class="subscription-container">
+    <div class="magazine-cover">
+        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+    </div>
+    <div class="text">
+        Future Technologies</div>
+        <a href="{% url 'subscribe' %}" target="_blank">
+            <button class="scndbtn">SUBSCRIBE NOW</button>
+          </a>
+    </div>
+</div>
+<hr>
+
+
+
+
+
+<div class="slider-container">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for item in slider %}
+                {% if item.category.name == 'News' %}
+                    {% url 'news_detail' item.slug as item_url %}
+                {% else %}
+                    {% url 'magazine_detail' item.slug as item_url %}
+                {% endif %}
+                <a href="{{ item_url }}" style="text-decoration: none; color: black;">
+                    <div class="swiper-slide slider-card d-flex align-items-stretch" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                        <img src="{{ item.cover_image.url }}" alt="Card Image" class="slider-img">
+                        <div class="slider-content">
+                            <a href="" class="slider-category" style="color: black;">{{ item.category }}</a>
+                            <h5 class="slider-title">{{ item.title }}</h5>
+                            {% comment %} <p class="slider-text">
+                                {% with item.sections.first as section %}
+                                    {% if section %}
+                                        {% if section.content_top %}
+                                            {{ section.content_top|striptags|truncatechars:95 }}
+                                        {% else %}
+                                            {{ section.content_bottom|striptags|truncatechars:95 }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endwith %}
+                            </p> {% endcomment %}
+                            <p class="slider-footer"style="color: black;" >Last updated {{ item.published_at|date:"M d, Y" }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+
+ <div class="sndad-container">
+    <div class="sndad-banner">
+        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+        </a>
+    </div>
+</div>
+
+
+
+
+{% comment %} all advertise {% endcomment %}
+
+
+
+
+
+
+
+
+{% comment %} <div class="popup-container" id="popup-container">
+    <div class="popup-content">
+        <a href="#" class="close-btn" id="close-btn">✕</a>
+        <p class="bold_title">SUBSCRIBE WITH US</p>
+        <h2>Introducing FT-Future Technologies</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email">
+            <button>LET'S GO</button>
+        </form>
+    </div>
+</div> {% endcomment %}
+
+
+
+
+
+
+
+
+{% comment %} <hr>
+<div class="subscription-container">
+    <div class="magazine-cover">
+        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+    </div>
+    <div class="text">
+        Future Technologies</div>
+        <a href="{% url 'subscribe' %}" target="_blank">
+            <button class="scndbtn">SUBSCRIBE NOW</button>
+          </a>
+    </div>
+</div>
+<hr> {% endcomment %}
+
+{% comment %} last content {% endcomment %}
+<div class="must-read-container">
+    <hr>
+    <h2 class="MUSTtitle">MUST READ</h2>
+    <hr>
+    <div class="lastarticles">
+        {% for item in latest_magazines %}
+            {% if item.category.name == 'News' %}
+                {% url 'news_detail' item.slug as item_url %}
+            {% else %}
+                {% url 'magazine_detail' item.slug as item_url %}
+            {% endif %}
+            <a href="{{ item_url }}" style="text-decoration: none; color: black; display: inline; width: 100%;">
+                <div class="lastarticle" style="width: 100%; height: 140px;">
+                    <img src="{{ item.cover_image.url }}" alt="Article Image">
+                    <div class="lastcontent">
+                        <p class="rightcatagory-link" style="color: black;">{{ item.category }}</p>
+                        <h3 class="headline" style="font-weight: 600;">{{ item.title }}</h3>
+                        <p class="slider-footer" style="color: black;">{{ item.published_at|date:"M d, Y" }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+
+
+<div class="video-ad-container">
+    <div class="video-ad-banner">
+        <a href="/subscribe" target="_blank">
+            <video autoplay muted loop>
+                <source src="{% static 'videos/subscribe2.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </a>
+    </div>
+</div>
+
+<script>
+
+
+</script>
+
+
+{% endblock content %}
 
 
 
 
 {% block page_js %}
-
-    <script>
-        function openVideo1() {
-            document.getElementById("fullscreenVideo1").style.display = "flex";
-            document.getElementById("videoPlayer1").play();
-        }
-        function closeVideo1() {
-            document.getElementById("fullscreenVideo1").style.display = "none";
-            document.getElementById("videoPlayer1").pause();
-        }
-
-
-        function openVideo2() {
-            document.getElementById("fullscreenVideo2").style.display = "flex";
-            document.getElementById("videoPlayer2").play();
-        }
-        function closeVideo2() {
-            document.getElementById("fullscreenVideo2").style.display = "none";
-            document.getElementById("videoPlayer2").pause();
-        }
-
-
-        function openVideo3() {
-            document.getElementById("fullscreenVideo3").style.display = "flex";
-            document.getElementById("videoPlayer3").play();
-        }
-        function closeVideo3() {
-            document.getElementById("fullscreenVideo3").style.display = "none";
-            document.getElementById("videoPlayer3").pause();
-        }
-
-
-        function openVideo4() {
-            document.getElementById("fullscreenVideo4").style.display = "flex";
-            document.getElementById("videoPlayer4").play();
-        }
-        function closeVideo4() {
-            document.getElementById("fullscreenVideo4").style.display = "none";
-            document.getElementById("videoPlayer4").pause();
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -424,19 +2608,39 @@
         navigation: {
             nextEl: ".btn-r",
             prevEl: ".btn-l",
-            // nextEl: ".swiper-button-next",
-            // prevEl: ".swiper-button-prev",
+             nextEl: ".swiper-button-next",
+             prevEl: ".swiper-button-prev",
         },
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
         },
-            autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
+           autoplay: {
+           delay: 2500,
+             disableOnInteraction: false,
         },
         loop: true,
         });
+
+
+
+
+
+        document.getElementById('close-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            let popup = document.getElementById('popup-container');
+            popup.classList.add('popup-container-hidden');
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 2000);
+        });
+
+
+
+
+
+
     </script>
-    
+
 {% endblock page_js %}

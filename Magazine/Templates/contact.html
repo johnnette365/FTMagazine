@@ -4,145 +4,289 @@
 
 {% block page_css %}
 <style>   
-    header {
-        background-color: transparent;
-        color: black!important;
-        -webkit-box-shadow:0px 1px 1px black;
-        -moz-box-shadow:0px 1px 1px black;
-        box-shadow: 0px -5px 7px black;
-    }
-    .nav-links a{
-        color: black!important;
-    }
+body{
+    background: #f8f9fa!important;
+}
 
-    .contant-balance{
-        display: none;
-    }
+nav{
+    padding-bottom: 0!important;
+}
+   /* Contact Section */
+.contact-container {
+    width: 100%;
+    padding: 50px;
+    background: #f8f9fa;
+    margin-top: 200px;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h1 {
     
-    form {
-        
-        margin:10%; 
-        padding:10px;
-        /* padding-bottom: 100px; */
-    }
 
-
-    
-    .top-head{
     text-align: center;
-    }
-    label{
-    display:block;
-    margin:1em 0 .2em;
-    }
-    /* single-line text, checkbox, and button */
-    input, select, textarea{
-    display:block;
-    width:100%;
-    padding:.3em;
-    font-size:20px;
-    background-color:#fbfbfb;
-    border:solid 1px #CCC;
-    resize:vertical;
-    }
-    textarea{
-    min-height:180px;
-    }
-    select{
-    color:indigo;
-    }
-    option{
-    color:blue;
-    background: lavenderBlush;
-    }
-    input[type=checkbox]{
-    display:inline;
-    width:auto;
-    color:red;
-    }
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 30px;
+    
+    font-style: normal;
+}
 
-    input[type=submit]{
-    background:lightcoral;
-    margin:1em 0 0;
-    color:white;
-    border:none;
-    border-radius:8px;
-    transition:all .3s ease-out;
-    }
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
 
-    input:focus,
-    input:hover,
-    select:focus,
-    select:hover,
-    textarea:focus,
-    textarea:hover{
-    background: lavenderBlush;
-    }
+.map-container {
+    width: 100%;
+    height: 425px;
+    overflow: hidden;
+    border-radius: 10px;
+}
 
-    input[type=submit]:hover,
-    input[type=submit]:focus{
-    background: rgb(0, 19, 0);
-    outline:none;
-    }
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
 
-    @media screen and (min-width:600px) {
-   
-    form:after{
-        content:'';
-        display:block;
-        clear:both;
+/* Contact Form */
+.contact-form-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group input {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.subject-container{
+    width: 50%;
+}
+.subject-container select{
+    width: 100%;
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+    margin-top: 15px;
+}
+
+.contact-form button {
+    width: 100%;
+    background: black;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background: gray;
+}
+
+/* Contact Details */
+.contact-details {
+    margin-top: 20px;
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.contact-box i {
+    font-size: 24px;
+    color: black;
+    margin-right: 15px;
+}
+
+.contact-box h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.contact-box p {
+    margin: 0;
+    font-size: 14px;
+    color: black;
+}
+
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #ff4081;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        gap: 20px;
     }
-    .column{
-        width:50%;
-        padding:1em;
-        float:left;
-    } 
+    .contact-info, .contact-form-container {
+        min-width: 100%;
+    }
+    .form-group input, .subject-container select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 20px;
+    }
+    .contact-info h1 {
+        font-size: 24px;
+    }
+    .form-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .contact-form button {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .contact-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 }
 </style>
 {% endblock page_css %}
 
-
-
-
 {% block content %}
-    
-<form action="contact" method="post">
-        <h1 class="top-head"><u>Contact-Us</u></h1>
-        <p class="top-head">Please take a moment to get in touch, we will get back to you shortly.</p>
-      
-        <div class="column">
-            {% csrf_token %}
-          <label for="the-name">Your Name</label>
-          <input type="text" name="name" id="name">
-      
-          <label for="the-email">Email Address</label>
-          <input type="email" name="email" id="email">
-      
-          <label for="the-phone">Phone Number</label>
-          <input type="tel" name="phone" id="phone">
-      
-          <label for="the-reason">How can we help you?</label>
-          <select name="reason" id="the-reason">
-          <option value="">Choose one</option>
-          <option value="web">I need your magazine</option>
-          <option value="video">I like your Magazine</option>
-          <option value="3d">Update Magazine </option>
-        </select>
+<div class="contact-container">
+    <div class="contact-content">
+        <div class="contact-info">
+            <h1>Contact Us</h1>
+            <p>Please take a moment to get in touch, we will get back to you shortly. </p>
+            <div class="map-container">
+                <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=johnnette technologies&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://sprunkin.com/">Sprunki Game</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+            </div>
         </div>
-        <div class="column">
-          <label for="the-message">Message</label>
-          <textarea name="message" id="message"></textarea>
-          <label>
-          <input type="checkbox" name="newsletter" value="yes"> Join our mailing list?
-          </label>
-          <input type="submit" value="Send Message">
+        <div class="contact-form-container">
+           
+            <form action="/contact" class="contact-form" method="post">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone" placeholder="Enter Your Phone">
+                    <div class="subject-container">
+                        <label for="the-reason">How can we help you?</label>
+                        <select name="reason" id="the-reason" required>
+                            <option value="">Choose one</option>
+                            <option value="I would like to subscribe your magazine subscription">I would like to subscriber your magazine subscription</option>
+                            <option value="We would like to advertise our company to your magazine">We would like to advertise our company to your magazine</option>
+                            <option value="I would like to give article for your magazine">I would like to give article for your magazine</option>
+                            <option value="I know yor magazine">I know yor magazine</option>
+                        </select>
+                        <!-- <input type="text" name="subject" placeholder="Subject"> -->
+                    </div>
+                </div>
+                <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit">Submit Now</button>
+            </form>
+            <div class="contact-details">
+                <div class="contact-box">
+                    <i class="fas fa-map-marker-alt"  style="font-family: 'FontAwesome'!important;"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Livingstone Institute of Future Technologies
+                            A-38, sector 67, Noida
+                            Gautam Buddha Nagar
+                            Noida - 201301, India</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="fas fa-envelope"  style="font-family: 'FontAwesome'!important;"></i>
+                    <div>
+                        <h4>Mail Us</h4>
+                        <p>Contact@livingstoneinstitute.com</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="fa fa-phone-alt"  style="font-family: 'FontAwesome'!important;"></i>
+                    <div>
+                        <h4>Telephone</h4>
+                        <p>+91 9205625360</p>
+                    </div>
+                </div>
+                <!-- <div class="contact-box">
+                    <i class="fa fa-share-alt"></i>
+                    <div>
+                        <h4>Share</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </div>
-    </form>
+    </div>
+</div>
 
 {% endblock content %}
 
-
-
 {% block page_js %}
-
 {% endblock page_js %}

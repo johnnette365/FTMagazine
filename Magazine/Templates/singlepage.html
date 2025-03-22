@@ -1,0 +1,265 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}mAGAZINE{% endblock title %} 
+
+
+{% block meta_tags %} 
+{% endblock meta_tags %}
+
+{% block page_css %}
+   <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Demo styles -->
+  <style>
+   nav{
+    padding-bottom: 0!important;
+   }
+    .swiper {
+        display: inline-block;
+        width:600px;
+        height: auto;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .swiper-slide:nth-child(1n) {
+      background-color: rgb(206, 17, 17);
+    }
+
+    .swiper-slide:nth-child(2n) {
+      background-color: rgb(0, 140, 255);
+    }
+
+    .swiper-slide:nth-child(3n) {
+      background-color: rgb(10, 184, 111);
+    }
+
+    .swiper-slide:nth-child(4n) {
+      background-color: rgb(211, 122, 7);
+    }
+
+    .swiper-slide:nth-child(5n) {
+      background-color: rgb(118, 163, 12);
+    }
+
+    .swiper-slide:nth-child(6n) {
+      background-color: rgb(180, 10, 47);
+    }
+
+    .swiper-slide:nth-child(7n) {
+      background-color: rgb(35, 99, 19);
+    }
+
+    .swiper-slide:nth-child(8n) {
+      background-color: rgb(0, 68, 255);
+    }
+
+    .swiper-slide:nth-child(9n) {
+      background-color: rgb(218, 12, 218);
+    }
+
+    .swiper-slide:nth-child(10n) {
+      background-color: rgb(54, 94, 77);
+    }
+  </style>
+  <style>
+    /* ============== arrow buttons ============= */
+    .arrow-button {
+        font-size: 40px;
+        font-weight: bold;
+        /* padding: 10px 20px; */
+        padding: 0px 0px;
+        border: none;
+        background: transparent;
+        color: rgb(0, 102, 255);
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* ========== Left Button ======== */
+    .left-arrows span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(10px);
+        animation: left-slideArrows 1s infinite linear;
+    }
+
+    .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
+    .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
+    .left-arrows span:nth-child(3) { animation-delay: 0s; }
+
+    @keyframes left-slideArrows {
+        0% { opacity: 0; transform: translateX(10px); }
+        50% { opacity: 1; transform: translateX(0px); }
+        100% { opacity: 0; transform: translateX(-10px); }
+    } 
+
+
+    /* ========== Right Button ======== */
+    .right-arrows span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(-10px);
+        animation: right-slideArrows 1s infinite linear;
+    }
+
+    .right-arrows span:nth-child(1) { animation-delay: 0s; }
+    .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
+    .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes right-slideArrows {
+        0% { opacity: 0; transform: translateX(-10px); }
+        50% { opacity: 1; transform: translateX(0); }
+        100% { opacity: 0; transform: translateX(10px); }
+    }
+</style>
+{% endblock page_css %}
+
+
+{% block content %}
+<video autoplay muted loop id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; margin-top: 150px; z-index: -1;">
+    <source src="{% static 'videos/circuit.mp4' %}" type="video/mp4">
+</video>
+
+
+<div class="magazine-container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 50px; margin-top: 230px; margin-bottom: 50px;">
+    <div class="btn-l">
+        <button class="arrow-button">
+            <span class="left-arrows" style="display: flex;">
+                <span><i class="fas fa-chevron-left"></i></span>
+                <span><i class="fas fa-chevron-left"></i></span>
+                <span><i class="fas fa-chevron-left"></i></span>
+            </span>
+        </button>
+    </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static 'img/firstpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/sndpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/thrdpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/frthpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/fthpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/sixpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/svnhpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/eghthpage.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page9.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page10.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page11.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page12.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page13.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page14.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page15.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page16.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page17.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page18.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page19.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page20.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page21.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page22.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page23.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page24.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page25.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page26.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page27.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page28.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page29.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page30.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page31.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page32.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page33.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page34.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page35.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page36.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page37.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page38.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page39.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page40.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page41.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page42.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page43.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page44.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page45.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page46.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page47.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page48.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page49.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page50.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page51.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page52.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page64.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page53.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page54.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page55.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page56.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page57.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page58.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page59.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page60.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page65.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page61.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page62.jpg' %}" style="width: 100%;" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/page63.jpg' %}" style="width: 100%;" alt=""></div>
+            
+            
+        </div>
+    </div>
+    <div class="btn-r">
+        <button class="arrow-button">
+            <span class="right-arrows" style="display: flex;">
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span><i class="fas fa-chevron-right"></i></span>
+            </span>
+        </button>
+    </div>  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %} 
+
+
+
+{% block page_js %}
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        navigation: {
+                nextEl: ".btn-r",
+                prevEl: ".btn-l",
+            },
+        });
+    </script>
+    
+ {% endblock page_js %}

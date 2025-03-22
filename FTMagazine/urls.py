@@ -21,8 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('Megazine.urls')),
     path('', include('Magazine.urls')),
-    path('article/', include('Article.urls')),
+    # path('article/', include('Article.urls')),
     path('news/', include('News.urls')),
-    path('ads/', include('Ads.urls')),
+    # path('ads/', include('Ads.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

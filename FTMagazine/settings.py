@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3r4qv%@r-^e0yjgxkh-w8lyef!mj0e4-lp0wezwo^o!!vyx!mq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1', '192.168.1.31', 'https://johnnette.pythonanywhere.com', 'ft-magazine.com']
+ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1', '192.168.1.31', 'ft-magazine.com', 'https://ft-magazine.com', 'https://www.ft-magazine.com', 'www.ft-magazine.com', ]
 
 
 # Application definition
@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Magazine',
-    'Article',
-    'News',
-    'Ads',
+    # 'Article',
+    # 'News',
+    # 'Ads',
     'ckeditor',
     'ckeditor_uploader',
     # 'Megazine',
@@ -90,9 +90,9 @@ TEMPLATES = [
         'DIRS': [
             # os.path.join(BASE_DIR, 'Megazine', 'Templates'),
             os.path.join(BASE_DIR, 'Magazine', 'Templates'),
-            os.path.join(BASE_DIR, 'News', 'Templates'),
-            os.path.join(BASE_DIR, 'Articles', 'Templates'),
-            os.path.join(BASE_DIR, 'Ads', 'Templates'),
+            # os.path.join(BASE_DIR, 'News', 'Templates'),
+            # os.path.join(BASE_DIR, 'Articles', 'Templates'),
+            # os.path.join(BASE_DIR, 'Ads', 'Templates'),
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -154,15 +154,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
+
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'Megazine', 'static'),
     os.path.join(BASE_DIR, 'Magazine', 'static'),
-    os.path.join(BASE_DIR, 'News', 'static'),
-    os.path.join(BASE_DIR, 'Articles', 'static'),
-    os.path.join(BASE_DIR, 'Ads', 'static'),
+    # os.path.join(BASE_DIR, 'News', 'static'),
+    # os.path.join(BASE_DIR, 'Articles', 'static'),
+    # os.path.join(BASE_DIR, 'Ads', 'static'),
     ]
-# STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = [
@@ -171,7 +173,7 @@ MEDIA_URL = '/media/'
 #     os.path.join(BASE_DIR, 'News', 'Media'),
 #     os.path.join(BASE_DIR, 'Articles', 'Media'),
 #     os.path.join(BASE_DIR, 'Ads', 'Media'),
-# ] 
+# ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
 

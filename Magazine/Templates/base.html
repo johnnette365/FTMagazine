@@ -5,276 +5,958 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %} | FT-Megazine</title>
-    <link rel="icon" href="{% static 'logo/icon.png' %}">
+
+    {% block meta_tags %}
+
+    {% endblock meta_tags %}
+
+    <link rel="icon" href="{% static 'icon/icon.png' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    {% block head %} 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+
+
+    {% block head %}
     {% endblock head %}
 
-    {% block page_css %} 
+    {% block page_css %}
     {% endblock page_css %}
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            /* background-color: black; */
-            box-sizing: border-box;
-            /* background: linear-gradient(180deg, #0a0a0a, #000327, #5e0000);
-            background-size: 400% 400%;
-            animation: neonGlow 5s infinite alternate; */
+ <style>
+
+
+    @font-face {
+        font-family: 'VogueFont';
+        src: url("{% static 'Vogue.ttf' %}") format('truetype');
+        src: url("{% static 'fonts/vogue-avant-garde-bold.otf' %}") format('opentype');
+        src: url("{% static 'fonts/vogue-avant-garde-demi.otf' %}") format('opentype');
+        src: url("{% static 'fonts/vogue-avant-garde-heavy.otf' %}") format('opentype');
+        src: url("{% static 'fonts/vogue-avant-garde-black.otf' %}") format('opentype');
+        src: url("{% static 'fonts/vogue-avant-garde-book.otf' %}") format('opentype');
+    }
+
+    * {
+        font-family: 'VogueFont', sans-serif!important;
+        letter-spacing: 1px !important;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+          body {
+            /* {% comment %} height: 200vh;  {% endcomment %} */
+            background-color: #fff;
+          }
+
+          /* Top Navbar */
+
+          .top-navbar-content {
+            position: relative;
+           width: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+          }
+
+          .logo {
+            position: absolute;
+            left: 53%;
+            top: -20px;
+            transform: translateX(-50%);
+            height: 4.375rem;
+            width: 13.75rem;
+            transition: height 0.3s ease-in, width 0.3s ease-in, left 0.3s ease-in;
+            cursor: pointer;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: transparent;
-            padding: 30px 70px;
-            color: white;
+        @media screen and (max-width: 1024px) {
+            .logo {
+                left: 50%;
+                height: 3.5rem;
+                width: 12rem;
+
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                height: 4.375rem;
+                width: 13.75rem;
+                left: 50%;
+
+            }
+
+        }
+
+
+        .logo {
             position: absolute;
+            left: 53%;
+            top: -20px;
+            transform: translateX(-50%);
+            height: 4.375rem;
+            width: 11.75rem;
+            transition: height 0.3s ease-in, width 0.3s ease-in, left 0.3s ease-in, top 0.3s ease-in;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .logo {
+                left: 50%;
+                height: 3.5rem;
+                width: 12rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                height: 2.375rem;
+                width: 6.75rem;
+                left: 28%;
+                top: -3px;
+
+            }
+        }
+
+
+
+
+
+
+
+          .top-navbar {
+            height: 110px;
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            z-index: 1;
-        }
-        .logo {
-            width: 120px;
-        }
-        .highlight {
-            color: rgb(0, 0, 0);
-        }
-        .nav-links {
-            list-style: none;
-            padding: 0;
+            width: 100%;
+            background: white;
+            padding: 10px 10px;
+            z-index: 1000;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            transition: height 0.3s ease-in, transform 0.3s ease-in;
+          }
+          .top-navbar-content {
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-        }
-        .nav-links li {
-            margin: 0 15px;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-        }
-        .search-container{
+            width: 100%;
+            max-width: 1400px;
+          }
+
+          .nav-icons {
             display: flex;
-            gap: 20px;
             align-items: center;
-        }
-        .search-container input {
+            gap: 20px;
+          }
+
+          @media screen and (max-width: 768px) {
+            .nav-icons {
+              display: block;
+            }
+          }
+
+
+          .subscribe-btn {
+            background: black;
+            color: white;
+            padding: 6px 11px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          .subscribe-btn:hover {
+            background: #333;
+          }
+
+          .icon {
+            font-size: 16px;
+            cursor: pointer;
+          }
+
+          /* Main Navbar */
+          .main-navbar {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 10px 40px;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+            height: 50px;
+
+          }
+
+          .nav-links {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: black ;
+            font-weight: 600;
+          }
+
+          .nav-links li {
+            cursor: pointer;
+            position: relative;
             padding: 5px;
-            border: none;
-            border-radius: 3px;
-            background: transparent;
-            border: 1px solid rgba(197, 195, 195, 0.5);
+            text-decoration: none;
+            letter-spacing: 0.127811em;
         }
-        .search-btn {
-            background: transparent;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
+
+        .nav-links li:hover {
+
+            text-decoration: underline;
+            text-underline-offset: 15px;
+            text-decoration-thickness: 3px;
         }
-        .menu-toggle {
-            display: none;
+
+          .content {
+            margin-top: 140px;
+            text-align: center;
             font-size: 24px;
-            cursor: pointer;
-        }
-        @media (max-width: 769px) {
-            header{
-                padding: 20px 25px;
-            }
-            nav{
-                z-index: 2;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 75px;
-                right: 0;
-                width: 200px;
-                height: 100%;
-                background: transparent;
-                background: blue;
-                text-align: left;
-                padding: 15px 20px 15px 10px;
-                transition: all 1s;
-                z-index: 2;
-            }
-            .nav-links.active {
-                display: block;
-            }
-            .nav-links li {
-                padding: 15px 15px 15px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.384);
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .search-container input {
-                width: 120px;
-                padding: 3px;
-            }
-            .logo{
-                font-size: 20px;
-            }
-        }
+          }
+
+
+          /* Hamburger  */
+ .hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+}
+
+
+  @media screen and (max-width: 768px) {
+    .hamburger {
+        left: -10px !important;
+        top: 14px !important;
+    }
+
+
+
+
+
+
+    .main-navbar {
+        position: fixed;
+        left: -100%;
+        top: 110px;
+        width: 250px;
+        height: 100vh;
+        background: white;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .main-navbar.active {
+        left: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+.mobile-icons {
+    display: none;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .mobile-icons {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  .links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(135deg,rgb(255, 255, 255),rgb(160, 160, 160));
+    transition: left 0.3s ease-in-out;
+    z-index: 1001;
+    padding-top: 60px;
+    list-style: none;
+    padding-left: 20px;
+    color: black;
+
+    overflow-y: auto;
+    border-radius: 0px;
+
+}
+
+/* Scrollbar */
+.links::-webkit-scrollbar {
+    width: 8px;
+}
+.links::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+.links::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* List Item Styling */
+.links li {
+    margin: 12px 0;
+    padding: 12px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+
+
+}
+
+
+ .nav-links li a {
+    text-decoration: none !important;
+    color: black;
+}
+
+.links li a {
+    text-decoration: none !important;
+    color: black;
+}
+
+/* Hover Effect */
+.links li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+/* Sidebar Open */
+.links.open {
+    left: 0;
+}
+
+/* Hide Hamburger When Sidebar is Open */
+.hamburger.hidden {
+    display: none;
+}
+
+/* Hamburger Button */
+/* {% comment %} .hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    left: 10px;
+    top: 54px;
+    z-index: 1002;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: background 0.3s;
+} {% endcomment %} */
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+
+    padding: 5px 10px;
+    border-radius: 80%;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(52, 51, 51, 0.4);
+    transform: rotate(90deg);
+}
+
+/* Responsive  */
+@media screen and (max-width: 768px) {
+    .links {
+        width: 70%;
+        left: -70%;
+    }
+
+    .links.open {
+        left: 0;
+    }
+
+    .hamburger {
+        left: 15px;
+        top: 1px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .links {
+        width: 300px;
+    }
+}
+
+
+
+
+.showicon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icons {
+    display: none;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .showicon {
+        display: none;
+    }
+
+    .nav-icons {
+        display: flex;
+    }
+}
+
+
+
+/* footer */
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+}
+
+.whole-footer {
+    background-color: black;
+    color: white;
+
+}
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 1448px;
+    margin: auto;
+    padding: 32px
+
+}
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    text-decoration: none;
+
+
+
+    font-style: normal;
+    letter-spacing: 0.127811em;
+    line-break: auto;
+    line-height: 3em;
+    font-size: 12px;
+    font-weight: 400;
+    overflow-wrap: normal;
+    transition: color 200ms;
+    color: rgb(255, 255, 255);
+
+
+}
+.footer-section  p{
+    font-feature-settings: normal;
+    font-style: normal;
+    letter-spacing: -0.00710059em;
+    line-break: auto;
+    line-height: 1.4em;
+    font-size: 13px;
+    font-weight: 400;
+    overflow-wrap: normal;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    color: rgb(255, 255, 255);
+
+
+
+}
+.footer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.options {
+    font-size: 13px;
+    font-weight: 600;
+}
+.footer p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+
+.footer-bottom a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.footer-bottom a:hover{
+    text-decoration: underline;
+
+}
+
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-section {
+        min-width: 90%;
+        padding: 10px;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .navbar-top h1 {
+        font-size: 2rem;
+    }
+    .navbar-top .icons {
+        position: static;
+        display: flex;
+        justify-content: center;
+    }
+    .navbar-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+}
+
+.footer-section img {
+    max-width: 194px;
+    height: auto;
+    transition: max-width 0.3s ease, transform 0.3s ease;
+    display: block;
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+/* Shrink effect (if needed for smaller screens) */
+@media (max-width: 768px) {
+    .footer-section img {
+        max-width: 120px;
+        margin-left: 95px;
+    }
+    .footer-section p {
+        margin-right: -13px
+    }
+
+}
+
+
+.social-icons {
+    display: flex;
+        gap: 54px;
+        font-size: 34px;
+        cursor: pointer;
+
+
+}
+
+
+.social-icons span i {
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-family: 'FontAwesome'!important;
+    color:white;
+}
+
+.social-icons span i:hover {
+    transform: scale(1.2);
+    color: #ff4081;
+}
+
+
+
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 46px;
+       font-size: 25px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
-<body onload="load()">
 
-    <header>
-        <div class="logo"><a href="/"><img src="{% static 'logo/logo.png' %}" style="width: 100%;" alt=""></a></div>
-        <nav>
-            <ul class="nav-links" id="navLinks" style="margin: 0;">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/#Megazine-Home">Magazine</a></li>
-                <!-- <li><a href="/news">News</a></li> -->
-                <li><a href="/contact">Contact Us</a></li>
+
+
+ <body onload="load()">
+    <nav class="top-navbar">
+        <div class="top-navbar-content">
+            <div class="nav-icons-left"></div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="links">
+                <div class="close-btn" onclick="toggleMenu()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/about">ABOUT-US</a></li>
+                <li><a href="/magazine_list">FT-MAGAZINE</a></li>
+                <li><a href="/news">NEWS</a></li>
+                <li><a href="/defense">DEFENSE</a></li>
+                <li><a href="/mobility">MOBILITY</a></li>
+                <li><a href="/logistics">LOGISTICS</a></li>
+                <li><a href="/fashion">FASHION</a></li>
+                <li><a href="/media">MEDIA</a></li>
+                <li><a href="/cinema">CINEMA</a></li>
+                <li><a href="/startups">STARTUPS</a></li>
+                <li><a href="/investments">INVESTMENTS</a></li>
+                <li><a href="/contact">CONTACT US</a></li>
+                <li><a href="/subscribe">SUBSCRIBE</a></li>
+                <li><a href="/signup">SIGN IN</a></li>
             </ul>
-        </nav>
-        <div class="search-container">
-            <form action="{% url 'home' %}" method="GET">
-                <input type="text" name="q" placeholder="Search Magazines..." value="{{ query|default:'' }}">
-            </form>
+            <a href="/">
+                <img src="{% static '/img/ft-logo.png' %}" alt="FT logo" class="logo">
+            </a>
+            <div class="showicon">
+                <a href="/subscribe" class="subscribe-link">
+                    <button class="subscribe-btn">SUBSCRIBE</button>
+                </a>
+                <a href="/subscribe" style="text-decoration: none; color: inherit;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M16 18a4 4 0 0 0-8 0"></path>
+                    </svg>
+                </a>
+
+                <a href="/signup" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
+                    SIGN IN
+                </a>
+
+                <a href="/signup" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </a>
+
+
+
+            </div>
+            <div class="nav-icons">
+                <a href="/subscribe" class="subscribe-link">
+                    <button class="subscribe-btn">SUBSCRIBE</button>
+                </a>
+                <a href="/subscribe" style="text-decoration: none; color: inherit;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M16 18a4 4 0 0 0-8 0"></path>
+                    </svg>
+                </a>
+
+            </div>
         </div>
-    </header>
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("navLinks");
-            nav.classList.toggle("active");
+    </nav>
+    <!-- Second Navbar (Main Navigation) -->
+     <nav class="main-navbar">
+        <ul class="nav-links">
+            <li><a href="/magazine_list">MAGAZINE</a></li>
+            <li><a href="/news">NEWS</a></li>
+            <li><a href="/defense">DEFENSE</a></li>
+            <li><a href="/mobility">MOBILITY</a></li>
+            <li><a href="/logistics">LOGISTICS</a></li>
+            <li><a href="/fashion">FASHION</a></li>
+            <li><a href="/media">MEDIA</a></li>
+            <li><a href="/cinema">CINEMA</a></li>
+            <li><a href="/startups">STARTUPS</a></li>
+            <li><a href="/investments">INVESTMENTS</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+
+
+<script>
+
+//     {% comment %} let prevScrollPos = window.scrollY;
+
+// window.addEventListener("scroll", () => {
+//     const currentScrollPos = window.scrollY;
+//     const topNavbar = document.querySelector(".top-navbar");
+//     const mainNavbar = document.querySelector(".main-navbar");
+//     const logo = document.querySelector(".logo");
+
+//     if (currentScrollPos > 50) {
+//         logo.style.height = "3rem";
+//         logo.style.width = "10rem";
+//         mainNavbar.style.transform = "translateY(-160%)";
+//         topNavbar.style.height = "80px";
+//         logo.style.top = '-10px';
+//     } else {
+//         logo.style.height = "4.375rem";
+//         logo.style.width = "13.75rem";
+//         mainNavbar.style.transform = "translateY(0)";
+//         topNavbar.style.height = "110px";
+//         logo.style.top = '-20px';
+
+
+
+
+//     }
+
+
+//     if (currentScrollPos < prevScrollPos) {
+//         logo.style.left = "53%";
+//         logo.style.transform = "translateX(-50%)";
+//     } else {
+//         if (window.innerWidth > 768) {
+//             logo.style.left = "53%";
+//         } else {
+//             logo.style.left = "53%";
+//         }
+//     }
+
+//     prevScrollPos = currentScrollPos;
+// }); {% endcomment %}
+
+
+
+let prevScrollPos = window.scrollY;
+
+window.addEventListener("scroll", () => {
+    const currentScrollPos = window.scrollY;
+    const topNavbar = document.querySelector(".top-navbar");
+    const mainNavbar = document.querySelector(".main-navbar");
+    const logo = document.querySelector(".logo");
+
+    if (window.innerWidth > 768) { // Only apply size change for larger screens
+        if (currentScrollPos > 50) {
+            logo.style.height = "3rem";
+            logo.style.width = "9rem";
+            logo.style.top = '-10px';
+        } else {
+            logo.style.height = "4.375rem";
+            logo.style.width = "11.75rem";
+            logo.style.top = '-20px';
         }
+    }
 
-        window.addEventListener("scroll", function() {
-            var nav = document.getElementById("navLinks");
-            nav.classList.remove("active");
-        });
-    </script>
+    mainNavbar.style.transform = currentScrollPos > 50 ? "translateY(-160%)" : "translateY(0)";
+    topNavbar.style.height = currentScrollPos > 50 ? "80px" : "110px";
 
-    <div class="contant-balance" style="height: 150px;"></div>
+    if (window.innerWidth <= 768) {
+        if (currentScrollPos >= prevScrollPos) {
+            logo.style.top = '-3px';
+        }
+    }
+
+    prevScrollPos = currentScrollPos;
+});
+
+
+
+ function toggleMenu() {
+    document.querySelector(".main-navbar").classList.toggle("active");
+ }
+
+
+ function toggleMenu() {
+    let linksMenu = document.querySelector('.links');
+    let hamburger = document.querySelector('.hamburger');
+
+    linksMenu.classList.toggle('open');
+    hamburger.classList.toggle('hidden'); // Hide/show hamburger
+ }
+
+</script>
+
+
+
+
+
 
     {% block content %}
 
     {% endblock content %}
+    <footer class="whole-footer">
+        <div class="footer-container">
+            <div class="footer-section" >
+                <a href="/">
+                    <img src="{% static '/img/ft_logo_white.png' %}" >
+                </a>
+                <p>Livingstone Institute of Future Technologies <br>
+                    {% comment %} A-38, sector 67, Noida
+                    Noida - 201301, India <br>
+                    Contact@livingstoneinstitute.com</p> {% endcomment %}
+                    Your Gateway to Unprecedented Innovation and Global Networking.
+                </p>
+                    <div class="social-icons">
+                        <span class="youtube">
+                            <a href="https://www.youtube.com/@futuretechnologiesft" target="_blank">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </span>
 
+                        <span class="whatsapp">
+                            <a href="https://wa.me/919205625360?text=Hello%20World!" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </span>
 
+                        <span class="instagram">
+                            <a href="https://www.instagram.com/futuretechnologies_/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </span>
 
-    <div class="footer-container" style="background-color: black;">
-        <div class="container" style="color: white;">
-            <footer class="py-5">
-              <div class="row d-flex flex-column flex-sm-row justify-content-between">
-                <div class="col-6 col-md-2 mb-3" style=" width: 300px; ">
-                    <img src="{% static 'logo/logo-white.png' %}" style="width: 250px;" alt="">
-                    <p style="margin-top: 10px; font-size: 15px;">
-                        <small>
-                            Livingstone Institute of Future Technologies <br>
-                            A-38, sector 67, Noida <br>
-                            Gautam Buddha Nagar <br>
-                            Noida - 201301, India</small>
-                    </p>
-                  <!-- <h5>Section</h5> -->
-                  <!-- <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">About</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Magazine</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Contact</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Ads</a></li>
-                  </ul> -->
-                </div>
-          
-                <!-- <div class="col-6 col-md-2 mb-3">
-                  <h5>Section</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">About</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Magazine</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Contact</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Ads</a></li>
-                  </ul>
-                </div> -->
-          
-                <div class="col-6 col-md-2 mb-3">
-                  <!-- <h5>Section</h5> -->
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="/" class="nav-link p-0" style="color: white;">Home</a></li>
-                    <li class="nav-item mb-2"><a href="/about" class="nav-link p-0" style="color: white;">About</a></li>
-                    <li class="nav-item mb-2"><a href="/#Megazine-Home" class="nav-link p-0" style="color: white;">Magazine</a></li>
-                    <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0" style="color: white;">Contact</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Ads</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-md-5 mb-3">
-                  <!-- <form>
-                    <h5>Subscribe to our newsletter</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                      <label for="newsletter1" class="visually-hidden">Email address</label>
-                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                      <button class="btn btn-primary" type="button">Subscribe</button>
+                        <span class="linkedin">
+                            <a href="https://www.linkedin.com/company/ft-future-technologies/" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </span>
                     </div>
-                  </form> -->
-                  <form id="subscription-form">
-                    <h5>Subscribe to our newsletter</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="email" class="form-control" name="email" placeholder="Email address" required>
-                        <button class="btn btn-primary" type="submit">Subscribe</button>
-                    </div>
-                    <p id="subscription-message" style="margin-top: 10px;"></p> <!-- Message area -->
-                    {% csrf_token %}
-                </form>
-                
-                <script>
-                document.getElementById("subscription-form").addEventListener("submit", function(event) {
-                    event.preventDefault(); // Prevent page reload
-                
-                    let emailInput = document.getElementById("newsletter1");
-                    let messageArea = document.getElementById("subscription-message");
-                    let csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-                
-                    fetch("{% url 'subscribe' %}", {
-                        method: "POST",
-                        body: JSON.stringify({ email: emailInput.value }),
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRFToken": csrfToken
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        messageArea.innerText = data.message;
-                        messageArea.style.color = data.status === "success" ? "green" : "red";
-                        if (data.status === "success") emailInput.value = ""; // Clear input on success
-                    })
-                    .catch(error => console.error("Error:", error));
-                });
-                </script>
+
+
+            </div>
+            <div class="footer-section" style='margin-left: 10%;'>
+                <h2 class="options" >MORE FROM Ft-MAGAZINE</h2>
+                <div class="footer-links">
+                    <a href="/">HOME</a>
+                    <a href="/about">ABOUT US</a>
+                    <a href="/magazine_list">FT-MAGAZINE</a>
+                    <a href="/contact">CONTACT US</a>
+
                 </div>
-              </div>
-          
-              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-1 border-top">
-                <p><small>© 2025 Livingstone Institute of Future Technologies | All rights reserved.</small></p>
-                <!-- <ul class="list-unstyled d-flex">
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-                </ul> -->
-              </div>
-            </footer>
+            </div>
+            <div class="footer-section" style='margin-left: 10%;' >
+                <h2 class="options">SEE MORE STORIES</h2>
+                <div class="footer-links">
+                    <!-- {% comment %} <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies Policy</a>
+                    <a href="#">Terms</a> {% endcomment %} -->
+                    <!-- {% comment %} <a href="/magazine_list">Magazine</a> {% endcomment %} -->
+                    <a href="/magazine_list">MAGAZINE</a>
+                    <a href="/news_page">NEWS</a>
+                    <a href="/">DEFENSE</a>
+                    <a href="/">MOBILITY</a>
+                    <a href="/">LOGISTICS</a>
+                    <a href="/">FASHION</a>
+                    <a href="/">MEDIA</a>
+                    <a href="/">CINEMA</a>
+                    <a href="/">STARTUPS</a>
+                    <a href="/">INVESTMENTS</a>
+
+
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>
+                <a href="your-cookies-policy-link">COOKIES POLICY</a> |
+                <a href="your-privacy-policy-link">PRIVACY POLICY</a> |
+                <a href="your-terms-link">TERMS</a> |
+                <a href="your-cookies-settings-link">COOKIES SETTINGS</a>
+              </p>
+
+            <p>© 2025 Livingstone Institute of Future Technologies. All rights reserved.</p>
+
+        </div>
+        <a href="#" class="back-to-top">&uarr;</a>
+    </footer>
 
 
-    {% block page_js %} 
+    {% block page_js %}
 
     {% endblock page_js %}
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

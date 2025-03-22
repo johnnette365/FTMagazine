@@ -1,0 +1,247 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}signup{% endblock title %} 
+
+
+{% block meta_tags %} 
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+
+    .container {
+        display: flex;
+        flex-wrap: wrap; 
+        width: 100%;
+        max-width: 1600px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 10%;
+       
+        height: auto;
+      }
+    
+      .image-section {
+        width: 45%;
+       
+        display: flex;
+        justify-content: center;
+      }
+    
+      .image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      
+      }
+    
+      .form-section {
+        width: 45%;
+        padding: 50px;
+        text-align: left;
+       
+        margin-left: 10px;
+      }
+    
+      .sighlogo {
+        width: 150px;
+        margin-left: 260px;
+      }
+    
+      .other_links {
+        margin-left: 70px;
+      }
+    
+      p {
+        width: 70%;
+        text-align: left;
+        margin: 0 20px;
+        padding-bottom: 1.5rem;
+        color: gray;
+      }
+    
+      input {
+        width: 85%;
+        padding: 10px;
+        border: 2px solid black;
+        margin: 0 10px;
+        margin-bottom: 1rem;
+      }
+    
+      .btn {
+        width: 85%;
+        padding: 12px;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 0 10px;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        height: 45px;
+      }
+    
+      .btn:hover {
+        background-color: black;
+        color: white;
+      }
+    
+      .btn-alt {
+        background: white;
+        color: black;
+        border: 2px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1px;
+        position: relative;
+        text-decoration: none;
+      }
+    
+      .btn img {
+        width: 20px;
+        margin-right: 20px;
+        margin-left: 10px;
+        background-color: white;
+      }
+    
+      .btn_text {
+        flex: 1;
+        text-align: center;
+        font-size: 15px;
+      }
+    
+      .or {
+        margin: 15px 10px;
+        font-size: 15px;
+        color: #888;
+        display: flex;
+        align-items: center;
+        width: 86%;
+        position: relative;
+      }
+    
+      .or::before, .or::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #888;
+        margin: 0 10px;
+      }
+    
+     
+      @media screen and (max-width: 768px) {
+        .container {
+          flex-direction: column; 
+          
+        }
+    
+        .image-section, .form-section {
+          width: 100%;
+          margin-left: 0;
+          padding: 10px;
+          margin-top: 25%;
+        }
+    
+        .sighlogo {
+          margin-left: 89px;
+          text-align: center;
+        }
+    
+        .other_links {
+          margin-left: 0;
+        }
+    
+        p, .btn, input, .or {
+          margin: 0 auto; 
+          width: 100%; 
+          margin-top: 10px;
+      }
+
+      .btn_text {
+        flex: 1;
+        text-align: center;
+        font-size: 10px;
+      }
+
+      
+      
+
+    }
+   
+</style>
+{% endblock page_css %} 
+
+{% block content %}
+
+<div class="container">  
+    <div class="image-section">
+          <img src="{% static '/img/magazine.jpg' %}" alt="sign in">
+    </div>  
+    <div class="form-section">
+          <a href="/">
+              <img src="{% static '/img/ft-logo.png' %}" alt="Ft Logo" class="sighlogo">
+          </a>
+
+          <div class="other_links">
+              <h1 style=" margin: 0 20px; padding:2rem 0px 2rem ;">Sign in or create an account</h1>
+              <p class="text">By continuing, including through our platform partners, you agree to our <a href="#" style='color: gray;'>User Agreement (including class action waiver and arbitration provisions)</a> and acknowledge our  <a href="#" style='color: gray;'>Privacy Policy</a>.</p>
+              <form method="POST">
+                {% csrf_token %}
+                <input type="name" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="btn">CONTINUE WITH EMAIL</button>
+              </form>
+              <div class="or" >or</div>
+
+
+              <a href="https://www.google.com/" class="btn btn-alt">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+                  <span class="btn_text">CONTINUE WITH GOOGLE</span>
+              </a>
+              <!-- <a href="https://www.facebook.com/" class="btn btn-alt">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
+                  <span class="btn_text">CONTINUE WITH FACEBOOK</span>
+              </a>
+              <a href="#" class="btn btn-alt">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+                  <span class="btn_text">CONTINUE WITH APPLE</span>
+              </a> -->
+        </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+{% block page_js %}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+
+
+
+
+    </script>
+   
+{% endblock page_js %}

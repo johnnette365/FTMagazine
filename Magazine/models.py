@@ -41,11 +41,12 @@ class Tag(models.Model):
 class Magazine(SEOMixin):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
-    title = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(unique=True) 
+    title = models.CharField(max_length=500, unique=True)
+    slug = models.SlugField(max_length=500, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    cover_image = models.ImageField(upload_to='Magazines/Cover_images/', blank=True, null=True)  
+    cover_image = models.ImageField(upload_to='Magazines/Cover_images/', blank=True, null=True)
     cover_video = models.FileField(upload_to='Magazines/Cover_videos/', blank=True, null=True)
+    magazine_intro =models.TextField(blank=True, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)  # FIXED
     published_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     is_published = models.BooleanField(default=False)
@@ -83,7 +84,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user}"
-    
+
 
 
 class Subscriber(models.Model):
@@ -92,3 +93,13 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Contact_Us(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20, default="", blank=True)
+    message = models.TextField()
+    subject = models.CharField(max_length=250)
+    def __str__(self):
+        return self.name

@@ -1,6 +1,6 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block title %}Articles{% endblock title %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Magazine{% endblock title %}
 
 
 {% block meta_tags %}
@@ -14,14 +14,20 @@
 
 
 {% block page_css %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 <style>
-    
+
     body {
-    background-image: url("{% static 'images/back.jpg' %}");
+        background-image: url("{% static 'images/back.jpg' %}");
+        font-family: "IM Fell English", serif!important;
+
+        /* font-size: 1.20rem; */
+        color:black;
     }
 
     header {
@@ -47,9 +53,9 @@
         padding: 0 15px;
         margin: 0 auto;
         /* margin-bottom: 15%;  */
-        margin-bottom: 100px;       
+        margin-bottom: 100px;
     }
-    
+
 
 
     .container {
@@ -59,7 +65,7 @@
         margin-left: auto;
         padding-right: 15px;
         padding-left: 15px;
-        
+
     }
 
 
@@ -76,9 +82,9 @@
         padding-right: 15px;
         padding-left: 15px;
         flex: 0 0 66.666667%;
-        max-width: 800px;
+        /* max-width: 800px; */
         margin: 0 auto;
-    
+
 
     }
 
@@ -101,7 +107,9 @@
     @media (max-width: 768px) {
         .col-lg-8 {
             padding: 10px;
+            flex: 1 100%;
         }
+
         .form-row {
             display: flex;
             flex-direction: column;
@@ -153,9 +161,10 @@
 
 
     a {
-        color: #ff5000;
+        color: black;
         text-decoration: none;
         background-color: transparent;
+        font-size: 1rem;
     }
 
     a:hover {
@@ -166,7 +175,7 @@
     h1 {
         margin-top: 0;
         margin-bottom: 0.5rem;
-        font-weight: 500;
+        font-weight: 600;
         line-height: 1.2;
         color: #212529;
         font-size: 2.5rem;
@@ -200,7 +209,7 @@
         /* border: 1px solid #007bff; */
         border-radius: 4px;
         font-weight: bold;
-        
+
     }
 
 
@@ -253,7 +262,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
-        
+
     }
 
     .smlbtn {
@@ -262,17 +271,17 @@
     }
 
     .smlbtn .likeit{
-        color:#ff5000 ;
+        color:black ;
         font-weight: bold;
         font-size: 1.5rem;
-    
+
 
     }
 
     .overlay {
         margin-left: 10px;
         padding: 5px 10px;
-        background-color: #ff5000;
+        background-color:black;
         color: white;
         text-decoration: none;
         border-radius: 20px;
@@ -286,11 +295,11 @@
     .icons {
         display: flex;
         gap: 10px;
-       
-    }
-    
 
-    .icons i {
+    }
+
+
+    .icons a i {
     font-size: 1.2rem;
     color: black;
     transition: color 0.3s;
@@ -298,12 +307,12 @@
 
 
 
-    
-        
+
+
     }
 
     .icons i:hover {
-        color: #007bff;
+        color: #ff4081;
     }
 
     @media (max-width: 768px) {
@@ -318,7 +327,7 @@
     /* trending item start */
 
     .Load-more {
-    
+
 
         color:black;
         padding: 5px 5px;
@@ -328,10 +337,10 @@
     .Load-more:hover {
         color:#6c757d;
         padding: 5px 5px;
-        
+
     }
 
-  
+
     .trending-item {
         display: flex;
         align-items: center;
@@ -371,6 +380,10 @@
             width: 100%;
             height: auto;
         }
+        .container-fluid{
+            padding: 0!important;
+            margin-top: 170px!important;
+        }
     }
 
     .trending-item a:hover {
@@ -395,6 +408,15 @@
         border: 1px solid #ddd;
     }
 
+    .fullMagazineletter .sticky-box {
+        position: sticky;
+        top: 150px;
+        height: fit-content;
+
+    }
+
+
+
     .Magazineletter-input-group {
         display: flex;
         justify-content: center;
@@ -418,7 +440,7 @@
         border: none;
         border-radius: 20px;
         cursor: pointer;
-       
+
     }
 
     .fullMagazineletter button:hover {
@@ -438,11 +460,124 @@
 
 
     .signUp {
-        background: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+        background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(153, 150, 148) 100%);
       font-weight: bold;
     }
-    
-                 
+
+
+
+
+    /* {% comment %} addvertise {% endcomment %} */
+
+
+    .sticky-box {
+        position: sticky;
+        top: 69px;
+        height: fit-content;
+    }
+
+
+    .sidebar {
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .sticky {
+        position: sticky;
+        top: 60px;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+
+    }
+
+
+    .title {
+         font-weight: bold;
+         text-transform: uppercase;
+         margin-bottom: 15px;
+         text-align: center;
+         font-weight: bold;
+         text-transform: uppercase;
+         margin-bottom: 15px;
+         font-size: 30px;
+
+         font-style: normal;
+
+
+    }
+    .wrapper {
+        max-width: 2000px;
+        margin: auto;
+        padding: 20px;
+
+
+    }
+
+    @media (max-width: 1024px) {
+        .content {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sidebar {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .content {
+            gap: 5px;
+        }
+
+        .box {
+            padding: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .wrapper {
+            padding: 0px;
+        }
+
+        .box h3 {
+            font-size: 16px;
+        }
+
+        .box p {
+            font-size: 12px;
+        }
+
+        .title {
+            font-size: 20px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 280px;
+
+        }
+    }
+
+
+    footer .social-icons .youtube a i,
+    footer .social-icons .whatsapp a i,
+    footer .social-icons .instagram a i,
+    footer .social-icons .linkedin a i{
+        font-size: 2rem;
+    }
+
+
+
 </style>
 {% endblock page_css %}
 
@@ -451,15 +586,16 @@
 {% block content %}
 
     <!-- Magazine With Sidebar Start -->
-    <div class="container-fluid">
-        <div class="container">
+    <div class="container-fluid" style="margin-top: 250px; padding: 0 100px;">
+        <div class="">
             <div class="row" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
                 <div class="col-lg-8" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
                     {% if magazine %}
                     <div>
                         <a href="">{{ magazine.category.name }}</a>
-                        <h1>{{ magazine.title }}</h1>
+                        <h1 style>{{ magazine.title }}</h1>
                         <a href="">{{ magazine.published_at|date:"M d, Y" }}</a>
+                        <p style="font-size: 14px;">{{ magazine.magazine_intro }}</p>
                         {% if magazine.cover_image.url %}
                         <img src="{{ magazine.cover_image.url }}" class="MAGAZINE-img" alt="{{ magazine.title }}" style="width: 100%; height: auto;">
                         {% endif %}
@@ -476,11 +612,11 @@
                     {% for section in magazine.sections.all %}
                     <div>
                         {% if section.heading %}
-                            <h2>{{ section.heading }}</h2>
+                            <h2 style='font-weight: 600'>{{ section.heading }}</h2>
                         {% endif %}
 
                         {% if section.content_top %}
-                            <p>{{ section.content_top|safe }}</p>
+                            <p style="font-size: 14px;">{{ section.content_top|safe }}</p>
                         {% endif %}
 
                         {% if section.image %}
@@ -518,50 +654,29 @@
                         </div>
                         <div class="icons">
                             <h5 class="share-title">Share:</h5>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-brands fa-twitter"></i>
-                            <i class="fa-brands fa-instagram"></i>
+                            <a href="https://wa.me/919205625360?text=Hello%20World!" target="_blank">
+                                <i class="fa-brands fa-whatsapp" style="font-family: 'FontAwesome'!important;"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@futuretechnologiesft" target="_blank">
+                                <i class="fa-brands fa-youtube" style="font-family: 'FontAwesome'!important;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/futuretechnologies_/" target="_blank">
+                                <i class="fa-brands fa-instagram" style="font-family: 'FontAwesome'!important;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/ft-future-technologies/" target="_blank">
+                                <i class="fa-brands fa-linkedin" style="font-family: 'FontAwesome'!important;"></i>
+                            </a>
                         </div>
-                    </div>
-
-                    <!-- Comments Section -->
-                    <div>
-                        <h4 style="color: #ff5000; font-weight: bold;">{{ magazine.comments.count }} Comments</h4>
-                        {% for comment in magazine.comments.all %}
-                        <div>
-                            <img src="{% static '/img/default-user.png' %}" alt="User" class="comment-img" style="width: 100%; max-width: 60px; height: auto; border-radius: 50%;">
-                            <div>
-                                <h6><a href="">{{ comment.user.username }}</a> <small><i>{{ comment.created_at|date:"M d, Y" }}</i></small></h6>
-                                <p>{{ comment.content }}</p>
-                            </div>
-                        </div>
-                        {% empty %}
-                        <p>No comments yet. Be the first to comment!</p>
-                        {% endfor %}
-                    </div>
-
-                    <!-- Comment Form -->
-                    <div>
-                        <h4 style="color: #ff5000; font-weight: bold;">Leave a comment</h4>
-                        <form method="POST">
-                            {% csrf_token %}
-                            <input type="hidden" name="form_type" value="comment">  <!-- Identify form submission -->
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea name="content" id="message" cols="30" rows="5" class="textarea-field" style="width: 100%;"></textarea>
-                            </div>
-                            <input type="submit" value="Post comment" class="submit-btn">
-                        </form>
                     </div>
                     {% endif %}
                 </div>
 
-                <div class="col-lg-4" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; position: -webkit-sticky; position: sticky; top: 0;">
+                <div class="col-lg-4 " style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; position: -webkit-sticky; position: sticky; top: 0;">
                     <div class="Latest_Articles" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
-                        <h4 style="color: #ff5000; font-weight: bold;">Latest Articles</h4>
+                        <h4 style="color: black; font-weight: bold;">Latest Articles</h4>
                         {% for latest in latest_magazines %}
                         <div class="trending-item" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 5px;">
-                            <div>
+                            <div style="width: 100%;">
                                 <a href="{% url 'magazine_detail' latest.slug %}">{{ latest.title|truncatechars:50 }}</a>
                                 <div style="padding-left: 0;">
                                     <a href=""><small>{{ latest.published_at|date:"M d, Y" }}</small></a>
@@ -575,33 +690,80 @@
                         <input type="submit" value="Load more >" class="Load-more"><br>
                     </div>
 
-                    
-                    <div class="fullMagazineletter" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
-                        <img src="{% static '/img/Namaste.jpg' %}" alt="" style="width: 30%; max-width: 400px; height: auto;">
+
+
+
+                    <div class="sidebar sticky-box" >
+                        <div class="sticky">
+                            <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+                                <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://www.ainfinite.ai/" target="_blank">
+                                <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://www.pbsindia.com/" target="_blank">
+                                <img src="{% static 'img/FTadd2.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://www.livingstonecoffee.in/" target="_blank">
+                                <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://amity.edu/noida/aisst/" target="_blank">
+                                <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://www.carbon-light.com/" target="_blank">
+                                <img src="{% static 'img/FTadd5.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                        <div class="sticky">
+                            <a href="https://shaktiwearables.com/" target="_blank">
+                                <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <!-- {% comment %} <div class="fullMagazineletter sticky-box" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+
                         <div class="Magazineletter-container">
                             <p>Sign up to receive FT-Magazine content in your inbox</p>
-                    
+
                             <form method="POST">
                                 {% csrf_token %}
-                                <input type="hidden" name="form_type" value="subscription">  <!-- Identify form submission -->
+                                <input type="hidden" name="form_type" value="subscription">
                                 <div class="Magazineletter-input-group">
                                     {{ subscription_form.email }}
                                 </div>
                                 <button type="submit" name="subscribe" class="signUp">Sign Up</button>
                             </form>
-                    
+
                             <div>
                                 <small>We don’t spam! Read our <a href="">privacy policy</a> for more info.</small>
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %} -->
                 </div>
             </div>
         </div>
     </div>
 
-    <a href="#" class="btn btn-primary btn-square back-to-top" style="position:fixed; right: 50px; bottom: 50px;"><i class="fa fa-arrow-up"></i></a>
+    <!-- {% comment %} <a href="#" class="btn btn-primary btn-square back-to-top" style="position:fixed; right: 50px; bottom: 50px;"><i class="fa fa-arrow-up"></i></a> {% endcomment %} -->
     <script src="{% static 'js/main.js' %}"></script>
 
-{% endblock content %} 
-        
+{% endblock content %}
