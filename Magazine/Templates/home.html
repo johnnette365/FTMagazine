@@ -2125,7 +2125,7 @@ h5 {
     display: flex;
     width: 100%;
     animation: slide 25s linear infinite;
-    background-color: #dfe5e5;
+  
   }
 
   .slider-item {
@@ -2412,11 +2412,11 @@ h5 {
                             <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
                         </a>
                     </div>
-                    <div class="sticky">
+                    {% comment %} <div class="sticky">
                         <a href="https://www.softlabsgroup.com/" target="_blank">
                             <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
                         </a>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
 
             </div>
@@ -2442,33 +2442,6 @@ h5 {
 
 {% comment %} big advertise section {% endcomment %}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <hr>
 <div class="subscription-container">
     <div class="magazine-cover">
@@ -2482,10 +2455,6 @@ h5 {
     </div>
 </div>
 <hr>
-
-
-
-
 
 <div class="slider-container">
     <div class="swiper mySwiper">
@@ -2525,7 +2494,6 @@ h5 {
     </div>
 </div>
 
-
  <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
@@ -2538,13 +2506,6 @@ h5 {
 
 
 {% comment %} all advertise {% endcomment %}
-
-
-
-
-
-
-
 
 {% comment %} <div class="popup-container" id="popup-container">
     <div class="popup-content">
@@ -2559,13 +2520,6 @@ h5 {
         </form>
     </div>
 </div> {% endcomment %}
-
-
-
-
-
-
-
 
 {% comment %} <hr>
 <div class="subscription-container">
@@ -2611,13 +2565,16 @@ h5 {
 
 <div class="slider-container">
     <div class="sndslider">
-      <div class="slider-item"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></div>
+      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
     </div>
-  </div>
+</div>
+  
 
 
 

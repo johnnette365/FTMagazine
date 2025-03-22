@@ -335,24 +335,15 @@ h3 {
 .slider-container {
   width: 100%;
   overflow: hidden;
-  background-color: #dfe5e5; /* Same background color */
-  display: none;
+  
 }
 
-@media (max-width: 768px) {
-  .slider-container {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    background-color: #dfe5e5; /* Same background color */
-  }
-}
 
 .sndslider {
   display: flex;
   width: 100%;
-  animation: slide 20s linear infinite;
-  gap:20px;
+  animation: slide 25s linear infinite;
+
 }
 
 .slider-item {
@@ -363,7 +354,7 @@ h3 {
 }
 
 .slider-item img {
-  max-width: 100px; /* Adjust to your image size */
+  max-width: 200px; /* Adjust to your image size */
 }
 
 @keyframes slide {
@@ -619,11 +610,13 @@ h3 {
 {% comment %} demo add {% endcomment %}
 <div class="slider-container">
   <div class="sndslider">
-    <div class="slider-item"><img src="{% static 'img/FTadd2.jpg' %}" alt="ads"></div>
-    <div class="slider-item"><img src="{% static 'img/FTadd3.jpg' %}" alt="ads"></div>
-    <div class="slider-item"><img src="{% static 'img/FTadd4.jpg' %}" alt="ads"></div>
-    <div class="slider-item"><img src="{% static 'img/FTadd5.jpg' %}" alt="ads"></div>
-    <div class="slider-item"><img src="{% static 'img/FTadd6.jpg' %}" alt="ads"></div>
+    <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
   </div>
 </div>
 
