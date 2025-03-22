@@ -90,6 +90,17 @@
 
   }
 
+  .advertisement {
+    display: block;
+  }
+  
+  /* Hidden on small screens (e.g., below 768px) */
+  @media (max-width: 768px) {
+    .advertisement {
+      display: none;
+    }
+  }
+
 
 
   .news-container {
@@ -318,6 +329,50 @@ h3 {
 
   }
 
+}
+
+{% comment %} demo add {% endcomment %}
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #dfe5e5; /* Same background color */
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: #dfe5e5; /* Same background color */
+  }
+}
+
+.sndslider {
+  display: flex;
+  width: 100%;
+  animation: slide 20s linear infinite;
+  gap:20px;
+}
+
+.slider-item {
+  flex: 0 0 20%; /* 5 items, adjust accordingly */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-item img {
+  max-width: 100px; /* Adjust to your image size */
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 </style>
@@ -559,6 +614,19 @@ h3 {
     </div>
   </div>
 </div>
+
+
+{% comment %} demo add {% endcomment %}
+<div class="slider-container">
+  <div class="sndslider">
+    <div class="slider-item"><img src="{% static 'img/FTadd2.jpg' %}" alt="ads"></div>
+    <div class="slider-item"><img src="{% static 'img/FTadd3.jpg' %}" alt="ads"></div>
+    <div class="slider-item"><img src="{% static 'img/FTadd4.jpg' %}" alt="ads"></div>
+    <div class="slider-item"><img src="{% static 'img/FTadd5.jpg' %}" alt="ads"></div>
+    <div class="slider-item"><img src="{% static 'img/FTadd6.jpg' %}" alt="ads"></div>
+  </div>
+</div>
+
 
 
 

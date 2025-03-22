@@ -826,6 +826,7 @@ nav{
 .sidebar {
     width: 25%;
     padding-left: 20px;
+    display: block;
 }
 
 .sticky {
@@ -837,6 +838,14 @@ nav{
     margin-bottom: 20px;
 
 }
+
+
+@media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  }
+
 
 
 .title {
@@ -1104,6 +1113,52 @@ nav{
 }
 
 
+{% comment %} demo ads {% endcomment %}
+{% comment %} demo add {% endcomment %}
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #dfe5e5; 
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .slider-container {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      background-color: #dfe5e5; 
+    }
+  }
+  
+  .sndslider {
+    display: flex;
+    width: 100%;
+    animation: slide 20s linear infinite;
+    gap:20px;
+  }
+  
+  .slider-item {
+    flex: 0 0 20%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider-item img {
+    max-width: 100px; 
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+
 
 
 
@@ -1299,6 +1354,11 @@ nav{
             {% endfor %}
         </div>
 
+        
+
+
+
+
 
         <div class="sidebar">
             <div class="sticky">
@@ -1383,6 +1443,17 @@ nav{
         {% endfor %}
     </div>
 </div>
+
+{% comment %} demo ads {% endcomment %}
+<div class="slider-container">
+    <div class="sndslider">
+      <div class="slider-item"><img src="{% static 'img/FTadd2.jpg' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd3.jpg' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd4.jpg' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd5.jpg' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd6.jpg' %}" alt="ads"></div>
+    </div>
+  </div>
 
 
 

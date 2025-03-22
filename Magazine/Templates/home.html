@@ -2112,9 +2112,43 @@ h5 {
 }
 
 
-{% comment %} all advertise section {% endcomment %}
+{% comment %} demo ads {% endcomment %}
 
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    
+  }
+  {% comment %} background-color: #dfe5e5;  {% endcomment %}
 
+  .sndslider {
+    display: flex;
+    width: 100%;
+    animation: slide 25s linear infinite;
+    background-color: #dfe5e5;
+  }
+
+  .slider-item {
+    flex: 0 0 20%; /* 5 items, adjust accordingly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slider-item img {
+    max-width: 200px; /* Adjust to your image size */
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+{% comment %} gfvgbhjnm,iuytrtvybun {% endcomment %}
 
 
 
@@ -2573,6 +2607,17 @@ h5 {
     </div>
     <hr>
 </div>
+{% comment %} demo ads {% endcomment %}
+
+<div class="slider-container">
+    <div class="sndslider">
+      <div class="slider-item"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></div>
+      <div class="slider-item"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></div>
+    </div>
+  </div>
 
 
 
