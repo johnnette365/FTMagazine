@@ -1,0 +1,573 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}News{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+
+      {% comment %} addvertise {% endcomment %}
+
+       .ad-container {
+        position: relative;
+        width: 90%;
+        max-width: 1000px;
+        margin: 180px auto 20px auto;
+        overflow: hidden;
+        height: 280px;
+    }
+
+    .ad-banner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .ad-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 10px 10px;
+    }
+
+
+
+
+    @media screen and (max-width: 768px) {
+        .ad-container {
+            height: 200px;
+            width: 95%;
+            object-fit:cover;
+        }
+
+
+
+
+    }
+
+    @media screen and (max-width: 480px) {
+        .ad-container {
+            height: 73%;
+            width: 98%;
+            margin-top: 100px;
+            object-fit:cover;
+        }
+
+    }
+
+
+    {% comment %} sticky {% endcomment %}
+  .sidebar {
+      width: 100%;
+      padding-left: 20px;
+  }
+
+  .sticky {
+      position: sticky;
+      top: 60px;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+
+  }
+
+
+
+  .news-container {
+    margin-top: 20px;
+  }
+
+  .main-article img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .main-article h2 {
+    font-size: 33px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-decoration: none;
+    color: black;
+  }
+  .main-article h2:hover {
+    text-decoration: underline;
+  }
+
+
+
+  @media screen and (max-width: 480px) {
+    .main-article h2{
+      font-size: 16px;
+
+    }
+
+
+  }
+
+
+
+
+
+
+  .left-column {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping */
+}
+
+.news-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dotted #ccc;
+  width: calc(50% - 10px); /* Two items per row on larger screens */
+}
+
+.news-item img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.news-item p {
+  flex: 1;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.news-item:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+.news-item a {
+  text-decoration: none;
+  color: inherit;
+
+  gap: 10px;
+}
+/* display: flex; */
+
+.news-item h2 {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.news-item h2:hover {
+  text-decoration: underline;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .news-item {
+    width: 100%; /* Stack items on smaller screens */
+  }
+
+  .news-item img {
+    width: 60px;
+    height: 45px;
+  }
+}
+
+
+
+
+
+
+
+  .right-column {
+    margin-top: 20px;
+  }
+
+  .video-item {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .video-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .video-timestamp {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 3px 6px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+  }
+
+  .video-item p {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .video-item h2 {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+  .video-item h2:hover {
+    text-decoration: underline;
+
+  }
+
+  .lastupdate {
+    font-size: 11px;
+    color: gray;
+  }
+
+h3 {
+  color: black !important;
+}
+
+
+
+
+
+
+
+{% comment %} middle add {% endcomment %}
+
+
+
+.sndad-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto 10px auto;
+  overflow: hidden;
+  height: 280px;
+}
+
+.sndad-banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sndad-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 35px 10px;
+}
+
+
+{% comment %} end {% endcomment %}
+
+@media screen and (max-width: 768px) {
+  .sndad-container {
+      height: 200px;
+      width: 95%;
+  }
+
+  .sndad-text {
+      font-size: 18px;
+  }
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .sndad-container {
+      height: 58%;
+      width: 56%;
+      margin-top: 50px;
+      object-fit:cover;
+  }
+
+  .sndad-banner img {
+      width: 100%;
+      height: 57%;
+      object-fit: cover;
+      padding: 10px 10px;
+
+
+  }
+
+}
+
+</style>
+{% endblock page_css %}
+
+
+
+
+
+{% block content %}
+
+<div class="ad-container">
+  <div class="ad-banner">
+      <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+          <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+
+      </a>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-2">
+
+      <div class="advertisement">
+        <div class="sidebar">
+          <div class="sticky">
+              <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+                  <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.ainfinite.ai/" target="_blank">
+                  <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.pbsindia.com/" target="_blank">
+                  <img src="{% static 'img/FTadd2.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.livingstonecoffee.in/" target="_blank">
+                  <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://amity.edu/noida/aisst/" target="_blank">
+                  <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.carbon-light.com/" target="_blank">
+                  <img src="{% static 'img/FTadd5.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://shaktiwearables.com/" target="_blank">
+                  <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+      </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-8 news-container" style="max-width: 1000px;">
+      <div class="row">
+        <div class="col-md-8">
+
+          {% comment %} top main card {% endcomment %}
+          {% for item in latest_magazines %}
+          <div class="main-article">
+            <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
+              <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+              <h2>{{ item.title }}</h2>
+              <h3 style='font-size: 0.75rem'>BY Cyril Christopher</h3>
+              <p class="lastupdate" style='font-size: 11px;'>{{ item.published_at|date:"M d, Y" }}</p>
+            </a>
+          </div>
+          {% endfor %}
+
+
+          <!-- {% comment %} for small wrap cards after main card {% endcomment %}
+          <div class="left-column">
+                 {% for item in latest_magazines %}
+                    <div class="news-item">
+                      <a href="{% url 'news_detail' item.slug %}">
+                        <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                        <h2>{{ item.title }}</h2>
+                        <div style="display: block; margin-top: 5px;">
+                          <h3 style="font-size: 0.75rem; color: black; margin-top: 10px;">BY Cyril Christopher</h3>
+                          <p class="lastupdate" style="font-size: 11px;">{{ item.published_at|date:"M d, Y" }}</p>
+                        </div>
+                      </a>
+                    </div>
+                {% endfor %}
+
+            {% for item in latest_magazines %}
+                <div class="news-item">
+                  <a href="{% url 'news_detail' item.slug %}">
+                    <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                    <h2>{{ item.title }}</h2>
+                    <div style="display: block; margin-top: 5px;">
+                      <h3 style="font-size: 0.75rem; color: black; margin-top: 10px;">BY Cyril Christopher</h3>
+                      <p class="lastupdate" style="font-size: 11px;">{{ item.published_at|date:"M d, Y" }}</p>
+                    </div>
+                  </a>
+                </div>
+            {% endfor %}
+
+            {% for item in latest_magazines %}
+                <div class="news-item">
+                  <a href="{% url 'news_detail' item.slug %}">
+                    <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                    <h2>{{ item.title }}</h2>
+                    <div style="display: block; margin-top: 5px;">
+                      <h3 style="font-size: 0.75rem; color: black; margin-top: 10px;">BY Cyril Christopher</h3>
+                      <p class="lastupdate" style="font-size: 11px;">{{ item.published_at|date:"M d, Y" }}</p>
+                    </div>
+                  </a>
+                </div>
+            {% endfor %}
+
+            {% for item in latest_magazines %}
+                <div class="news-item">
+                  <a href="{% url 'news_detail' item.slug %}">
+                    <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                    <h2>{{ item.title }}</h2>
+                    <div style="display: block; margin-top: 5px;">
+                      <h3 style="font-size: 0.75rem; color: black; margin-top: 10px;">BY Cyril Christopher</h3>
+                      <p class="lastupdate" style="font-size: 11px;">{{ item.published_at|date:"M d, Y" }}</p>
+                    </div>
+                  </a>
+                </div>
+            {% endfor %}
+          </div> -->
+
+
+        </div>
+
+
+        {% comment %} for video or img right side {% endcomment %}
+        <!-- <div class="col-md-4">
+          <div class="right-column">
+             {% for item in latest_magazines %}
+                <div class="video-item">
+                  <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
+                    <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                    <h2>{{ item.title }}</h2>
+                    <h3 style='font-size: 0.75rem; color: black;'>BY Cyril Christopher</h3>
+                    <p class="lastupdate" style='font-size: 11px;'>{{ item.published_at|date:"M d, Y" }}</p>
+                  </a>
+                </div>
+            {% endfor %}
+
+
+            {% for item in latest_magazines %}
+                <div class="video-item">
+                  <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
+                    <img src="{{ item.cover_image.url }}" alt="Main Article Image">
+                    <h2>{{ item.title }}</h2>
+                    <h3 style='font-size: 0.75rem; color: black;'>BY Cyril Christopher</h3>
+                    <p class="lastupdate" style='font-size: 11px;'>{{ item.published_at|date:"M d, Y" }}</p>
+                  </a>
+                </div>
+            {% endfor %}
+          </div>
+        </div> -->
+      </div>
+
+
+      {% comment %} for middle add {% endcomment %}
+      {% comment %} <div class="sndad-container">
+        <div class="sndad-banner">
+            <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+                <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            </a>
+        </div>
+     </div> {% endcomment %}
+
+    </div>
+
+
+
+
+
+    <div class="col-md-2">
+
+
+      <div class="advertisement">
+        <div class="sidebar sticky-box">
+          <div class="sticky">
+              <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+                  <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.ainfinite.ai/" target="_blank">
+                  <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.pbsindia.com/" target="_blank">
+                  <img src="{% static 'img/FTadd2.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.livingstonecoffee.in/" target="_blank">
+                  <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://amity.edu/noida/aisst/" target="_blank">
+                  <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://www.carbon-light.com/" target="_blank">
+                  <img src="{% static 'img/FTadd5.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+          <div class="sticky">
+              <a href="https://shaktiwearables.com/" target="_blank">
+                  <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
+              </a>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+{% block page_js %}
+{% endblock page_js %}

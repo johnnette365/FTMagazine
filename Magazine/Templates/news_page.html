@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}News_page{% endblock title %}
+{% block title %}News{% endblock title %}
 
 
 {% block meta_tags %}
@@ -93,7 +93,7 @@
   .advertisement {
     display: block;
   }
-  
+
   /* Hidden on small screens (e.g., below 768px) */
   @media (max-width: 768px) {
     .advertisement {
@@ -181,7 +181,7 @@
 .news-item a {
   text-decoration: none;
   color: inherit;
- 
+
   gap: 10px;
 }
 /* display: flex; */
@@ -333,39 +333,62 @@ h3 {
 
 {% comment %} demo add {% endcomment %}
 .slider-container {
-  width: 100%;
   overflow: hidden;
-  
+  width: 100%;
 }
-
 
 .sndslider {
   display: flex;
-  width: 100%;
-  animation: slide 25s linear infinite;
-  gap: 20px;
-
+  width: max-content;
+  animation: slide 20s linear infinite;
+  gap: 35px
 }
 
 .slider-item {
-  flex: 0 0 20%; /* 5 items, adjust accordingly */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 0 0 auto;
+  margin-right: 20px;
 }
 
 .slider-item img {
-  max-width: 200px; /* Adjust to your image size */
+  width: 188px;
+  height: auto;
 }
 
 @keyframes slide {
-  from {
+  0% {
     transform: translateX(100%);
   }
-  to {
+  100% {
     transform: translateX(-100%);
   }
 }
+
+
+@media (max-width: 768px) {
+  .slider-item img {
+    width: 131px;
+  }
+}
+
+/* Hide the slider  */
+@media (min-width: 769px) {
+  .slider-container {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .footer-container .footer-section {
+        margin-left: 0px !important;
+    }
+
+
+
+
+
+  }
+
 
 </style>
 {% endblock page_css %}
@@ -400,14 +423,24 @@ h3 {
       <div class="advertisement">
         <div class="sidebar">
           <div class="sticky">
-              <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                  <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
-              </a>
-          </div>
-          <div class="sticky">
+            <a href="https://shaktiwearables.com/" target="_blank">
+                <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
+            </a>
+         </div>
+         <div class="sticky">
+          <a href="https://amity.edu/noida/aisst/" target="_blank">
+              <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
+          </a>
+         </div>
+         <div class="sticky">
               <a href="https://www.ainfinite.ai/" target="_blank">
                   <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
               </a>
+          </div>
+          <div class="sticky">
+            <a href="https://www.livingstonecoffee.in/" target="_blank">
+                <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
+            </a>
           </div>
           <div class="sticky">
               <a href="https://www.pbsindia.com/" target="_blank">
@@ -415,25 +448,17 @@ h3 {
               </a>
           </div>
           <div class="sticky">
-              <a href="https://www.livingstonecoffee.in/" target="_blank">
-                  <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
-              </a>
-          </div>
-          <div class="sticky">
-              <a href="https://amity.edu/noida/aisst/" target="_blank">
-                  <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
-              </a>
-          </div>
-          <div class="sticky">
-              <a href="https://www.carbon-light.com/" target="_blank">
-                  <img src="{% static 'img/FTadd5.jpg' %}" style="width: 100%;" alt="">
-              </a>
-          </div>
-          <div class="sticky">
-              <a href="https://shaktiwearables.com/" target="_blank">
-                  <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
-              </a>
-          </div>
+            <a href="https://www.futuretechnologiessummit.com/" target="_blank">
+                <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+            </a>
+         </div>
+
+         <div class="sticky">
+            <a href="https://www.carbon-light.com/" target="_blank">
+                <img src="{% static 'img/FTadd5.jpg' %}" style="width: 100%;" alt="">
+            </a>
+         </div>
+
       </div>
 
       </div>

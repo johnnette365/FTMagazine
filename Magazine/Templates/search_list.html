@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}search{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 160px;;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.results-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.results-info .sort {
+    display: flex;
+    align-items: center;
+}
+
+.results-info select {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.article-list {
+    margin: 20px 0;
+}
+
+.article {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.article img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.article-content {
+    max-width: 800px;
+    margin-left: 45px;
+}
+
+.article-content h5 {
+    font-size: 12px;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.article-content h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.article-content h2  :hover{
+   text-decoration: underline;
+}
+
+.article-content p {
+    font-size: 12px;
+    color: #555;
+}
+
+/* search */
+
+
+
+</style>
+{% endblock page_css %}
+
+
+
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Search stories from Magazine</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder='Our Magazines'>
+        <button>SEARCH</button>
+    </div>
+
+    <div class="results-info">
+        <p>10,000+ results from Future Technologies</p>
+        <div class="sort">
+            <span>Sort by</span>
+            <select>
+                <option>Relevance</option>
+                <option>Latest</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="article-list">
+        <div class="article">
+            <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+            <div class="article-content">
+                <h5>News</h5>
+                <h2>What Elon Musk did that NASA could not to bring back Sunita Williams</h2>
+                <p>BY Cyril Christopher</p>
+                <p style="font-size: 12px;">March 22, 2025</p>
+            </div>
+        </div>
+        <hr>
+        <div class="article">
+            <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+            <div class="article-content">
+                <h5>Startups</h5>
+                <h2>How To Become The Next Tech Unicorn</h2>
+                <p>BY </p>
+                <p style="font-size: 12px;">March 22, 2025</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+{% block page_js %}
+.
+
+{% endblock page_js %}

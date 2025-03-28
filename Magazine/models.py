@@ -43,7 +43,7 @@ class Magazine(SEOMixin):
     tags = models.ManyToManyField(Tag, blank=True)
     title = models.CharField(max_length=500, unique=True)
     slug = models.SlugField(max_length=500, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.CharField(max_length=250)
     cover_image = models.ImageField(upload_to='Magazines/Cover_images/', blank=True, null=True)
     cover_video = models.FileField(upload_to='Magazines/Cover_videos/', blank=True, null=True)
     magazine_intro =models.TextField(blank=True, null=True, default=None)

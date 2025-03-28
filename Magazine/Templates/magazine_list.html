@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Magazine{% endblock title %}
@@ -60,6 +61,8 @@ nav{
 
 
 
+  
+
     .banner-text {
         position: absolute;
         top: 50%;
@@ -73,11 +76,6 @@ nav{
        border-radius: 10px;
        color: white;
        font-weight: bolder;
-
-
-
-
-
 
     }
 
@@ -148,6 +146,11 @@ nav{
             word-wrap: break-word;
             line-height: 1.5;
         }
+
+
+        .banner-text a button {
+            width: 100%; /* Make button full-width */
+            font-size: 0.9rem; /* Adjust button size */
     }
 
     @media (max-width: 480px) {
@@ -158,7 +161,7 @@ nav{
         }
 
         .banner-text h1 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             line-height: 1.2;
         }
 
@@ -166,9 +169,35 @@ nav{
             font-size: 0.9rem;
             line-height: 1.4;
         }
+        .banner-container {
+            margin-top: 110px;
+        }
+        .fs-4 {
+            font-size: 15px;
+        }
+    
+        .banner-text {
+            top: 63%;
+        }
+        
+        .banner-text a button {
+            width: 100%;
+            font-size: 0.8rem; /* Smaller font for button */
+        }
+    }
+
     }
 
 
+
+    .fs-4 {
+    font-size: calc(1rem + .1vw) !important;
+}
+
+
+   
+    
+   
 
 
 
@@ -502,6 +531,11 @@ nav{
         cursor: pointer;
     }
 
+    .box p {
+        margin-top: 30px;
+
+    }
+
 
     @media screen and (max-width: 1024px) {
         .secondcard {
@@ -547,6 +581,10 @@ nav{
 
         .box-text {
             font-size: 0.9rem;
+        }
+
+        .box .card-footer {
+            margin-top: 50px;
         }
     }
 
@@ -597,10 +635,10 @@ nav{
         }
 
 
-        .featured p {
+        /* {% comment %} .featured p {
             padding: 10px 10px 10px 10px;
 
-        }
+        } {% endcomment %} */
         .article {
             background: #f5f5f5;
             padding: 10px;
@@ -631,7 +669,7 @@ nav{
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-           text-align: center;
+           
 
         }
 
@@ -1076,7 +1114,12 @@ nav{
     padding: 10px 10px;
 }
 
-
+.desktop-banner{
+    display: block;
+}
+.mobile-banner{
+    display: none;
+}
 
 /* {% comment %} end {% endcomment %} */
 
@@ -1097,7 +1140,7 @@ nav{
     .sndad-container {
         height: 58%;
         width: 100%;
-        margin-top: 50px;
+        margin-top: 5px;
         object-fit:cover;
     }
 
@@ -1113,51 +1156,62 @@ nav{
 }
 
 
-{% comment %} demo ads {% endcomment %}
-{% comment %} demo add {% endcomment %}
-.slider-container {
-    width: 100%;
-    overflow: hidden;
-    background-color: #dfe5e5; 
-    display: none;
+/* {% comment %} demo ads {% endcomment %} */
+
+ .slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.sndslider {
+  display: flex;
+  width: max-content;
+  animation: slide 20s linear infinite;
+  gap: 35px
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.slider-item img {
+  width: 188px;
+  height: auto; 
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
   }
-  
-  @media (max-width: 768px) {
-    .slider-container {
-      display: block;
-      width: 100%;
-      overflow: hidden;
-      background-color: #dfe5e5; 
-    }
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .sndslider {
-    display: flex;
-    width: 100%;
-    animation: slide 20s linear infinite;
-    gap:20px;
-  }
-  
-  .slider-item {
-    flex: 0 0 20%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+}
+
+
+@media (max-width: 768px) {
   .slider-item img {
-    max-width: 100px; 
+    width: 131px; 
   }
+}
+
+/* Hide the slider */
+@media (min-width: 769px) {
+  .slider-container {
+    display: none; 
+  }
+}
+
+
   
-  @keyframes slide {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(-100%);
+
+  @media screen and (max-width: 480px) {
+    .footer-container .footer-section {
+        margin-left: 0px !important;
+
     }
   }
-  
 
 
 
@@ -1175,7 +1229,8 @@ nav{
 
 
 <div class="banner-container" style="position: relative;">
-    <img src="{% static '/img/banner/banner.png' %}" alt="Banner Image" style="width: 100%; z-index: -1;">
+    <img class='desktop-banner' src="{% static '/img/banner/banner.png' %}" alt="Banner Image" style="width: 100%; z-index: -1;">
+    <img class='mobile-banner' src="{% static '/img/banner/mobile-banner.png' %}" alt="Banner Image" style="width: 100%; z-index: -1;">
 
     <div class="banner-text" style="color: white; max-width: 800px; ">
         <h1 style=" font-weight: bold;">Future Technologies Magazine</h1>
@@ -1269,7 +1324,7 @@ nav{
                 <h2 style="text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                     {{ item.title }}
                 </h2>
-                <div style="text-align: center;">
+                <div >
                     {% with item.sections.first as section %}
                         {% if section %}
                             {% if section.content_top %}
@@ -1281,7 +1336,7 @@ nav{
                     {% endwith %}
                 </div>
                 <br>
-                <p class="card-footer">{{ item.published_at|date:"M d, Y" }}</p>
+                <p  class="card-footer" >{{ item.published_at|date:"M d, Y" }} </p>
             </a>
             {% endfor %}
         </section>
@@ -1354,7 +1409,7 @@ nav{
             {% endfor %}
         </div>
 
-        
+
 
 
 
@@ -1367,20 +1422,17 @@ nav{
                 </a>
             </div>
             <div class="sticky">
-                <a href="https://www.ainfinite.ai/" target="_blank">
-                    <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
+                <a href="https://shaktiwearables.com/" target="_blank">
+                    <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
                 </a>
             </div>
+
             <div class="sticky">
                 <a href="https://www.pbsindia.com/" target="_blank">
                     <img src="{% static 'img/FTadd2.jpg' %}" style="width: 100%;" alt="">
                 </a>
             </div>
-            <div class="sticky">
-                <a href="https://www.livingstonecoffee.in/" target="_blank">
-                    <img src="{% static 'img/FTadd3.jpg' %}" style="width: 100%;" alt="">
-                </a>
-            </div>
+
             <div class="sticky">
                 <a href="https://amity.edu/noida/aisst/" target="_blank">
                     <img src="{% static 'img/FTadd4.jpg' %}" style="width: 100%;" alt="">
@@ -1392,10 +1444,11 @@ nav{
                 </a>
             </div>
             <div class="sticky">
-                <a href="https://shaktiwearables.com/" target="_blank">
-                    <img src="{% static 'img/FTadd6.jpg' %}" style="width: 100%;" alt="">
+                <a href="https://www.ainfinite.ai/" target="_blank">
+                    <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
                 </a>
             </div>
+
         </div>
     </div>
 </div>
@@ -1447,13 +1500,15 @@ nav{
 {% comment %} demo ads {% endcomment %}
 <div class="slider-container">
     <div class="sndslider">
-      <div class="slider-item"><img src="{% static 'img/FTadd2.jpg' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd3.jpg' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd4.jpg' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd5.jpg' %}" alt="ads"></div>
-      <div class="slider-item"><img src="{% static 'img/FTadd6.jpg' %}" alt="ads"></div>
+      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
     </div>
-  </div>
+</div>
 
 
 

@@ -627,15 +627,20 @@ nav{
 
             font-weight: 500;
            margin: 10px 0;
+           font-size: 30px;
 
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-           text-align: center;
+           text-align: left;
 
         }
+     
+      .main-news h1 {
+        font-size: 30px;
+      }
 
-
+    
 
 
 
@@ -705,6 +710,10 @@ nav{
             height: 90px;
 
         }
+
+        .smalltext {
+            text-align: left;
+        }
         @media (max-width: 1024px) {
             main {
                 grid-template-columns: 1fr;
@@ -746,10 +755,19 @@ nav{
                 max-height: 350px;
                 object-fit: cover;
             }
+
+            .main-news h2 {
+                text-align: left;
+                font-size: 27px;
+            }
+            .main-news .smalltext {
+                text-align: left;
+
+               
         }
 
 
-
+    }
 
 
         @media (max-width: 480px) {
@@ -835,8 +853,15 @@ nav{
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-
 }
+
+/* Hide sidebar on small screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+
 
 
 .title {
@@ -1194,6 +1219,74 @@ nav{
 
 
 
+
+
+@media screen and (max-width: 480px) {
+    .sndad-banner img {
+        padding: 49px 10px;
+    }
+    .sndad-container {
+        margin-top: -25px;
+    }
+
+
+}
+
+
+/* demo add */
+.slider-container {
+    display: none; /* Hidden by default */
+    width: 100%;
+    overflow: hidden;
+}
+
+.sndslider {
+    display: flex;
+    width: 100%;
+    animation: slide 25s linear infinite;
+}
+
+.slider-item {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-item img {
+    max-width: 200px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Show slider-container on small screens */
+@media screen and (max-width: 768px) {
+    .slider-container {
+        display: block; /* Visible only on small screens */
+    }
+}
+
+/* Other styles for small screens */
+@media screen and (max-width: 480px) {
+    .footer-container .footer-section {
+        margin-left: 0px !important;
+    }
+}
+
+
+
+
+
+
+
+
 </style>
 {% endblock page_css %}
 
@@ -1289,7 +1382,7 @@ nav{
             {% endfor %}
         </section>
         <section class="main-news">
-            <h1 style="color: black; font-size: 50px;">most popular</h1>
+            <h1 style="color: black; ">Most Popular</h1>
             {% for item in most_popular %}
             <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none; color: black;">
                 <img src="{{ item.cover_image.url }}" alt="Card Image">
@@ -1297,7 +1390,7 @@ nav{
                 <h2 style="text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                     {{ item.title }}
                 </h2>
-                <div style="text-align: center;">
+                <div class="smalltext">
                     {% with item.sections.first as section %}
                         {% if section %}
                             {% if section.content_top %}
@@ -1467,6 +1560,21 @@ nav{
         {% endfor %}
     </div>
 </div>
+
+
+<div class="slider-container">
+    <div class="sndslider">
+      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
+    </div>
+</div>
+
+
 
 
 

@@ -483,7 +483,10 @@ nav{
 
     .box-body {
         padding: 16px;
+        height: 300px;
     }
+
+
 
 
     .box-text {
@@ -543,6 +546,7 @@ nav{
 
         .box-body {
             padding: 12px;
+            height: 233px;
         }
 
         .box-text {
@@ -631,8 +635,11 @@ nav{
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-           text-align: center;
+           text-align: left;
 
+        }
+        .main-news h1 {
+            font-size: 30px;
         }
 
 
@@ -746,6 +753,20 @@ nav{
                 max-height: 350px;
                 object-fit: cover;
             }
+            .main-news h1{
+                font-size: 30px;
+            }
+            .main-news h2 {
+                text-align: left;
+                font-size: 27px;
+            }
+            .main-news .smalltext {
+                text-align: left;
+            }
+        }
+
+        .smalltext {
+            text-align: left;
         }
 
 
@@ -822,7 +843,6 @@ nav{
 
 
 
-
 .sidebar {
     width: 25%;
     padding-left: 20px;
@@ -835,7 +855,13 @@ nav{
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
+}
 
+/* Hide sidebar on small screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }
 
 
@@ -901,6 +927,7 @@ nav{
 
     .box p {
         font-size: 12px;
+        margin-top: 30px;
     }
 
     .title {
@@ -1168,7 +1195,7 @@ nav{
     .sndad-container {
         height: 180px;
         width: 98%;
-        margin-top: 50px;
+        margin-top: -32px;
     }
 
     .sndad-text {
@@ -1188,7 +1215,67 @@ nav{
         height: 20px;
         font-size: 12px;
     }
+    .sndad-banner img {
+        padding: 49px 10px;
+    }
 }
+
+
+/* demo ads */
+
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.sndslider {
+  display: flex;
+  width: max-content;
+  animation: slide 20s linear infinite;
+  gap: 35px
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.slider-item img {
+  width: 188px;
+  height: auto; 
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .slider-item img {
+    width: 131px; 
+  }
+}
+
+/* Hide the slider  */
+@media (min-width: 769px) {
+  .slider-container {
+    display: none; 
+  }
+}
+
+
+/* Other styles for small screens */
+@media screen and (max-width: 480px) {
+    .footer-container .footer-section {
+        margin-left: 0px !important;
+    }
+}
+
 
 
 
@@ -1231,7 +1318,7 @@ nav{
         <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none;">
             <div class="secondcard">
                 <img src="{{ item.cover_image.url }}" alt="Card Image" class="box-img">
-                <div class="box-body" style="height: 300px;">
+                <div class="box-body" >
                     <small class="catagory-link" >{{ item.category }}</small>
                     <h3 class="title" style="font-size: 18px; color:black; text-decoration: none;">{{ item.title }}</h3>
                     <p class="box-text">
@@ -1289,7 +1376,7 @@ nav{
             {% endfor %}
         </section>
         <section class="main-news">
-            <h1 style="color: black; font-size: 50px;">most popular</h1>
+            <h1 style="color: black;">Most Popular</h1>
             {% for item in most_popular %}
             <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none; color: black;">
                 <img src="{{ item.cover_image.url }}" alt="Card Image">
@@ -1297,7 +1384,7 @@ nav{
                 <h2 style="text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                     {{ item.title }}
                 </h2>
-                <div style="text-align: center;">
+                <div c;ass="smalltext">
                     {% with item.sections.first as section %}
                         {% if section %}
                             {% if section.content_top %}
@@ -1348,7 +1435,7 @@ nav{
        <div class="magazine-cover">
             <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
        </div>
-       <div class="text">Introducing FT-
+       <div class="text">
          Future Technologies</div>
            <a href="{% url 'subscribe' %}" target="_blank">
             <button class="scndbtn">SUBSCRIBE NOW</button>
@@ -1465,6 +1552,19 @@ nav{
                 </a>
             </div>
         {% endfor %}
+    </div>
+</div>
+
+
+<div class="slider-container">
+    <div class="sndslider">
+      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
     </div>
 </div>
 

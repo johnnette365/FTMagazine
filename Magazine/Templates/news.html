@@ -22,53 +22,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
 <style>
-       /* {% comment %} body {
-    font-family: 'Times New Roman', serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-} {% endcomment %} */
-
-h1 {
-    display: flex;
-    justify-content: center;
-
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 5rem;
-}
-
-
- p {
-
-  font-weight: 700;
-  font-style: normal;
-}
-
-.low_text {
-    font-family: "Amatic SC", serif;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 24px;
-}
 
 h2 {
     font-size: 24px;
     font-weight: bold;
-    font-family: "Libre Bodoni", serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    font-family: "Libre Bodoni", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
 }
 
 h4 {
@@ -77,7 +45,6 @@ h4 {
     text-transform: uppercase;
     margin-bottom: 15px;
     font-size: 30px;
-    font-family: "IM Fell English", serif;
     font-style: normal;
 }
 
@@ -86,160 +53,11 @@ h4 {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    max-width: 900px;
+    /* max-width: 900px; */
     margin: auto;
 }
 
-.news-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
 
-.news-item {
-    flex: 1 1 100%;
-    position: relative;
-    background: white;
-    padding: 10px;
-    text-align: center;
-}
-
-.news-item img.wedding-announcement {
-    width: 100%;
-    height: auto;
-    position: relative;
-}
-
-.news-item .overlay-text {
-    position: absolute;
-    top: 33%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    width: 80%;
-}
-
-.news-item .overlay-author {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    width: 60%;
-}
-
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .news-item {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 768px) {
-    .news-item .overlay-text,
-    .news-item .overlay-author {
-        font-size: 16px;
-        padding: 10px;
-        width: 90%;
-    }
-}
-
-
-
-@media screen and (max-width: 480px) {
-    .author img {
-        height: 75px;
-
-    }
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.Load-more {
-    color: black;
-    padding: 5px 5px;
-    background-color: white;
-}
-
-.Load-more:hover {
-    color: #6c757d;
-    padding: 5px 5px;
-}
-
-.trending-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    margin-bottom: 15px;
-    height: 110px;
-    border: 1px solid #ddd;
-}
-
-.trending-item img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-}
-
-.trending-item div {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.trending-item a {
-    color: black;
-    text-decoration: none;
-    font-size: 0.80rem;
-    font-weight: bold;
-    font-family: "Noticia Text", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-@media (max-width: 768px) {
-    .trending-item {
-        flex-direction: column;
-        height: auto;
-        text-align: center;
-    }
-
-    .trending-item img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.trending-item a:hover {
-    text-decoration: underline;
-}
-
-.trending-item small {
-    color: #6c757d;
-}
 
 .sticky-box {
     position: sticky;
@@ -247,64 +65,6 @@ h4 {
     height: fit-content;
 }
 
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    margin-top: 10px;
-}
-
-.fullnewsletter {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-.newsletter-input-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.newsletter-input-group input {
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.fullnewsletter button {
-    padding: 5px 20px;
-    font-size: 16px;
-    color: #fff;
-    background: linear-gradient(135deg, rgb(4, 4, 4) 0%, rgb(101, 100, 100) 100%);
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.fullnewsletter button:hover {
-    background-color: #0056b3;
-}
-
-.fullnewsletter small {
-    display: block;
-    margin-top: 10px;
-    color: #6c757d;
-}
-
-.newsletter-container p {
-    font-weight: bold;
-}
-
-.signUp {
-    background: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
-    font-weight: bold;
-}
 
 .container {
     margin-top: 10%;
@@ -312,65 +72,98 @@ p {
 
 /* Extra small screen adjustments */
 @media (max-width: 480px) {
-    h1 {
-        font-size: 3rem;
+    h1{
+        font-size: 1.5rem;
         margin-top: 36px;
     }
-    h2 {
-        width: 230px;
+    h2{
         text-align: left;
         font-size: 19px;
     }
-    h3 {
-        width: 230px;
+    h3{
         text-align: left;
         font-size: 19px;
     }
-    p {
-        width: 230px;
+    p{
         text-align: left;
-        font-size: 11px;
+        font-size: 13px;
     }
-
-    .news-item .overlay-text {
-        font-size: 11px;
-        top:31%
-    }
-    .news-item {
-        text-align: left;
+    .col-lg-8 {
+        padding: 0px;
     }
 
 }
-
-.lastupdate {
-    font-size: 0.875rem;
-    color: #6c757d;
-    text-align: center;
-
-}
-
 
 .sidebar {
     width: 100%;
 
+}
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
+}
+
+.sndslider {
+  display: flex;
+  width: max-content;
+  animation: slide 20s linear infinite;
+  gap: 35px;
+  align-items: center;
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.slider-item img {
+  width: 188px;
+  height: auto;
+}
+
+/* @keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+} */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .sticky {
     position: sticky;
     top: 60px;
     color: white;
-
     border-radius: 5px;
     margin-bottom: 20px;
 
 }
 
-.author {
-    display: flex;
-    gap: 54px;
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .slider-item img {
+        width: 131px;
+    }
+}
+/* Hide the slider  */
+@media (min-width: 769px) {
+  .slider-container {
+    display: none;
+  }
 }
 
-{% comment %} share container {% endcomment %}
+
 .share-container {
     display: flex;
     justify-content: space-between;
@@ -418,11 +211,6 @@ font-size: 1.2rem;
 color: black;
 transition: color 0.3s;
 cursor: pointer;
-
-
-
-
-
 }
 
 .icons i:hover {
@@ -436,7 +224,6 @@ cursor: pointer;
     }
 }
 
-{% comment %} middle add {% endcomment %}
 .ad-container {
     position: relative;
     width: 90%;
@@ -459,7 +246,20 @@ cursor: pointer;
     padding: 43px 12px;
 }
 
-
+tr{
+    display: flex;
+    justify-content: space-between;
+    gap: 7px;
+}
+p{
+    font-weight: normal;
+    text-align: justify;
+}
+@media screen and (min-width: 769px) {
+    .about-auther div div p #auther{
+        margin: 10px 12px 70px 0px !important;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .ad-container {
@@ -467,10 +267,33 @@ cursor: pointer;
         width: 95%;
         object-fit:cover;
     }
-
-
-
-
+    tr{
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    tr>*{
+        flex: 1 100%;
+    }
+    .main-content{
+        padding: 20px 0;
+    }
+    p{
+        text-align: justify;
+    }
+    h1{
+        font-size: 1.5rem!important;
+    }
+    div{
+        font-size: 13px;
+    }
+    .about-auther div div p #auther{
+        margin: 5px 10px 0px 0px !important;
+        width: 50% !important;
+    }
+    .smlbtn{
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -480,10 +303,12 @@ cursor: pointer;
         margin-top: 100px;
         object-fit:cover;
     }
-
-
-
-
+    .container-fluid{
+        padding: 0;
+    }
+    .col-lg-2{
+        padding: 0!important;
+    }
 }
 
 
@@ -546,69 +371,31 @@ cursor: pointer;
                 </div>
                 <!-- middle Side - col-lg-8 -->
                 <div class="col-lg-8" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
+                    {% if magazine %}
                     <main class="main-content">
-                        <h1>NEWS</h1>
-                        <h2 class="news-title" style="text-align: center;" >What Elon Musk did that NASA could not to bring back Sunita Williams</h2>
-                                <h3 style="text-align: center;">BY Cyril Christopher</h3>
-                                <p class="lastupdate">March 20, 2025 </p>
-                                <!-- {% comment %} <p class="card-footer">{{ item.published_at|date:"M d, Y" }}</p> {% endcomment %} -->
-                            <div class="author">
-                                <img src="{% static '/img/Cyril Christopher.jpg' %}" alt="Cyril Christopher" style="width: 30%;" class="Cyril_Christopher">
+                        <div class="article-header" style='margin-bottom: 50px;'>
+                            <h1 style="font-size: 2rem; font-weight: bold;">{{ magazine.title }}</h1>
+                            <p style="margin-top: 15px;">{{ magazine.published_at|date:"M d, Y" }}</p>
+                            <h3 style="font-size: 17px; margin-bottom: 30px;">By {{ magazine.author }}</h3>
+                            <div style='text-align: justify;'>{{ magazine.magazine_intro }}</div>
+                        </div>
+                        <div class="about-auther">
+                            {% for section in magazine.sections.all %}
+                                <div>
+                                    {% if section %}
+                                        {% if section.content_top %}
+                                            <div style='margin-bottom: 50px;'>{{ section.content_top|safe }}</div>
+                                        {% endif %}
 
-                                <p class="highlight-text">"Cyril Christopher is the Director and CTO of Johnnette Technologies Pvt. Ltd., a leader in UAV solutions. An Aerospace Engineering graduate from the UK with over seven years of industry experience, he has designed cutting-edge UAVs like the Johnnette JF-2 and JM-1, deployed by the Indian Armed Forces. A certified fixed-wing pilot and published researcher, Cyril mentors aspiring UAV engineers and advances drone technology through innovation and strategic collaborations." </p>
-                            </div>
-
-                            <div class="ad-container">
-                                <div class="ad-banner">
-                                    <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                                        <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
-
-                                    </a>
-
+                                        {% if section.content_bottom %}
+                                            <div style='margin-bottom: 50px;'>{{ section.content_bottom|safe }}</div>
+                                        {% endif %}
+                                    {% endif %}
                                 </div>
-                            </div>
-
-                        <p class="card-footer">{{ item.published_at|date:"M d, Y" }}</p>
-                        <hr>
-                        <section class="news-section">
-                            <div class="news-item">
-                                {% comment %} <h2 class="news-title">What Elon Musk did that NASA could not to bring back Sunita Williams</h2>
-                                <h3>Cyril Christopher </h3> {% endcomment %}
-                                <h2 class="news-title">Starliner’s Troubles and SpaceX Dragon’s Heroic Rescue</h2>
-                                <p class="highlight-text">Space exploration is no stranger to challenges. Despite decades of progress, it remains a thrilling but risky endeavor. On June 6, Boeing’s Starliner spacecraft approached the International Space Station (ISS) for a long-awaited test flight. But instead of triumph, the mission hit a snag: helium leaks and problems with the spacecraft’s reaction control thrusters threw a wrench into the operation. The result? A critical decision to keep astronauts Butch and Suni aboard the ISS and bring the Starliner home uncrewed.  </p>
-                                <img src="{% static '/img/news_img3.jpg' %}" alt="Wedding Couple" class="wedding-announcement">
-                                <p class="highlight-text">“Spaceflight is risky, even at its safest and most routine. A test flight, by nature, is neither safe, nor routine. The decision to keep Butch and Suni aboard the International Space Station and bring Boeing’s Starliner home uncrewed is the result of our commitment to safety: our core value and our North Star,” said NASA Administrator Bill Nelson. “I’m grateful to both the NASA and Boeing teams for all their incredible and detailed work.”</p>
-                                <h2 class="news-title"><h2 class="news-title">The Problem Unfolds</h2>
-                                <p class="highlight-text">As soon as the issues were detected, NASA and Boeing’s engineering teams sprang into action. They pored over data, conducted flight and ground tests, and hosted independent reviews with propulsion experts. Despite their relentless efforts, the problem persisted, and they couldn’t guarantee that the spacecraft met NASA’s strict safety standards for human spaceflight. Safety comes first, and no risks could be taken with human lives on the line.</p>
-                                <img src="{% static '/img/news_img5.jpg' %}" alt="Wedding Couple" class="wedding-announcement">
-                            </div>
-                            <div class="news-item">
-                                <div style="position: relative;">
-                                    <img src="{% static '/img/news_img4.jpg' %}" alt="Wedding Couple" class="wedding-announcement">
-                                    <h2 class="overlay-text">Enter SpaceX: The Unexpected Hero </h2>
-                                    {% comment %} <h3 class="overlay-author"></h3> {% endcomment %}
-                                    <p class="highlight-text">While NASA and Boeing scrambled to address the issues, controversy erupted back on Earth.  President Donald Trump criticized the Biden administration, claiming they had neglected the astronauts. Elon Musk, CEO of SpaceX, offered a lifeline, stating that SpaceX could have stepped in months earlier but was allegedly turned down by the White House. Now, with astronauts stranded aboard the ISS, Musk pledged to get them home. </p>
-                                </div>
-
-                                <p class="highlight-text" >The SpaceX Dragon capsule, part of NASA’s Commercial Crew Program, became the rescue vehicle. Known for its versatility, the reusable spacecraft features a pressurized cabin, cargo capacity of up to 6,000 kg to the ISS, and a return capacity of 3,000 kg. It’s designed for both cargo and crew transport, equipped with advanced safety systems and thermal protection using SpaceX’s proprietary PICA-X heat shield. Once the rescue mission was greenlit, Dragon was on its way to the ISS.</p>
-                                <h2 class="news-title">The Journey Home </h2>
-                                <img src="{% static '/img/news_img6.jpg' %}" alt="Wedding Couple" class="wedding-announcement">
-                                    <p class="highlight-text">After successfully undocking on March 18, the Crew Dragon capsule and its crew began their 17-hour journey back to Earth. The spacecraft had to endure intense re-entry conditions, but its sophisticated heat shield handled the scorching temperatures without issue. As it descended, dual drogue parachutes deployed, followed by three massive main parachutes, guiding the capsule safely to a gentle splashdown off the coast of Florida.</p>
-                                    <p class="highlight-text"> Waiting on standby, SpaceX’s recovery team, equipped with inflatable boatsand a specialized ship, retrieved the capsule from the water. Astronauts Williams and Wilmore, finallyback on solid ground, underwent medical checks and recovery procedures before reuniting with theirfamilies—no doubt relieved to feel gravity and fresh air once again.
-                                     </p>
-                            </div>
-                        </section>
-                        <hr>
-                        <section class="news-section">
-                            <div class="news-item">
-                                <p class="highlight-text"></p>
-                                <h3 class="low_text">A Story of Collaboration and Determination  </h3>
-                                <img src="{% static '/img/news_img7.jpg' %}" alt="Wedding Couple" class="wedding-announcement">
-                                <p class="highlight-text">While SpaceX’s successful rescue mission marks a victory for private spaceflight, it also highlights the collaborative spirit between NASA and commercial partners. Space travel is inherently unpredictable, but teamwork and innovation remain the driving forces behind every mission. Now, as NASA and Boeing continue to investigate and resolve Starliner’s issues, one thing remains clear: human spaceflight requires more than just cutting-edge technology—it demands resilience, quick thinking, and an unwavering commitment to safety.</p>
-
-                            </div>
-                        </section>
+                            {% endfor %}
+                        </div>
                     </main>
+                    {% endif %}
                     <div class="share-container">
                         <div class="smlbtn">
                             <small class="likeit">Like it?</small>
@@ -682,6 +469,17 @@ cursor: pointer;
 </div>
 
 
+<div class="slider-container">
+    <div class="sndslider">
+      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
+    </div>
+  </div>
 
 
 
@@ -692,7 +490,12 @@ cursor: pointer;
 
 
 {% block page_js %}
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.querySelector(".sndslider");
+        const sliderItems = slider.innerHTML;
+        slider.innerHTML += sliderItems; // Duplicate slider content for seamless looping
+    });
+</script>
 
 {% endblock page_js %}

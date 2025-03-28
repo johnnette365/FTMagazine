@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %} | FT-Megazine</title>
+    <title>{% block title %}{% endblock title %} | FT-Magazine</title>
 
     {% block meta_tags %}
 
@@ -655,20 +655,66 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+.profile-items{
+        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+        opacity: 0;
+        transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .user-profile{
+        border: 1px solid transparent;
+        border-radius: 20px;
+    }
+    .user-profile:hover{
+        border: 1px solid rgb(179, 179, 179);
+        border-radius: 20px;
+    }
+    .user-profile:hover .profile-items{
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        opacity: 1;
+    }
 
 
     </style>
+
+    <style>
+    .search-icon {
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .search-block {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+    }
+    .search-box {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        gap: 10px;
+        position: relative;
+    }
+    .search-box input {
+        padding: 10px;
+        width: 350px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    .close-btn-search {
+        cursor: pointer;
+        background: black;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 3px;
+    }
+</style>
 </head>
 
 
@@ -687,9 +733,13 @@
                 </div>
                 <li><a href="/">HOME</a></li>
                 <li><a href="/about">ABOUT-US</a></li>
-                <li><a href="/magazine_list">FT-MAGAZINE</a></li>
+                <li><a href="/magazine_list">MAGAZINE</a></li>
+                <li><a href="/future">Future</a></li>
+                <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/ratings">Ratings</a></li>
+                <li><a href="/technologies">Technologies</a></li>
                 <li><a href="/news">NEWS</a></li>
-                <li><a href="/defense">DEFENSE</a></li>
+                <li><a href="/defence">DEFENCE</a></li>
                 <li><a href="/mobility">MOBILITY</a></li>
                 <li><a href="/logistics">LOGISTICS</a></li>
                 <li><a href="/fashion">FASHION</a></li>
@@ -708,37 +758,87 @@
                 <a href="/subscribe" class="subscribe-link">
                     <button class="subscribe-btn">SUBSCRIBE</button>
                 </a>
-                <a href="/subscribe" style="text-decoration: none; color: inherit;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="4"></circle>
-                        <path d="M16 18a4 4 0 0 0-8 0"></path>
-                    </svg>
-                </a>
+                {% if request.user.is_authenticated %}
+                    <div class="user-profile" style="display: inline-block; position: relative; cursor: pointer;">
+                        <a style="text-decoration: none; color: inherit;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M16 18a4 4 0 0 0-8 0"></path>
+                            </svg>
+                        </a>
+                        <img width="15" height="15" style="color: #ddd;" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/>&nbsp;
 
-                <a href="/signup" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
-                    SIGN IN
-                </a>
+                        <div class="profile-items" style="position: absolute; top: 200%; right: 0%;     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; display: block; text-align: center; padding: 20px; background-color: white; border-radius: 5px;">
+                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="" style="text-decoration: none; color: black;">Profile</a></div>
+                            <div style="padding: 2px 5px; text-align: center;"><a href="/logout" style="text-decoration: none; color: black;">Logout</a></div>
+                        </div>
+                    </div>
+                    <a href="/search_list" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold; cursor: pointer;" class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </a>
 
-                <a href="/signup" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </a>
+                {% else %}
+                    <a style="text-decoration: none; color: inherit; margin-right: -15px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M16 18a4 4 0 0 0-8 0"></path>
+                        </svg>
+                    </a>
 
+                    <a href="/signup" style=" color: inherit; font-size: smaller; font-weight: bold;">
+                        SIGN IN
+                    </a>
 
+                    <a href="search_list" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </a>
+                {% endif %}
 
+                <div class="search-block" id="searchBlock" onclick="closeSearch(event)">
+                    <div class="search-box" onclick="event.stopPropagation()">
+                        <form method="post" style="display: flex; gap: 5px;">
+                            {% csrf_token %}
+                            <input type="text" placeholder="Enter your search query...">
+                            <button type="submit" class="close-btn-search" onclick="toggleSearch()">Search</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="nav-icons">
+            <div class="nav-icons" style="gap:10px">
                 <a href="/subscribe" class="subscribe-link">
                     <button class="subscribe-btn">SUBSCRIBE</button>
                 </a>
-                <a href="/subscribe" style="text-decoration: none; color: inherit;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="4"></circle>
-                        <path d="M16 18a4 4 0 0 0-8 0"></path>
-                    </svg>
-                </a>
+                {% if request.user.is_authenticated %}
+                    <div class="user-profile" style="display: inline-block; position: relative; cursor: pointer;">
+                        <a style="text-decoration: none; color: inherit;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="4"></circle>
+                                <path d="M16 18a4 4 0 0 0-8 0"></path>
+                            </svg>
+                        </a>
+                        <img width="15" height="15" style="color: #ddd;" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/>&nbsp;
 
+                        <div class="profile-items" style="position: absolute; top: 200%; right: 0%;     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; display: block; text-align: center; padding: 20px; background-color: white; border-radius: 5px;">
+                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="" style="text-decoration: none; color: black;">Profile</a></div>
+                            <div style="padding: 2px 5px; text-align: center;"><a href="/logout" style="text-decoration: none; color: black;">Logout</a></div>
+                        </div>
+                    </div>
+                {% else %}
+                    <a style="text-decoration: none; color: inherit; margin-right: -8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M16 18a4 4 0 0 0-8 0"></path>
+                        </svg>
+                    </a>
+
+                    <a href="/signup" style=" color: inherit; font-size: 12px; font-weight: bold;">
+                        SIGN IN
+                    </a>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -746,8 +846,12 @@
      <nav class="main-navbar">
         <ul class="nav-links">
             <li><a href="/magazine_list">MAGAZINE</a></li>
+            <li><a href="/future">Future</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/ratings">Ratings</a></li>
+            <li><a href="/technologies">Technologies</a></li>
             <li><a href="/news">NEWS</a></li>
-            <li><a href="/defense">DEFENSE</a></li>
+            <li><a href="/defence">DEFENCE</a></li>
             <li><a href="/mobility">MOBILITY</a></li>
             <li><a href="/logistics">LOGISTICS</a></li>
             <li><a href="/fashion">FASHION</a></li>
@@ -763,6 +867,20 @@
 
 
 
+
+<script>
+    function toggleSearch() {
+        let searchBlock = document.getElementById('searchBlock');
+        searchBlock.style.display = searchBlock.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function closeSearch(event) {
+        let searchBlock = document.getElementById('searchBlock');
+        if (event.target === searchBlock) {
+            searchBlock.style.display = 'none';
+        }
+    }
+</script>
 
 <script>
 
@@ -907,11 +1025,11 @@ window.addEventListener("scroll", () => {
 
             </div>
             <div class="footer-section" style='margin-left: 10%;'>
-                <h2 class="options" >MORE FROM Ft-MAGAZINE</h2>
+                <h2 class="options" >MORE FROM MAGAZINE</h2>
                 <div class="footer-links">
                     <a href="/">HOME</a>
                     <a href="/about">ABOUT US</a>
-                    <a href="/magazine_list">FT-MAGAZINE</a>
+                    <a href="/magazine_list">MAGAZINE</a>
                     <a href="/contact">CONTACT US</a>
 
                 </div>
@@ -924,8 +1042,12 @@ window.addEventListener("scroll", () => {
                     <a href="#">Terms</a> {% endcomment %} -->
                     <!-- {% comment %} <a href="/magazine_list">Magazine</a> {% endcomment %} -->
                     <a href="/magazine_list">MAGAZINE</a>
+                    <a href="/future">Future</a>
+                    <a href="/reviews">Reviews</a>
+                    <a href="/ratings">Ratings</a>
+                    <a href="/technologies">Technologies</a>
                     <a href="/news">NEWS</a>
-                    <a href="/defense">DEFENSE</a>
+                    <a href="/defence">DEFENCE</a>
                     <a href="/mobility">MOBILITY</a>
                     <a href="/logistics">LOGISTICS</a>
                     <a href="/fashion">FASHION</a>

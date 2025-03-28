@@ -136,16 +136,16 @@ def magazine_list(request):
 
 
 # List all published magazines
-def defense_article(request):
-    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[:1]
-    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[:3]
-    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[3:5]
-    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[5:8]
-    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[:5]
-    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[3:]
-    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[5:9]
+def defence_article(request):
+    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[:1]
+    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[:3]
+    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[3:5]
+    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[5:8]
+    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[:5]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[3:]
+    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[5:9]
 
-    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[0:]
+    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[0:]
 
     context = {
         "latest_magazines": latest_magazines_list,
@@ -368,7 +368,7 @@ def news_article(request):
     latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'News')).order_by('-published_at')[3:5]
     latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'News')).order_by('-published_at')[5:8]
     recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'News')).order_by('-published_at')[:5]
-    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defense')).order_by('-published_at')[3:]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Defence')).order_by('-published_at')[3:]
     archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'News')).order_by('-published_at')[5:9]
 
     all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'News')).order_by('-published_at')[0:]
@@ -383,7 +383,7 @@ def news_article(request):
         'all_magazine':all_magazine,
         "archived":archived,
     }
-    return render(request, 'news_page.html', context)
+    return render(request, 'news_list.html', context)
 
 
 
@@ -420,6 +420,247 @@ def news_detail(request, slug):
         'comment_form': comment_form,
         'subscription_form': subscription_form
     })
+
+
+
+
+
+# List all published magazines
+def future_article(request):
+    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[:1]
+    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[:3]
+    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[3:5]
+    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[5:8]
+    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[:5]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[3:]
+    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[5:9]
+
+    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Future')).order_by('-published_at')[0:]
+
+    context = {
+        "latest_magazines": latest_magazines_list,
+        "old_magazines": old_magazines_list,
+        "recent": recent_list,
+        "latest_magazines_3_5": latest_magazines_3_5_list,
+        "latest_magazines_5_8": latest_magazines_5_8_list,
+        'most_popular':most_popular_list,
+        'all_magazine':all_magazine,
+        "archived":archived,
+    }
+    return render(request, 'future_list.html', context)
+
+
+def future_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'future.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
+
+# List all published magazines
+def reviews_article(request):
+    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[:1]
+    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[:3]
+    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[3:5]
+    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[5:8]
+    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[:5]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[3:]
+    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[5:9]
+
+    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Reviews')).order_by('-published_at')[0:]
+
+    context = {
+        "latest_magazines": latest_magazines_list,
+        "old_magazines": old_magazines_list,
+        "recent": recent_list,
+        "latest_magazines_3_5": latest_magazines_3_5_list,
+        "latest_magazines_5_8": latest_magazines_5_8_list,
+        'most_popular':most_popular_list,
+        'all_magazine':all_magazine,
+        "archived":archived,
+    }
+    return render(request, 'reviews_list.html', context)
+
+
+def reviews_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'reviews.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
+
+
+# List all published magazines
+def ratings_article(request):
+    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[:1]
+    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[:3]
+    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[3:5]
+    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[5:8]
+    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[:5]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[3:]
+    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[5:9]
+
+    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Ratings')).order_by('-published_at')[0:]
+
+    context = {
+        "latest_magazines": latest_magazines_list,
+        "old_magazines": old_magazines_list,
+        "recent": recent_list,
+        "latest_magazines_3_5": latest_magazines_3_5_list,
+        "latest_magazines_5_8": latest_magazines_5_8_list,
+        'most_popular':most_popular_list,
+        'all_magazine':all_magazine,
+        "archived":archived,
+    }
+    return render(request, 'ratings_list.html', context)
+
+
+def ratings_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'ratings.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
+
+# List all published magazines
+def technologies_article(request):
+    most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[:1]
+    latest_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[:3]
+    latest_magazines_3_5_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[3:5]
+    latest_magazines_5_8_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[5:8]
+    recent_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[:5]
+    old_magazines_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[3:]
+    archived = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[5:9]
+
+    all_magazine = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Technologies')).order_by('-published_at')[0:]
+
+    context = {
+        "latest_magazines": latest_magazines_list,
+        "old_magazines": old_magazines_list,
+        "recent": recent_list,
+        "latest_magazines_3_5": latest_magazines_3_5_list,
+        "latest_magazines_5_8": latest_magazines_5_8_list,
+        'most_popular':most_popular_list,
+        'all_magazine':all_magazine,
+        "archived":archived,
+    }
+    return render(request, 'technologies_list.html', context)
+
+
+def technologies_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'technologies.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
 
 
 
@@ -558,6 +799,10 @@ def singlepage(request):
     return render(request,'singlepage.html')
 
 
+def search_list(request):
+    return render(request,'search_list.html')
+
+
 
 
 def subscribe(request):
@@ -570,4 +815,3 @@ def subscribe(request):
         contact.save()
         return redirect('/')
     return render(request,'subscribe.html')
-
