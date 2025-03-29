@@ -320,6 +320,86 @@ h3 {
 
 }
 
+
+/* {% comment %} demo ads {% endcomment %} */
+
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.sndslider {
+  display: flex;
+  width: max-content;
+  animation: slide 20s linear infinite;
+  gap: 35px
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.slider-item img {
+  width: 188px;
+  height: auto; 
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .slider-item img {
+    width: 131px; 
+  }
+}
+
+/* Hide the slider */
+@media (min-width: 769px) {
+  .slider-container {
+    display: none; 
+  }
+}
+
+
+
+.sidebar {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.sticky {
+  position: sticky;
+  top: 60px;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+
+.advertisement {
+display: block;
+}
+
+
+@media (max-width: 768px) {
+.advertisement {
+  display: none;
+}
+}
+
+
+
+
+
 </style>
 {% endblock page_css %}
 
@@ -400,7 +480,7 @@ h3 {
           {% comment %} top main card {% endcomment %}
           {% for item in latest_magazines %}
           <div class="main-article">
-            <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
+            <a href="{% url 'ratings_detail' item.slug %}" style='text-decoration: none;'>
               <img src="{{ item.cover_image.url }}" alt="Main Article Image">
               <h2>{{ item.title }}</h2>
               <h3 style='font-size: 0.75rem'>BY Cyril Christopher</h3>
@@ -559,6 +639,18 @@ h3 {
     </div>
   </div>
 </div>
+<div class="slider-container">
+  <div class="sndslider">
+    <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
+    <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
+  </div>
+</div>
+
 
 
 

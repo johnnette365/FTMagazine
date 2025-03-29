@@ -75,7 +75,7 @@
 
 
     {% comment %} sticky {% endcomment %}
-  .sidebar {
+   .sidebar {
       width: 100%;
       padding-left: 20px;
   }
@@ -94,7 +94,7 @@
     display: block;
   }
 
-  /* Hidden on small screens (e.g., below 768px) */
+ 
   @media (max-width: 768px) {
     .advertisement {
       display: none;
@@ -331,7 +331,8 @@ h3 {
 
 }
 
-{% comment %} demo add {% endcomment %}
+/* {% comment %} demo ads {% endcomment %} */
+
 .slider-container {
   overflow: hidden;
   width: 100%;
@@ -351,7 +352,7 @@ h3 {
 
 .slider-item img {
   width: 188px;
-  height: auto;
+  height: auto; 
 }
 
 @keyframes slide {
@@ -366,16 +367,46 @@ h3 {
 
 @media (max-width: 768px) {
   .slider-item img {
-    width: 131px;
+    width: 131px; 
   }
 }
 
-/* Hide the slider  */
+/* Hide the slider */
 @media (min-width: 769px) {
   .slider-container {
-    display: none;
+    display: none; 
   }
 }
+
+
+{% comment %} .sidebar {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.sticky {
+  position: sticky;
+  top: 60px;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+
+.advertisement {
+display: block;
+}
+
+
+@media (max-width: 768px) {
+.advertisement {
+  display: none;
+}
+} {% endcomment %}
+
+
+
 
 
 @media screen and (max-width: 480px) {
@@ -472,7 +503,7 @@ h3 {
           {% comment %} top main card {% endcomment %}
           {% for item in latest_magazines %}
           <div class="main-article">
-            <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
+            <a href="{% url 'future_detail' item.slug %}" style='text-decoration: none;'>
               <img src="{{ item.cover_image.url }}" alt="Main Article Image">
               <h2>{{ item.title }}</h2>
               <h3 style='font-size: 0.75rem'>BY Cyril Christopher</h3>

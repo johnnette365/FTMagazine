@@ -19,52 +19,6 @@ from .models import User
 
 
 
-# def signup_view(request):
-#     if request.method == "POST":
-#         email = request.POST['email']
-#         password = request.POST['password']
-#         confirm_password = request.POST['confirm_password']
-
-#         if password != confirm_password:
-#             messages.error(request, "Passwords do not match.")
-#             return render(request, "accounts/signup.html")
-
-#         if User.objects.filter(email=email).exists():
-#             messages.error(request, "Email is already registered.")
-#             return render(request, "accounts/signup.html")
-
-#         user = User.objects.create_user(email=email, password=password)
-#         messages.success(request, "Account created successfully. Please log in.")
-#         return redirect('login')  # Redirect to login page
-
-#     return render(request, "accounts/signup.html")
-
-
-
-
-
-# def login_view(request):
-#     if request.method == "POST":
-#         email = request.POST['email']
-#         password = request.POST['password']
-#         user = authenticate(request, email=email, password=password)
-
-#         if user:
-#             if not user.is_admin:  # Only allow regular users
-#                 login(request, user)
-#                 return redirect('dashboard')  # Redirect to the user dashboard
-#             else:
-#                 messages.error(request, "Admins are not allowed to log in here.")
-#         else:
-#             messages.error(request, "Invalid email or password")
-
-#     return render(request, "accounts/login.html")
-
-# def logout_view(request):
-#     logout(request)
-#     return redirect('login')
-
-
 def home(request):
     query = request.GET.get('q')  # Get search query from the request
 
@@ -134,6 +88,39 @@ def magazine_list(request):
 
 
 
+def magazine_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'magazine.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
 
 # List all published magazines
 def defence_article(request):
@@ -159,6 +146,39 @@ def defence_article(request):
     }
     return render(request, 'defense.html', context)
 
+
+
+
+def defence_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'defense.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
 
 
 
@@ -191,6 +211,38 @@ def mobility_article(request):
 
 
 
+def mobility_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'mobility.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
 
 
 
@@ -221,6 +273,40 @@ def logistics_article(request):
 
 
 
+def logistics_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'logistics.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
+
+
 # List all published magazines
 def fashion_article(request):
     most_popular_list = Magazine.objects.filter(Q(is_published=True) & Q(category__name = 'Fashion')).order_by('-published_at')[:1]
@@ -244,6 +330,39 @@ def fashion_article(request):
         "archived":archived,
     }
     return render(request, 'fashion.html', context)
+
+
+
+def fashion_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'fashion.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
 
 
 
@@ -274,6 +393,38 @@ def media_article(request):
 
 
 
+def media_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'media.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
 
 
 
@@ -301,6 +452,37 @@ def cinema_article(request):
     }
     return render(request, 'cinema.html', context)
 
+
+def cinema_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'cinema.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
 
 
 
@@ -330,6 +512,38 @@ def startups_article(request):
     return render(request, 'startups.html', context)
 
 
+def startups_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'startups.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
+
+
 
 
 
@@ -357,6 +571,37 @@ def investments_article(request):
     }
     return render(request, 'investments.html', context)
 
+
+def investments_detail(request, slug):
+    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
+    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
+    comments = magazine.comments.all()
+
+    # Initialize forms
+    comment_form = CommentForm()
+    subscription_form = SubscriptionForm()
+
+    if request.method == "POST":
+        form_type = request.POST.get("form_type")  # Identify which form was submitted
+
+        if form_type == "subscription":  # If subscription form is submitted
+            subscription_form = SubscriptionForm(request.POST)
+            if subscription_form.is_valid():
+                email = subscription_form.cleaned_data['email']
+                if not Subscriber.objects.filter(email=email).exists():
+                    Subscriber.objects.create(email=email)
+                    messages.success(request, "Subscription successful! 🎉")
+                else:
+                    messages.warning(request, "You're already subscribed!")
+                return redirect('magazine_detail', slug=magazine.slug)
+
+    return render(request, 'investments.html', {
+        'magazine': magazine,
+        'latest_magazines': latest_magazines,
+        'comments': comments,
+        'comment_form': comment_form,
+        'subscription_form': subscription_form
+    })
 
 
 
@@ -664,36 +909,6 @@ def technologies_detail(request, slug):
 
 
 
-def magazine_detail(request, slug):
-    magazine = get_object_or_404(Magazine, slug=slug, is_published=True)
-    latest_magazines = Magazine.objects.filter(is_published=True).order_by('-published_at')[:5]
-    comments = magazine.comments.all()
-
-    # Initialize forms
-    comment_form = CommentForm()
-    subscription_form = SubscriptionForm()
-
-    if request.method == "POST":
-        form_type = request.POST.get("form_type")  # Identify which form was submitted
-
-        if form_type == "subscription":  # If subscription form is submitted
-            subscription_form = SubscriptionForm(request.POST)
-            if subscription_form.is_valid():
-                email = subscription_form.cleaned_data['email']
-                if not Subscriber.objects.filter(email=email).exists():
-                    Subscriber.objects.create(email=email)
-                    messages.success(request, "Subscription successful! 🎉")
-                else:
-                    messages.warning(request, "You're already subscribed!")
-                return redirect('magazine_detail', slug=magazine.slug)
-
-    return render(request, 'magazine.html', {
-        'magazine': magazine,
-        'latest_magazines': latest_magazines,
-        'comments': comments,
-        'comment_form': comment_form,
-        'subscription_form': subscription_form
-    })
 
 
 
@@ -796,7 +1011,7 @@ def subscribe(request):
 
 
 def singlepage(request):
-    return render(request,'singlepage.html')
+    return render(request,'book.html')
 
 
 def search_list(request):
