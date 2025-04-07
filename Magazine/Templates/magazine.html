@@ -41,6 +41,12 @@
         color: black!important;
     }
 
+
+
+    .nav-links {
+        font-size: 13px !important;
+    }
+
     /* {% comment %} banner start {% endcomment %} */
 
 
@@ -78,7 +84,7 @@
 
     .col-lg-8 {
         position: relative;
-        
+
         padding-right: 15px;
         padding-left: 15px;
         flex: 0 0 66.666667%;
@@ -128,21 +134,22 @@
             font-size: 16px;
         }
 
-        .share-container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
+
         .share-title {
             margin-bottom: 10px;
         }
     }
+    {% comment %}  .share-container {
+            flex-direction: column;
+            align-items: flex-start;
+        } {% endcomment %}
 
     @media (max-width: 480px) {
         .col-lg-8 {
             padding: 5px;
         }
-        h1 {
-            font-size: 24px;
+        .col-lg-8 h1 {
+            font-size: 27px  !important;
         }
         .comment-btn {
             font-size: 16px;
@@ -150,7 +157,16 @@
         .smlhead h5 {
             font-size: 12px;
         }
+
+        .share-container {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .icons {
+            align-items: center;
     }
+}
 
 
     .MAGAZINE-img {
@@ -164,7 +180,7 @@
         color: black;
         text-decoration: none;
         background-color: transparent;
-        font-size: 1rem;
+        font-size: 13px;
     }
 
     a:hover {
@@ -219,9 +235,7 @@
         margin-bottom: 1rem;
     }
 
-    /* {% comment %} comment end {% endcomment %} */
 
-    /* {% comment %} comment form start {% endcomment %} */
 
 
     .input-field, .textarea-field {
@@ -315,12 +329,12 @@
         color: #ff4081;
     }
 
-    @media (max-width: 768px) {
+    {% comment %} @media (max-width: 768px) {
         .share-container {
             flex-direction: column;
             align-items: flex-start;
         }
-    }
+    } {% endcomment %}
 
 
 
@@ -381,7 +395,7 @@
             height: auto;
         }
         .container-fluid{
-            padding: 0!important;
+
             margin-top: 170px!important;
         }
     }
@@ -480,6 +494,8 @@
     .sidebar {
     width: 90%;
     padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
 }
 
 .sticky {
@@ -581,10 +597,10 @@
     footer .social-icons .linkedin a i{
         font-size: 2rem;
     }
-    
+
 
     .footer-bottom p {
-        font-size: 12px !important; 
+        font-size: 12px !important;
     }
 
     .footer-bottom a{
@@ -623,7 +639,7 @@
 
 .slider-item img {
   width: 188px;
-  height: auto; 
+  height: auto;
 }
 
 @keyframes slide {
@@ -638,14 +654,14 @@
 
 @media (max-width: 768px) {
   .slider-item img {
-    width: 131px; 
+    width: 131px;
   }
 }
 
 /* Hide the slider */
 @media (min-width: 769px) {
   .slider-container {
-    display: none; 
+    display: none;
   }
 }
 
@@ -655,7 +671,35 @@
         margin-left: 0px !important;
     }
 }
-    
+
+
+
+@media screen and (max-width: 480px) {
+    .img_size {
+        width: 30%;
+    }
+
+
+}
+
+
+    tr{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        tr{
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        tr>*{
+            flex: 1 100%;
+        }
+    }
 
 
 </style>
@@ -666,7 +710,7 @@
 {% block content %}
 
     <!-- Magazine With Sidebar Start -->
-    <div class="container-fluid" style="margin-top: 250px; padding: 0 100px;">
+    <div class="container-fluid" style="margin-top: 250px; ">
         <div class="">
             <div class="row" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
                 <div class="col-lg-8" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px;">
@@ -700,7 +744,7 @@
                         {% endif %}
 
                         {% if section.image %}
-                            <img src="{{ section.image.url }}" alt="{{ section.image_caption }}" style="width: 100%; height: auto;">
+                            <img class="img_size" src="{{ section.image.url }}" alt="{{ section.image_caption }}" style="width: 100%; height: auto;">
                             {% if section.image_caption %}
                                 <p><em>{{ section.image_caption }}</em></p>
                             {% endif %}
@@ -776,7 +820,7 @@
                     <div class="sidebar sticky-box" >
                         <div class="sticky">
                             <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                                <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                                <!--<img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">-->
                             </a>
                         </div>
                         <div class="sticky">
@@ -875,7 +919,7 @@
 
 
 
-    
+
 
 
 

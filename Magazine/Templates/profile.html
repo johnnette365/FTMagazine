@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+.banner {
+            width: 100%;
+            height: 370px;
+            overflow: hidden;
+            position: relative;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile {
+            text-align: center;
+            background: white;
+            width: 80%;
+            max-width: 600px;
+            margin: 0px auto 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+        .profile h2 {
+            margin-top: 70px;
+            color: #333;
+        }
+        .profile p {
+            color: #777;
+        }
+
+      
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        
+        @media (min-width: 768px) {
+            .detail-item {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 50px;
+            }
+        }
+
+
+
+        @media screen and (max-width: 480px) {
+            .detail-item {
+                margin-top: 50px;
+            }
+        }
+        
+
+</style>
+{% endblock page_css %}
+
+
+
+
+{% block content %}
+
+
+
+<div class="banner">
+    <img src="{% static 'img/network.jpg' %}" alt="background">
+</div>
+
+<div class="profile">
+    <img src="{% static 'img/ceo.jpg' %}" alt="profile_img">
+    <div class="detail-item">    
+        <span>Name</span>
+        <span>John Livingstone</span>
+    </div>
+    <div class="detail-item">
+        <span>Email account</span>
+        <span>yourname@gmail.com</span>
+    </div>
+    <div class="detail-item">
+        <span>Mobile number</span>
+        <span>Add number</span>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+{% block page_js %}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    
+
+
+
+
+  
+
+
+    </script>
+
+{% endblock page_js %}

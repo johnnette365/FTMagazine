@@ -3,6 +3,7 @@ from django.conf import settings
 from django.urls import path
 from Magazine import views
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 
 
@@ -55,10 +56,22 @@ urlpatterns = [
     path("contact",views.contact_Us, name='contact'),
     path("about",views.About,name='about'),
     path("subscribe", views.subscribe, name="subscribe"),  # Subscription API),
-    path("singlepage",views.singlepage,name='singlepage'),
+
+    path("volume-1-issue-1",views.volume1_issue1,name='volume-1-issue-1'),
+    path("volume-1-issue-2",views.volume1_issue2,name='volume-1-issue-2'),
+
     path("signup", views.signup, name='signup'),
     path('logout', views.user_logout, name='logout'),
-    path('search_list', views.search_list, name='search_list'),
+    path('search', views.search_list, name='search'),
+
+    path('test', views.test, name='test'),
+    path('profile', views.profile, name='profile'),
+
+    path('privacy', views.privacy, name='privacy'),
+    path('Cookies', views.Cookies, name='Cookies'),
+    path('terms', views.terms, name='terms'),
+
+    path('google3342232f78ac7e27.html', TemplateView.as_view(template_name="google3342232f78ac7e27.html")),
 
 
 

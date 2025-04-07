@@ -31,173 +31,11 @@ nav{
     padding-bottom: 0!important;
  }
 
-    /*first card */
 
 
 
 
-/* top banner */
-    .banner-container {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        margin-top: 150px;
-        background-color:black ;
-    }
 
-    .banner-container video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-         min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        object-fit: cover;
-    }
-
-
-
-  
-
-    .banner-text {
-        position: absolute;
-        top: 50%;
-        left: 10%;
-        transform: translateY(-50%);
-        text-align: start;
-        background-image: linear-gradient(to bottom, #f0fdf4, #4338ca, #d97706);
-        background-clip: text;
-       -webkit-background-clip: text;
-       color: transparent;
-       border-radius: 10px;
-       color: white;
-       font-weight: bolder;
-
-    }
-
-    .banner-text h1 {
-
-        margin: 0;
-        font-size: 70px;
-
-
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-
-
-
-
-    }
-
-    /* {% comment %}  font-size: 4.5rem; {% endcomment %} */
-
-    .banner-text p {
-        font-size: 1.2rem;
-
-        font-weight: 400;
-        font-style: normal;
-        color: orangered;
-
-    }
-
-    /* {% comment %} @media (max-width: 768px) {
-        .banner-text h1 {
-            font-size: 1.8rem;
-        }
-
-        .banner-text p {
-             font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .banner-text h1 {
-            font-size: 1.5rem;
-        }
-
-        .banner-text p {
-            font-size: 0.9rem;
-        }
-    } {% endcomment %} */
-
-
-
-    @media (max-width: 768px) {
-        .banner-text {
-            padding: 10px; /* Add padding for better spacing */
-            text-align: left; /* Center align text */
-
-        }
-
-        .banner-text h1 {
-
-            font-size: 40px;
-            word-wrap: break-word; /* Ensure text wraps nicely */
-            line-height: 1.3; /* Improve readability */
-        }
-
-        .banner-text p {
-            font-size: 1rem;
-            word-wrap: break-word;
-            line-height: 1.5;
-        }
-
-
-        .banner-text a button {
-            width: 100%; /* Make button full-width */
-            font-size: 0.9rem; /* Adjust button size */
-    }
-
-    @media (max-width: 480px) {
-        .banner-text {
-            padding: 8px;
-            left: 6px;
-            top: 47%;
-        }
-
-        .banner-text h1 {
-            font-size: 2rem;
-            line-height: 1.2;
-        }
-
-        .banner-text p {
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        .banner-container {
-            margin-top: 110px;
-        }
-        .fs-4 {
-            font-size: 15px;
-        }
-    
-        .banner-text {
-            top: 63%;
-        }
-        
-        .banner-text a button {
-            width: 100%;
-            font-size: 0.8rem; /* Smaller font for button */
-        }
-    }
-
-    }
-
-
-
-    .fs-4 {
-    font-size: calc(1rem + .1vw) !important;
-}
-
-
-   
-    
-   
 
 
 
@@ -362,125 +200,6 @@ nav{
     }
 
 
-
-    /* {% comment %} .secondbox {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        padding: 20px;
-    }
-
-
-    .secondcard {
-        width: 28rem;
-        max-width: 100%;
-        border: 1px solid #ddd;
-        background-color: #fff;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-
-    }
-
-
-    .box-img {
-        width: 100%;
-
-        object-fit: cover;
-        display: block;
-    }
-
-
-
-    .box-body {
-        padding: 16px;
-    }
-
-
-    .box-text {
-        font-size: 1rem;
-        color: black;
-        margin-bottom: 12px;
-        font-style: normal;
-    }
-
-
-    h5 {
-
-        font-weight: bolder;
-        font-style: normal;
-        font-size: 1.20rem;
-        color: black;
-    }
-
-
-    .box-text:hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-
-    .catagory-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: gray;
-        text-transform: uppercase;
-        font-size: 12px;
-        margin-top: 1%;
-
-    }
-
-    @media screen and (max-width: 1024px) {
-        .secondcard {
-            width: 18rem;
-        }
-
-        .box-text {
-            font-size: 1rem;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .secondbox {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .secondcard {
-            width: 90%;
-        }
-
-        .box-img {
-            height: 300px;
-        }
-
-        .box-text {
-            font-size: 1rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .secondcard {
-            width: 100%;
-        }
-
-        .box-img {
-            height: 280px;
-        }
-
-        .box-body {
-            padding: 12px;
-        }
-
-        .box-text {
-            font-size: 0.9rem;
-        }
-    }
-     {% endcomment %} */
-
-
      .secondbox {
         display: flex;
         flex-wrap: wrap;
@@ -512,6 +231,7 @@ nav{
 
     .box-body {
         padding: 16px;
+        height: 300px;
     }
 
 
@@ -573,10 +293,12 @@ nav{
 
         .box-img {
             height: 200px;
+
         }
 
         .box-body {
             padding: 12px;
+            height: 240px !important;
         }
 
         .box-text {
@@ -589,37 +311,6 @@ nav{
     }
 
 
-        /* ADD */
-
-
-
-        /* header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        } */
-
-        /* {% comment %} .most-recent h2 {
-            font-size: 1rem;
-            margin-left: 5%;
-            font-weight: bold;
-            width:120px;
-           background-color: black;
-           color: white;
-           display: flex;
-           justify-content: center;
-
-        } {% endcomment %} */
-
-
-        /* {% comment %} h6 {
-
-            font-weight: bolder;
-            font-style: normal;
-            font-size: 1.20rem;
-            color: black;
-
-        } {% endcomment %} */
         main {
             display: grid;
             grid-template-columns: 1.5fr 3fr 2fr;
@@ -635,10 +326,6 @@ nav{
         }
 
 
-        /* {% comment %} .featured p {
-            padding: 10px 10px 10px 10px;
-
-        } {% endcomment %} */
         .article {
             background: #f5f5f5;
             padding: 10px;
@@ -660,6 +347,7 @@ nav{
             width: 100%;
             height: 450px;
             padding: 5px 5px 5px 5px;
+            object-fit: contain;
         }
         .main-news h2 {
 
@@ -669,7 +357,7 @@ nav{
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-           
+
 
         }
 
@@ -690,19 +378,6 @@ nav{
             font-style: normal;
 
         }
-        /* {% comment %} .most-recent h2 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-bottom: 2px solid black;
-            padding-bottom: 5px;
-            width:120px;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            margin-left: 8%;
-        } {% endcomment %} */
 
         .most-recent h3 {
             font-size: 18px;
@@ -765,18 +440,6 @@ nav{
         }
 
 
-
-/* {% comment %}
-        @media (max-width: 480px) {
-
-            .article img {
-                height: 382px;
-                width: 382px;
-            }
-
-        } {% endcomment %} */
-
-
         @media screen and (max-width: 480px) {
             .main-news img {
                 width: 100%;
@@ -799,7 +462,6 @@ nav{
         }
 
 
-/* {% comment %} 3rd box {% endcomment %} */
 .container {
     display: flex;
     max-width: 1600px;
@@ -815,24 +477,19 @@ nav{
     gap: 10px;
     margin-top: 0 !important;
     padding:0 !important;
-
-
-
 }
 
 
 .box {
     background-color: white;
     padding: 15px;
-
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-
 }
+
 
 .box img {
     width: 100%;
-    height: 300px;
+    height: 380px;
     object-fit: cover;
 
 
@@ -850,15 +507,12 @@ nav{
 
 .box h3:hover {
     text-decoration: underline;
-
 }
 
 .box p {
     font-size: 14px;
     color: gray;
 }
-
-
 
 
 .sidebar {
@@ -957,12 +611,12 @@ nav{
 
     .box img {
         width: 100%;
-        height: 250px;
+        height: 180px;
+        object-fit: fill;
 
     }
 }
 
-/* {% comment %} news wraper {% endcomment %} */
 .news-wrapper {
     width: 100%;
     margin: 20px auto;
@@ -1087,11 +741,6 @@ nav{
 }
 
 
-/* {% comment %} addvertise {% endcomment %} */
-
-
-
-
 .sndad-container {
     position: relative;
     width: 90%;
@@ -1121,7 +770,6 @@ nav{
     display: none;
 }
 
-/* {% comment %} end {% endcomment %} */
 
 @media screen and (max-width: 768px) {
     .sndad-container {
@@ -1156,8 +804,6 @@ nav{
 }
 
 
-/* {% comment %} demo ads {% endcomment %} */
-
  .slider-container {
   overflow: hidden;
   width: 100%;
@@ -1177,7 +823,7 @@ nav{
 
 .slider-item img {
   width: 188px;
-  height: auto; 
+  height: auto;
 }
 
 @keyframes slide {
@@ -1192,19 +838,24 @@ nav{
 
 @media (max-width: 768px) {
   .slider-item img {
-    width: 131px; 
+    width: 131px;
   }
 }
 
 /* Hide the slider */
 @media (min-width: 769px) {
   .slider-container {
-    display: none; 
+    display: none;
   }
 }
 
 
-  
+@media screen and (max-width: 600px) {
+    .banner-container {
+        margin-top: 110px;
+        height: 90vh;
+    }
+}
 
   @media screen and (max-width: 480px) {
     .footer-container .footer-section {
@@ -1214,6 +865,188 @@ nav{
   }
 
 
+
+
+
+
+
+
+
+  .banner-container {
+        width: 100%;
+        height: 110vh;
+        overflow: hidden;
+        margin-top: 150px;
+        background-color:rgb(0, 0, 0) ;
+        display: flex; justify-content: space-between; align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .volume-1{
+        background-color: rgb(242 244 255);
+    }
+    .volume-1 h2{
+        color: black;
+        font-weight: bolder;
+    }
+    .volume-1,
+    .volume-2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        /* border: 1px solid white; */
+        height: 100%;
+    }
+    .volume-1 h2,
+    .volume-2 h2{
+        font-size: 35px;
+        font-weight: bolder;
+    }
+
+
+    .volume1-desktop{
+        display: block!important;
+    }
+    .volume1-mobile{
+        display: none!important;
+    }
+
+    @media screen and (width: 344px) and (height: 882px) {
+        .banner-container {
+            height: 160vh!important;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .volume1-desktop{
+            display: none!important;
+            padding: 0 20px;
+        }
+        .volume1-mobile{
+            display: block!important;
+            padding: 0 20px;
+        }
+        .banner-container {
+            margin-top: 110px;
+            height: 90vh;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .banner-container {
+            margin-top: 70px;
+            flex-wrap: wrap;
+            height: 200vh;
+        }
+        .volume-1,
+        .volume-2{
+            height: 50%;
+        }
+        .volume1-desktop{
+            display: none!important;
+        }
+        .volume1-mobile{
+            display: block!important;
+        }
+    }
+    @media screen and (max-width: 375px) {
+        .banner-container {
+            height: 240vh;
+        }
+    }
+
+    .mgn-btn1{
+        width: 10em;
+        position: relative;
+        height: 3.5em;
+        border: 5px ridge #d1059e;
+        outline: none;
+        background-color: transparent;
+        color: rgb(0, 0, 0);
+        transition: 1s;
+        border-radius: 0.3em;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .mgn-btn1::after {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: rgb(242 244 255);
+        transition: 0.5s;
+        transform-origin: center;
+    }
+    .mgn-btn1::before {
+        content: "";
+        transform-origin: center;
+        position: absolute;
+        top: 85%;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: rgb(242 244 255);
+        transition: 0.5s;
+    }
+    .mgn-btn1:hover::before, button:hover::after {
+        transform: scale(0)
+    }
+
+    .mgn-btn1:hover {
+        box-shadow: inset 0px 0px 25px #911573;
+    }
+
+
+
+
+
+    .mgn-btn2{
+        width: 10em;
+        position: relative;
+        height: 3.5em;
+        border: 5px ridge #911573;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        transition: 1s;
+        border-radius: 0.3em;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .mgn-btn2::after {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: #000000;
+        transition: 0.5s;
+        transform-origin: center;
+    }
+    .mgn-btn2::before {
+        content: "";
+        transform-origin: center;
+        position: absolute;
+        top: 85%;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: #000000;
+        transition: 0.5s;
+    }
+    .mgn-btn2:hover::before, button:hover::after {
+        transform: scale(0)
+    }
+
+    .mgn-btn2:hover {
+        box-shadow: inset 0px 0px 25px #911573;
+    }
 
 
 
@@ -1228,16 +1061,26 @@ nav{
 
 
 
-<div class="banner-container" style="position: relative;">
-    <img class='desktop-banner' src="{% static '/img/banner/banner.png' %}" alt="Banner Image" style="width: 100%; z-index: -1;">
-    <img class='mobile-banner' src="{% static '/img/banner/mobile-banner.png' %}" alt="Banner Image" style="width: 100%; z-index: -1;">
-
-    <div class="banner-text" style="color: white; max-width: 800px; ">
-        <h1 style=" font-weight: bold;">Future Technologies Magazine</h1>
-        <br>
-        <p class="col-lg-10 fs-4" style="color: white;">Launched by the Livingstone Institute of Future Technologies, the magazine aims to empower individuals and organizations to stay ahead in the fast-evolving world of innovation.</p>
-        <br>
-        <a href="/about" style="cursor: pointer;"><button class="btn btn-primary btn-lg">Read More</button></a>
+<div class="banner-container" style="">
+    <div class="volume-1">
+        <div class="banner-text" style="color: white;">
+            <img class="volume1-desktop" src="{% static 'img/banner/issue1.png' %}" style="width: 100%;" alt="">
+            <img class="volume1-mobile" src="{% static 'img/banner/issue1-mobile.png' %}" style="width: 100%;" alt="">
+            <br><br>
+            <h2 style=" font-weight: bold;"><span style="color: #b1138a;">VOLUME 1 </span>- ISSUE 1</h2>
+            <br><br>
+            <a href="/volume-1-issue-1" style="cursor: pointer;"><button class="mgn-btn1" style="">Read Now</button></a>
+        </div>
+    </div>
+    <div class="volume-2">
+        <div class="banner-text" style="color: white;">
+            <img class="volume1-desktop" src="{% static 'img/banner/issue2.png' %}" style="width: 100%;" alt="">
+            <img class="volume1-mobile" src="{% static 'img/banner/issue2-mobile.png' %}" style="width: 100%;" alt="">
+            <br><br>
+            <h2 style=" font-weight: bold;"><span style="color: #911573;">VOLUME 1 </span>- ISSUE 2</h2>
+            <br><br>
+            <a href="/volume-1-issue-2" style="cursor: pointer;"><button class="mgn-btn2" style="">Read Now</button></a>
+        </div>
     </div>
 </div>
 
@@ -1245,13 +1088,14 @@ nav{
 
 
 
-<div class="sndad-container">
+ <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
+ {% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
 
 <div class="secondbox">
@@ -1259,7 +1103,7 @@ nav{
         <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none;">
             <div class="secondcard">
                 <img src="{{ item.cover_image.url }}" alt="Card Image" class="box-img">
-                <div class="box-body" style="height: 300px;">
+                <div class="box-body" >
                     <small class="catagory-link" >{{ item.category }}</small>
                     <h3 class="title" style="font-size: 18px; color:black; text-decoration: none;">{{ item.title }}</h3>
                     <p class="box-text">
@@ -1284,13 +1128,14 @@ nav{
 
 
 
- <div class="sndad-container">
+  <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
+ {% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
 
 
@@ -1365,15 +1210,16 @@ nav{
     <div class="sndad-container">
         <div class="sndad-banner">
             <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+                <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
             </a>
          </div>
      </div>
+     {% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
     <hr>
    <div class="subscription-container">
        <div class="magazine-cover">
-            <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+            <img src="{% static '/img/FTS_Volume1_issue2_img1.jpg' %}" alt=" Magazine Cover">
        </div>
        <div class="text">Future Technologies</div>
            <a href="{% url 'subscribe' %}" target="_blank">
@@ -1382,9 +1228,9 @@ nav{
         </div>
    </div>
 
-   <div class="read-magazine" style="text-align: center;">
-    <a href="/singlepage">Read Magazine Now</a>
-   </div>
+   <!--<div class="read-magazine" style="text-align: center;">-->
+   <!-- <a href="/singlepage">Read Magazine Now</a>-->
+   <!--</div>-->
    <br>
    <hr>
 
@@ -1399,7 +1245,7 @@ nav{
             {% for item in all_magazine %}
             <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none; color: black;">
                 <div class="box">
-                    <img src="{{ item.cover_image.url }} " style='height: 380px'  alt="Loro Piana">
+                    <img src="{{ item.cover_image.url }} "   alt="Loro Piana">
                     <h3 style="text-decoration: none; font-size: 18px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                         {{ item.title }}
                     </h3>
@@ -1418,7 +1264,7 @@ nav{
         <div class="sidebar">
             <div class="sticky">
                 <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                    <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                    <!--<img src="{% static 'img/26JUNE.png' %}" style="width: 100%;" alt="">-->
                 </a>
             </div>
             <div class="sticky">
@@ -1455,13 +1301,14 @@ nav{
 
 
 
-<div class="sndad-container">
+ <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
+ {% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
 
 

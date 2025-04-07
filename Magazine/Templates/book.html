@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% load static %} 
-{% block title %}Issue 1{% endblock title %}
- 
+{% load static %}
+{% block title %}Volume-1 | Issue-1{% endblock title %}
 
-{% block meta_tags %} 
+
+{% block meta_tags %}
 {% endblock meta_tags %}
 
 {% block page_css %}
@@ -31,11 +31,11 @@
         .book-section > .container {
         /* height: 400px;
         width: 500px; */
-        width: 50vw;
-        width: 55vw;
+        /*width: 50vw;*/
+        width: 57vw;
         height: 85vh;
         position: relative;
-        left: 32%;
+        left: 35%;
         transform: translateX(-50%);
         border-radius: 2%;
         margin-bottom: 30px;
@@ -165,7 +165,7 @@
             align-items: center;
             gap: 10px;
         }
-    
+
         /* ========== Left Button ======== */
         .left-arrows span {
             display: inline-block;
@@ -173,18 +173,18 @@
             transform: translateX(10px);
             animation: left-slideArrows 1s infinite linear;
         }
-    
+
         .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
         .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
         .left-arrows span:nth-child(3) { animation-delay: 0s; }
-    
+
         @keyframes left-slideArrows {
             0% { opacity: 0; transform: translateX(10px); }
             50% { opacity: 1; transform: translateX(0px); }
             100% { opacity: 0; transform: translateX(-10px); }
-        } 
-    
-    
+        }
+
+
         /* ========== Right Button ======== */
         .right-arrows span {
             display: inline-block;
@@ -192,11 +192,11 @@
             transform: translateX(-10px);
             animation: right-slideArrows 1s infinite linear;
         }
-    
+
         .right-arrows span:nth-child(1) { animation-delay: 0s; }
         .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
         .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
-    
+
         @keyframes right-slideArrows {
             0% { opacity: 0; transform: translateX(-10px); }
             50% { opacity: 1; transform: translateX(0); }
@@ -221,112 +221,133 @@
         <div class="book-section">
             <div class="container">
                 <div class="right">
-                    <figure class="back" id="back-cover"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/firstpage.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" id="back-cover" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.64.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.63.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/sndpage.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/thrdpage.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.62.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.61.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/frthpage.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/fthpage.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.60.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.59.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/sevenpage.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/eightpage.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.58.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.57.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page9.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page10.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.56.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.55.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page11.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page12.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.54.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.53.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page13.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page14.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.52.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.51.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page15.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page16.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.50.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.49.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page17.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page18.jpg' %}); background-size: cover;"></figure>
-                </div>
-                <!-- Additional Pages -->
-                <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page19.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page20.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.48.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.47.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page21.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page22.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.46.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.45.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page23.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page24.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.44.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.43.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page25.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page26.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.42.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.41.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page27.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page28.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.40.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.39.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page29.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page30.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.38.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.37.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page31.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page32.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.36.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.35.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page33.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page34.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.34.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.33.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page35.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page36.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.32.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.31.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page37.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page38.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.30.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.29.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page39.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page40.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.28.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.27.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page41.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page42.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.26.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.25.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page43.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page44.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.24.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.23.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page45.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page46.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.22.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.21.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url({% static 'img/page47.jpg' %}); background-size: cover;"></figure>
-                    <figure class="front" style="background-image: url({% static 'img/page48.jpg' %}); background-size: cover;"></figure>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.20.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.19.jpg' %}); background-size: cover;"></figure>
                 </div>
                 <div class="right">
-                    <figure class="back" style="background-image: url();"></figure>
-                    <figure class="front" id="cover">
-                      <h1>Book Title</h1>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Adipisci, modi.
-                      </p>
-                    </figure>
-                  </div>
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.18.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.17.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.16.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.15.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.14.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.13.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.12.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.11.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.10.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.9.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.8.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.7.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.6.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.5.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.4.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.3.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.2.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front" id="cover" style="background-image: url({% static 'img/volume1/issue1/volume1-issue-1.1.jpg' %}); background-size: cover;"></figure>
+                </div>
             </div>
         </div>
         <div class="btn-r">
@@ -337,12 +358,12 @@
                     <span><i class="fas fa-chevron-right" style="font-family: 'FontAwesome' !important;"></i></span>
                 </span>
             </button>
-        </div>  
+        </div>
     </div>
-      
 
 
-{% endblock content %} 
+
+{% endblock content %}
 
 
 

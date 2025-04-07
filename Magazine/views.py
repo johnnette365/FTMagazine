@@ -356,7 +356,7 @@ def fashion_detail(request, slug):
                     messages.warning(request, "You're already subscribed!")
                 return redirect('magazine_detail', slug=magazine.slug)
 
-    return render(request, 'fashion.html', {
+    return render(request, 'test.html', {
         'magazine': magazine,
         'latest_magazines': latest_magazines,
         'comments': comments,
@@ -1010,12 +1010,47 @@ def subscribe(request):
 
 
 
-def singlepage(request):
+def volume1_issue1(request):
     return render(request,'book.html')
+
+def volume1_issue2(request):
+    return render(request,'book2.html')
+
 
 
 def search_list(request):
-    return render(request,'search_list.html')
+    search = []  # Avoid UnboundLocalError
+    query = ""
+    if request.method == 'POST':
+        query = request.POST.get('query')
+        if query:
+            search = Magazine.objects.filter(title__icontains=query, is_published=True).order_by('-published_at')
+    context = {
+        "search": search,
+        "query": query
+    }
+    return render(request, 'search_list.html', context)
+
+
+
+def test(request):
+    return render(request,'test.html')
+
+
+def profile(request):
+    return render(request,'profile.html')
+
+def privacy(request):
+    return render(request,'privacy.html')
+def Cookies(request):
+    return render(request,'Cookies.html')
+def terms(request):
+    return render(request,'terms.html')
+
+
+
+
+
 
 
 

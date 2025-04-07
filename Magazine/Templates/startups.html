@@ -627,23 +627,12 @@ nav{
 
             font-weight: 500;
            margin: 10px 0;
-          font-size: 30px;
+
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-           text-align: left;
+           text-align: center;
 
-        }
-        .main-news h1 {
-            font-size: 30px;
-
-
-       }
-
-
-
-        .smalltext {
-            text-align: left;
         }
 
 
@@ -757,23 +746,10 @@ nav{
                 max-height: 350px;
                 object-fit: cover;
             }
-            
-            .main-news h2 {
-                text-align: left;
-                font-size: 27px;
-            }
-            .main-news .smalltext {
-                text-align: left;
         }
 
-        .main-news h1 {
-            font-size: 30px;
 
 
-       }
-
-
-    }
 
 
         @media (max-width: 480px) {
@@ -859,13 +835,7 @@ nav{
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-}
 
-/* Hide sidebar on small screens */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
 }
 
 
@@ -1082,6 +1052,57 @@ nav{
 /* {% comment %} border-radius: 10px; {% endcomment %} */
 
 
+.sndad-container1 {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 162px auto 10px auto;
+    overflow: hidden;
+    height: 280px;
+}
+
+.sndad-banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sndad-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 10px 10px;
+}
+
+
+
+/* {% comment %} end {% endcomment %} */
+
+
+
+@media screen and (max-width: 768px) {
+    .sndad-container1 {
+        height: 200px;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sndad-container1 {
+        height: 180px;
+        width: 98%;
+        margin-top: 63px;
+    }
+
+
+    .sndad-banner img {
+        padding: 49px 10px;
+    }
+}
+
+
+
+
 .sndad-container {
     position: relative;
     width: 90%;
@@ -1109,64 +1130,7 @@ nav{
 /* {% comment %} end {% endcomment %} */
 
 
-.sndad-text {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
 
-
-.sndad-text span {
-    font-size: 60px;
-    display: block;
-    margin-top: 10px;
-}
-
-
-.sndaddtitle {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-
-.sndad-label {
-    text-align: center;
-    font-size: 12px;
-    color: #ccc;
-    margin-bottom: 2px;
-}
-
-
-.sndaddclose-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    width: 15px;
-    height: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    color: skyblue;
-    background: white;
-}
-
-.sndaddclose-btn:hover {
-    background: lightgray;
-}
 
 
 @media screen and (max-width: 768px) {
@@ -1175,23 +1139,7 @@ nav{
         width: 95%;
     }
 
-    .sndad-text {
-        font-size: 18px;
-    }
 
-    .sndad-text span {
-        font-size: 40px;
-    }
-
-    .sndaddtitle {
-        font-size: 18px;
-    }
-
-    .sndaddclose-btn {
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1201,97 +1149,8 @@ nav{
         margin-top: 50px;
     }
 
-    .sndad-text {
-        font-size: 14px;
-    }
 
-    .sndad-text span {
-        font-size: 30px;
-    }
-
-    .sndaddtitle {
-        font-size: 16px;
-    }
-
-    .sndaddclose-btn {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-    }
-
-
-    .sndad-banner img {
-        padding: 49px 10px;
-    }
-
-    .sndad-container {
-        margin-top: -21px;
-    }
 }
-
-
-
-/* demo add */
-.slider-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.sndslider {
-  display: flex;
-  width: max-content;
-  animation: slide 20s linear infinite;
-  gap: 35px
-}
-
-.slider-item {
-  flex: 0 0 auto;
-  margin-right: 20px;
-}
-
-.slider-item img {
-  width: 188px;
-  height: auto; 
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-
-@media (max-width: 768px) {
-  .slider-item img {
-    width: 131px; 
-  }
-}
-
-/* Hide the slider */
-@media (min-width: 769px) {
-  .slider-container {
-    display: none; 
-  }
-}
-
-
-
-
-
-
-/* Other styles for small screens */
-@media screen and (max-width: 480px) {
-    .footer-container .footer-section {
-        margin-left: 0px !important;
-    }
-}
-
-
-
-
 
 
 
@@ -1305,7 +1164,7 @@ nav{
 
 
 
-<div class="banner-container" style="position: relative;">
+{% comment %} <div class="banner-container" style="position: relative;">
     <img style="width: 100%; z-index: -1;" src="{% static 'img/banner/banner.png' %}">
     <div class="banner-text" style="color: white; max-width: 800px; ">
         <h1 style=" font-weight: bold;">Future Technologies Magazine</h1>
@@ -1314,15 +1173,15 @@ nav{
         <br>
         <a href="/about" style="cursor: pointer;"><button class="btn btn-primary btn-lg">Read More</button></a>
     </div>
-</div>
+</div> {% endcomment %}
 
 
 
 
-<div class="sndad-container">
+<div class="sndad-container1">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
@@ -1361,7 +1220,7 @@ nav{
  <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
@@ -1391,7 +1250,7 @@ nav{
             {% endfor %}
         </section>
         <section class="main-news">
-            <h1 style="color: black; ">Most Popular</h1>
+            <h1 style="color: black; font-size: 50px;">most popular</h1>
             {% for item in most_popular %}
             <a href="{% url 'magazine_detail' item.slug %}" style="text-decoration: none; color: black;">
                 <img src="{{ item.cover_image.url }}" alt="Card Image">
@@ -1399,7 +1258,7 @@ nav{
                 <h2 style="text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
                     {{ item.title }}
                 </h2>
-                <div class="smalltext">
+                <div style="text-align: center;">
                     {% with item.sections.first as section %}
                         {% if section %}
                             {% if section.content_top %}
@@ -1440,7 +1299,7 @@ nav{
     <div class="sndad-container">
         <div class="sndad-banner">
             <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+                <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
             </a>
          </div>
      </div>
@@ -1489,7 +1348,7 @@ nav{
         <div class="sidebar">
             <div class="sticky">
                 <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                    <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                    <!--<img src="{% static 'img/26JUNE.png' %}" style="width: 100%;" alt="">-->
                 </a>
             </div>
             <div class="sticky">
@@ -1531,7 +1390,7 @@ nav{
 <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
      </div>
  </div>
@@ -1571,19 +1430,6 @@ nav{
 </div>
 
 
-
-
-<div class="slider-container">
-    <div class="sndslider">
-      <div class="slider-item"><a href="https://www.ainfinite.ai/"><img src="{% static 'img/FTadd2.webp' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://amity.edu/noida/aisst/"><img src="{% static 'img/FTadd3.png' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://www.carbon-light.com/"><img src="{% static 'img/FTadd4.png' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://www.livingstonecoffee.in/"><img src="{% static 'img/FTadd5.avif' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://www.pbsindia.com/"><img src="{% static 'img/FTadd6.png' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://shaktiwearables.com/"><img src="{% static 'img/shakti_logo.png' %}" alt="ads"></a></div>
-      <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
-    </div>
-</div>
 
 
 

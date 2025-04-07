@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style> 
+
+{% comment %} 
+  body {
+    background-color: #191919 !important;
+}
+
+.container {
+    max-width: 1500px;
+}
+
+
+
+
+.profile, article {
+    
+    padding: 20px;
+    border-radius: 8px;
+    
+    margin-bottom: 20px;
+    margin-top: 24%;
+}
+
+
+.profile{
+    box-shadow: inset 0 0 5em 1em #000;
+}
+
+body {
+    background-color: #191919 !important;
+}
+
+.container {
+    max-width: 1500px;
+}
+
+.profile, article {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 24%;
+}
+
+.profile {
+    box-shadow: inset 0 0 5em 1em #000;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-top: 10px;
+
+}
+
+.subheading {
+    color: #ccc;
+    font-size: 1.5625em;
+    max-width: 25em;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 1.5em;
+}
+
+
+
+
+p {
+    color: #ccc;
+}
+      
+section {
+    column-width: 14em;
+    column-gap: 1.33em;
+    padding: 0 3em;
+      
+    p:first-of-type:first-letter {
+    float: left;
+    font-size: 7em;
+    line-height: 1.3;
+    margin-top: -0.2em;
+    margin-bottom: -0.2em;
+    margin-right: 0.1em;
+    color: #ccc;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .profile, article {
+        padding: 15px;
+        margin-top: 36%;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 5rem; 
+    }
+
+    h2 {
+        font-size: 1.25rem; 
+
+    .subheading {
+        font-size: 1.25em; 
+    }
+
+    .profile {
+        margin-top: 10%;
+    }
+}
+}
+@media (max-width: 576px) {
+    .profile img, article img {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 3rem !important; 
+    }
+    h2 {
+        margin-top: 12px;
+    }
+
+    .subheading {
+        font-size: 1.125em; 
+    }
+
+    section {
+        column-width: 100%; 
+        padding: 0 !important;
+
+        p:first-of-type:first-letter {
+            font-size: 4em; 
+        }
+    }
+    
+}
+
+
+.col-md-6.first {
+    order: 1!important;
+}
+
+.col-md-6.second {
+    order: 2!important;
+}
+
+
+@media screen and (max-width: 576px) {
+    .col-md-6.first {
+        order: 1!important;
+    }
+    
+    .col-md-6.second {
+        order: 2!important;
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+.leftpara {
+    color: #ccc;
+}
+
+header {
+    text-align: center;
+    padding: 0 2em;
+    color: #ccc;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 9rem;
+}
+
+
+hr {
+    overflow: visible;
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+
+hr:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #cccccc;
+}
+
+
+
+
+      blockquote {
+        border-right: 0.5em solid #ccc;
+    font-size: 2em;
+    padding: 0.5em;
+    line-height: 1.5;
+    position: relative;
+    top: -7vh;
+    right: -512px;
+    width: 11em;
+    background: #191919;
+    z-index: 1;
+    color: white;
+      }
+      
+
+
+
+      @media (max-width: 576px) {
+
+        blockquote {
+            border-left: 0.5em solid #ccc;
+            font-size: 24px;
+            position: relative;
+            top: -6vh;
+            right: -4px;
+            width: 11em;
+    
+        }
+          
+        
+    
+        
+    } {% endcomment %}
+
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at center, #10131e 0%, #05060c 100%);
+        background-image:
+          linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.03) 25%, transparent 26%, transparent 74%, rgba(255,255,255,0.03) 75%, transparent 76%, transparent),
+          linear-gradient(90deg, transparent 24%, rgba(255,255,255,0.03) 25%, transparent 26%, transparent 74%, rgba(255,255,255,0.03) 75%, transparent 76%, transparent);
+        background-size: 60px 60px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      
+      .magazine-container {
+        display: flex;
+        gap: 60px;
+        flex-wrap: wrap;
+        padding: 40px;
+        margin-top: 20%;
+      }
+      
+      .magazine-card {
+        text-align: center;
+        position: relative;
+      }
+      
+      .magazine-card img {
+        width: 260px;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid rgba(0,255,255,0.2);
+        box-shadow:
+          0 0 10px rgba(0, 255, 255, 0.3),
+          0 0 20px rgba(0, 255, 255, 0.3),
+          0 0 40px rgba(0, 255, 255, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .magazine-card:hover img {
+        transform: scale(1.05);
+        box-shadow:
+          0 0 20px rgba(255, 0, 255, 0.5),
+          0 0 40px rgba(0, 255, 255, 0.3),
+          0 0 60px rgba(255, 255, 255, 0.1);
+      }
+      
+      .magazine-info {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        letter-spacing: 1px;
+        line-height: 1.4;
+      }
+      
+      .magazine-info.pink {
+        color: #ff00cc;
+        text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+      }
+      
+      .magazine-info.blue {
+        color: #00ccff;
+        text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+      }
+      
+      .magazine-info span {
+        font-weight: normal;
+      }
+
+
+</style>
+{% endblock page_css %}
+{% block content %}
+
+<div class="magazine-container">
+    <div class="magazine-card">
+        <img class="volume1-desktop" src="{% static 'img/banner/issue1.png' %}"  alt="">
+      <div class="magazine-info"><span>Volume 1</span> - Issue 1</div>
+    </div>
+
+    <div class="magazine-card">
+        <img class="volume1-desktop" src="{% static 'img/banner/issue2.png' %}"  alt="">
+      <div class="magazine-info"><span>Volume 1</span> - Issue 2</div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+{% comment %} <div class="container">
+    <div class="row">
+        {% if magazine %}
+            <div class="col-md-6 second">
+                
+                <div class="profile">
+                    <img src="{% static 'img/lara3.jpg' %}" class="img-fluid" alt="">
+                    <section class='section'>
+                        {% for section in magazine.sections.all %}
+                            <div>
+                                {% if section.content_top %}
+                                    <p style="font-size: 14px;">{{ section.content_top|safe }}</p>
+                                {% endif %}
+                            </div>
+                        <br>
+                        {% endfor %}
+                    </section>
+                </div>
+            </div>
+            <div class="col-md-6 first">
+                <article>
+                    <header>
+                        <h1>{{ magazine.title }}</h1>
+                        <h3 class="subheading">{{ magazine.magazine_intro }}</h3>
+                        <p>{{ magazine.category.name }}</p>
+                        <p>{{ magazine.published_at|date:"M d, Y" }}</p>
+                    </header>
+                    <hr>
+                    <section>
+                       
+                    {% for section in magazine.sections.all %}
+                        <div>
+                            {% if section.content_top %}
+                                <p style="font-size: 14px;">{{ section.content_top|safe }}</p>
+                            {% endif %}
+                        </div>
+                    <br>
+                    {% endfor %}
+                    </section>
+                </article>
+            </div>
+        {% endif %}
+    </div>
+</div> {% endcomment %}
+
+
+{% endblock content %}
+{% block page_js %}
+
+
+
+
+
+
+
+{% endblock page_js %}

@@ -18,6 +18,7 @@
 
 
 
+
     {% block head %}
     {% endblock head %}
 
@@ -311,18 +312,20 @@
     left: -100%;
     width: 250px;
     height: 100vh;
-    background: linear-gradient(135deg,rgb(255, 255, 255),rgb(160, 160, 160));
+    background: black;
     transition: left 0.3s ease-in-out;
     z-index: 1001;
     padding-top: 60px;
     list-style: none;
     padding-left: 20px;
-    color: black;
+    color: white;
 
     overflow-y: auto;
     border-radius: 0px;
 
 }
+
+{% comment %} background: linear-gradient(135deg,rgb(255, 255, 255),rgb(160, 160, 160)); {% endcomment %}
 
 /* Scrollbar */
 .links::-webkit-scrollbar {
@@ -356,7 +359,7 @@
 
 .links li a {
     text-decoration: none !important;
-    color: black;
+    color: white;
 }
 
 /* Hover Effect */
@@ -599,6 +602,13 @@
         gap: 10px;
     }
 
+
+
+
+
+
+
+
 }
 
 .footer-section img {
@@ -728,7 +738,7 @@
             <ul class="links">
                 <div class="close-btn" onclick="toggleMenu()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <li><a href="/">HOME</a></li>
@@ -740,13 +750,13 @@
                 <li><a href="/technologies">TECHNOLOGIES</a></li>
                 <li><a href="/news">NEWS</a></li>
                 <li><a href="/defence">DEFENCE</a></li>
-                <li><a href="/mobility">MOBILITY</a></li>
-                <li><a href="/logistics">LOGISTICS</a></li>
+                <!--<li><a href="/mobility">MOBILITY</a></li>-->
+                <!--<li><a href="/logistics">LOGISTICS</a></li>-->
                 <li><a href="/fashion">FASHION</a></li>
                 <li><a href="/media">MEDIA</a></li>
-                <li><a href="/cinema">CINEMA</a></li>
+                <!--<li><a href="/cinema">CINEMA</a></li>-->
                 <li><a href="/startups">STARTUPS</a></li>
-                <li><a href="/investments">INVESTMENTS</a></li>
+                <!--<li><a href="/investments">INVESTMENTS</a></li>-->
                 <li><a href="/contact">CONTACT US</a></li>
                 <li><a href="/subscribe">SUBSCRIBE</a></li>
                 <li><a href="/signup">SIGN IN</a></li>
@@ -769,11 +779,11 @@
                         <img width="15" height="15" style="color: #ddd;" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/>&nbsp;
 
                         <div class="profile-items" style="position: absolute; top: 200%; right: 0%;     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; display: block; text-align: center; padding: 20px; background-color: white; border-radius: 5px;">
-                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="" style="text-decoration: none; color: black;">Profile</a></div>
+                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="/profile" style="text-decoration: none; color: black;">Profile</a></div>
                             <div style="padding: 2px 5px; text-align: center;"><a href="/logout" style="text-decoration: none; color: black;">Logout</a></div>
                         </div>
                     </div>
-                    <a href="/search_list" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold; cursor: pointer;" class="search-icon">
+                    <a href="/search" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold; cursor: pointer;" class="search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
@@ -791,7 +801,7 @@
                         SIGN IN
                     </a>
 
-                    <a href="search_list" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
+                    <a href="/search" style="text-decoration: none; color: inherit; font-size: smaller; font-weight: bold;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
@@ -823,7 +833,7 @@
                         <img width="15" height="15" style="color: #ddd;" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/>&nbsp;
 
                         <div class="profile-items" style="position: absolute; top: 200%; right: 0%;     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; display: block; text-align: center; padding: 20px; background-color: white; border-radius: 5px;">
-                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="" style="text-decoration: none; color: black;">Profile</a></div>
+                            <div style="margin-bottom: 20px; padding: 2px 5px; text-align: center;"><a href="/profile" style="text-decoration: none; color: black;">Profile</a></div>
                             <div style="padding: 2px 5px; text-align: center;"><a href="/logout" style="text-decoration: none; color: black;">Logout</a></div>
                         </div>
                     </div>
@@ -845,6 +855,7 @@
     <!-- Second Navbar (Main Navigation) -->
      <nav class="main-navbar">
         <ul class="nav-links">
+            <li><a href="/"><i class="fa-solid fa-house-chimney" style="color: #000000; font-family: 'Font Awesome 6 Free' !important; font-size: 18px;"></i></a></li>
             <li><a href="/magazine_list">MAGAZINE</a></li>
             <li><a href="/future">FUTURE</a></li>
             <li><a href="/reviews">REVIEWS</a></li>
@@ -852,13 +863,13 @@
             <li><a href="/technologies">TECHNOLOGIES</a></li>
             <li><a href="/news">NEWS</a></li>
             <li><a href="/defence">DEFENCE</a></li>
-            <li><a href="/mobility">MOBILITY</a></li>
-            <li><a href="/logistics">LOGISTICS</a></li>
+            <!--<li><a href="/mobility">MOBILITY</a></li>-->
+            <!--<li><a href="/logistics">LOGISTICS</a></li>-->
             <li><a href="/fashion">FASHION</a></li>
             <li><a href="/media">MEDIA</a></li>
-            <li><a href="/cinema">CINEMA</a></li>
+            <!--<li><a href="/cinema">CINEMA</a></li>-->
             <li><a href="/startups">STARTUPS</a></li>
-            <li><a href="/investments">INVESTMENTS</a></li>
+            <!--<li><a href="/investments">INVESTMENTS</a></li>-->
         </ul>
     </nav>
 
@@ -880,6 +891,28 @@
             searchBlock.style.display = 'none';
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.querySelectorAll(".options").forEach(option => {
+    option.addEventListener("click", () => {
+        const links = option.nextElementSibling;
+        links.classList.toggle("active");
+    });
+});
+
 </script>
 
 <script>
@@ -974,6 +1007,18 @@ window.addEventListener("scroll", () => {
     hamburger.classList.toggle('hidden'); // Hide/show hamburger
  }
 
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
@@ -1041,29 +1086,29 @@ window.addEventListener("scroll", () => {
                     <a href="#">Cookies Policy</a>
                     <a href="#">Terms</a> {% endcomment %} -->
                     <!-- {% comment %} <a href="/magazine_list">Magazine</a> {% endcomment %} -->
-                    <a href="/magazine_list">MAGAZINE</a>
+                    <!--<a href="/magazine_list">MAGAZINE</a>-->
                     <a href="/future">FUTURE</a>
                     <a href="/reviews">REVIEWS</a>
                     <a href="/ratings">RATINGS</a>
                     <a href="/technologies">TECHNOLOGIES</a>
                     <a href="/news">NEWS</a>
                     <a href="/defence">DEFENCE</a>
-                    <a href="/mobility">MOBILITY</a>
-                    <a href="/logistics">LOGISTICS</a>
+                    <!--<a href="/mobility">MOBILITY</a>-->
+                    <!--<a href="/logistics">LOGISTICS</a>-->
                     <a href="/fashion">FASHION</a>
                     <a href="/media">MEDIA</a>
-                    <a href="/cinema">CINEMA</a>
+                    <!--<a href="/cinema">CINEMA</a>-->
                     <a href="/startups">STARTUPS</a>
-                    <a href="/investments">INVESTMENTS</a>
+                    <!--<a href="/investments">INVESTMENTS</a>-->
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>
-                <a href="your-cookies-policy-link">COOKIES POLICY</a> |
-                <a href="your-privacy-policy-link">PRIVACY POLICY</a> |
-                <a href="your-terms-link">TERMS</a> |
-                <a href="your-cookies-settings-link">COOKIES SETTINGS</a>
+                <a href="/Cookies">COOKIES POLICY</a> |
+                <a href="/privacy">PRIVACY POLICY</a> |
+                <a href="terms">TERMS</a>
+                {% comment %} <a href="your-cookies-settings-link">COOKIES SETTINGS</a> {% endcomment %}
               </p>
 
             <p>© 2025 Livingstone Institute of Future Technologies. All rights reserved.</p>

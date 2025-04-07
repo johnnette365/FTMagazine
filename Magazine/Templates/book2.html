@@ -1,0 +1,460 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Volume-1 | Issue-2{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .book-section {
+            height: 100vh;
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .book-section > .container {
+            width: 59vw;
+            height: 85vh;
+            position: relative;
+            left: 32%;
+            transform: translateX(-50%);
+            border-radius: 2%;
+            margin-bottom: 30px;
+            perspective: 1200px;
+        }
+        .container > .right {
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            transition: 0.7s ease-in-out;
+            transform-style: preserve-3d;
+        }
+        .book-section > .container > .right {
+            right: 0;
+            transform-origin: left;
+            border-radius: 10px 0 0 10px;
+        }
+        .right > figure.front,
+        .right > figure.back {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-size: 200%;
+            background-repeat: no-repeat;
+            backface-visibility: hidden;
+            background-color: white;
+            overflow: hidden;
+        }
+        .right > figure.front {
+            background-position: right;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 5px 5px 9px -2px rgba(35, 35, 35, 0.1);
+        }
+        .right > figure.back {
+            background-position: left;
+            border-radius: 10px 0 0 10px;
+            box-shadow: -5px 5px 9px -2px rgba(35, 35, 35, 0.1);
+            transform: rotateY(180deg);
+        }
+        .flip {
+            transform: rotateY(-180deg);
+        }
+        .flip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 10px 10px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .book-section > button {
+            border: 2px solid #ef9f00;
+            background-color: transparent;
+            color: #ef9f00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        .book-section > button:focus,
+        .book-section > button:active {
+            outline: none;
+        }
+        .book-section > p {
+            color: rgba(0, 0, 0, 0.7);
+            font-family: calibri;
+            font-size: 24px;
+        }
+        .book-section > p > a {
+            text-decoration: none;
+            color: #ef9f00;
+        }
+        .book-section > button:hover {
+            background-color: #ef9f00;
+            color: #fff;
+        }
+        .front#cover,
+        .back#back-cover {
+            background-color: #ffcb63;
+            font-family: calibri;
+            text-align: left;
+            padding: 0 30px;
+        }
+        .front#cover h1 {
+            color: #fff;
+        }
+        .front#cover p {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 14px;
+        }
+
+    </style>
+      <style>
+        /* ============== arrow buttons ============= */
+
+
+        .book-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            margin-top: 150px;
+        }
+
+        .arrow-button {
+            font-size: 40px;
+            font-weight: bold;
+            padding: 0px 0px;
+            border: none;
+            background: transparent;
+            color: rgb(0, 102, 255);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ========== Left Button ======== */
+        .left-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(10px);
+            animation: left-slideArrows 1s infinite linear;
+        }
+
+        .left-arrows span:nth-child(1) { animation-delay: 0.4s; }
+        .left-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .left-arrows span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes left-slideArrows {
+            0% { opacity: 0; transform: translateX(10px); }
+            50% { opacity: 1; transform: translateX(0px); }
+            100% { opacity: 0; transform: translateX(-10px); }
+        }
+
+
+        /* ========== Right Button ======== */
+        .right-arrows span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: right-slideArrows 1s infinite linear;
+        }
+
+        .right-arrows span:nth-child(1) { animation-delay: 0s; }
+        .right-arrows span:nth-child(2) { animation-delay: 0.2s; }
+        .right-arrows span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes right-slideArrows {
+            0% { opacity: 0; transform: translateX(-10px); }
+            50% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(10px); }
+        }
+    </style>
+{% endblock page_css %}
+
+
+
+{% block content %}
+    <div class="book-container">
+        <div class="btn-l">
+            <button class="arrow-button" onclick="turnLeft()">
+                <span class="left-arrows" style="display: flex;">
+                    <span><i class="fas fa-chevron-left" style="font-family: 'FontAwesome' !important;"></i></span>
+                    <span><i class="fas fa-chevron-left" style="font-family: 'FontAwesome' !important;"></i></span>
+                    <span><i class="fas fa-chevron-left" style="font-family: 'FontAwesome' !important;"></i></span>
+                </span>
+            </button>
+        </div>
+        <div class="book-section">
+            <div class="container">
+                <div class="right">
+                    <figure class="back" id="back-cover" style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img84.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img83.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img82.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img81.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img80.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img79.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img78.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img77.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img76.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img75.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img74.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img73.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img72.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img71.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img70.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img69.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img68.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img67.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img66.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img65.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img64.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img63.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img62.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img61.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img60.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img59.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img58.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img57.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img56.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img55.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img54.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img53.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img52.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img51.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img50.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img49.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img48.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img47.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img46.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img45.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img44.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img43.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img42.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img41.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img40.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img39.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img38.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img37.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img36.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img35.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img34.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img33.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img32.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img31.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img30.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img29.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img28.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img27.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img26.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img25.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img24.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img23.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img22.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img21.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img20.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img19.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img18.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img17.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img16.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img15.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img14.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img13.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img12.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img11.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img10.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img9.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img8.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img7.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img6.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img5.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img4.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img3.jpg' %}); background-size: cover;"></figure>
+                </div>
+                <div class="right">
+                    <figure class="back"  style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img2.jpg' %}); background-size: cover;"></figure>
+                    <figure class="front"  id="cover" style="background-image: url({% static 'img/volume1/issue2/FTS_Volume1_issue2_img1.jpg' %}); background-size: cover;"></figure>
+                </div>
+            </div>
+        </div>
+        <div class="btn-r">
+            <button class="arrow-button" onclick="turnRight()">
+                <span class="right-arrows" style="display: flex;">
+                    <span><i class="fas fa-chevron-right" style="font-family: 'FontAwesome' !important;"></i></span>
+                    <span><i class="fas fa-chevron-right" style="font-family: 'FontAwesome' !important;"></i></span>
+                    <span><i class="fas fa-chevron-right" style="font-family: 'FontAwesome' !important;"></i></span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+
+
+{% endblock content %}
+
+
+
+{% block page_js %}
+
+      <script>
+        var right = document.getElementsByClassName("right");
+var si = right.length;
+var z = 1;
+turnRight();
+function turnRight() {
+  if (si >= 1) {
+    si--;
+  } else {
+    si = right.length - 1;
+    function sttmot(i) {
+      setTimeout(function () {
+        right[i].style.zIndex = "auto";
+      }, 300);
+    }
+    for (var i = 0; i < right.length; i++) {
+      right[i].className = "right";
+      sttmot(i);
+      z = 1;
+    }
+  }
+  right[si].classList.add("flip");
+  z++;
+  right[si].style.zIndex = z;
+}
+function turnLeft() {
+  if (si < right.length) {
+    si++;
+  } else {
+    si = 1;
+    for (var i = right.length - 1; i > 0; i--) {
+      right[i].classList.add("flip");
+      right[i].style.zIndex = right.length + 1 - i;
+    }
+  }
+  right[si - 1].className = "right";
+  setTimeout(function () {
+    right[si - 1].style.zIndex = "auto";
+  }, 350);
+}
+
+      </script>
+          <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        navigation: {
+                nextEl: ".btn-r",
+                prevEl: ".btn-l",
+            },
+        });
+    </script>
+ {% endblock page_js %}>

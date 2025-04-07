@@ -71,13 +71,14 @@ h4 {
 }
 
 /* Extra small screen adjustments */
+{% comment %} text-align: left; {% endcomment %}
 @media (max-width: 480px) {
     h1{
         font-size: 1.5rem;
         margin-top: 36px;
     }
     h2{
-        text-align: left;
+
         font-size: 19px;
     }
     h3{
@@ -309,6 +310,30 @@ p{
 
 
 
+@media screen and (max-width: 480px) {
+    .footer-container .footer-section {
+        margin-left: 0px !important;
+
+    }
+    .footer-section h2 {
+        text-align: cente !important;
+    }
+    .footer-bottom p {
+        text-align: center!important;
+    }
+    .footer-section p {
+        text-align: center!important;
+    }
+  }
+
+  .footer-bottom p {
+    text-align: center !important;
+  }
+
+
+
+
+
 
 </style>
 {% endblock page_css %}
@@ -327,7 +352,7 @@ p{
                         <div class="sidebar">
                             <div class="sticky">
                                 <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                                    <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                                    <!--<img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">-->
                                 </a>
                             </div>
                             <div class="sticky">
@@ -422,7 +447,7 @@ p{
                     <div class="sidebar">
                         <div class="sticky">
                             <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                                <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                                <!--<img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">-->
                             </a>
                         </div>
                         <div class="sticky">

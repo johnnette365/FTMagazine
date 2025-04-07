@@ -123,12 +123,109 @@ hr {
     font-size: 12px;
     color: #555;
 }
-
-/* search */
-
-
-
 </style>
+
+<style>
+    /* search */
+
+     .pl1 {
+     display: block;
+     width: 2em;
+     height: 2em;
+     }
+
+     .pl1__g,
+     .pl1__rect {
+     animation: pl1-a 1.5s cubic-bezier(0.65,0,0.35,1) infinite;
+     }
+
+     .pl1__g {
+     transform-origin: 64px 64px;
+     }
+
+     .pl1__rect:first-child {
+     animation-name: pl1-b;
+     }
+
+     .pl1__rect:nth-child(2) {
+     animation-name: pl1-c;
+     }
+
+     @keyframes pl1-a {
+     from {
+         transform: rotate(0);
+     }
+
+     80%,
+         to {
+         animation-timing-function: steps(1,start);
+         transform: rotate(90deg);
+     }
+     }
+
+     @keyframes pl1-b {
+     from {
+         animation-timing-function: cubic-bezier(0.33,0,0.67,0);
+         width: 40px;
+         height: 40px;
+     }
+
+     20% {
+         animation-timing-function: steps(1,start);
+         width: 40px;
+         height: 0;
+     }
+
+     60% {
+         animation-timing-function: cubic-bezier(0.65,0,0.35,1);
+         width: 0;
+         height: 40px;
+     }
+
+     80%,
+         to {
+         width: 40px;
+         height: 40px;
+     }
+     }
+
+     @keyframes pl1-c {
+     from {
+         animation-timing-function: cubic-bezier(0.33,0,0.67,0);
+         width: 40px;
+         height: 40px;
+         transform: translate(0,48px);
+     }
+
+     20% {
+         animation-timing-function: cubic-bezier(0.33,1,0.67,1);
+         width: 40px;
+         height: 88px;
+         transform: translate(0,0);
+     }
+
+     40% {
+         animation-timing-function: cubic-bezier(0.33,0,0.67,0);
+         width: 40px;
+         height: 40px;
+         transform: translate(0,0);
+     }
+
+     60% {
+         animation-timing-function: cubic-bezier(0.33,1,0.67,1);
+         width: 88px;
+         height: 40px;
+         transform: translate(0,0);
+     }
+
+     80%,
+         to {
+         width: 40px;
+         height: 40px;
+         transform: translate(48px,0);
+     }
+     }
+ </style>
 {% endblock page_css %}
 
 
@@ -141,42 +238,80 @@ hr {
     </header>
 
     <div class="search-bar">
-        <input type="text" placeholder='Our Magazines'>
-        <button>SEARCH</button>
+        <form method="post" action="{% url 'search' %}" style="display: flex; gap: 5px;">
+            {% csrf_token %}
+            <input type="text" name="query" placeholder="Enter your search query...">
+            <button type="submit" class="close-btn-search">SEARCH</button>
+        </form>
     </div>
 
     <div class="results-info">
         <p>10,000+ results from Future Technologies</p>
         <div class="sort">
-            <span>Sort by</span>
-            <select>
-                <option>Relevance</option>
-                <option>Latest</option>
-            </select>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <main>
+                    <svg height="128px" width="128px" viewBox="0 0 128 128" class="pl1">
+                        <defs>
+                            <linearGradient y2="1" x2="1" y1="0" x1="0" id="pl-grad">
+                                <stop stop-color="#000" offset="0%"></stop>
+                                <stop stop-color="#fff" offset="100%"></stop>
+                            </linearGradient>
+                            <mask id="pl-mask">
+                                <rect fill="url(#pl-grad)" height="128" width="128" y="0" x="0"></rect>
+                            </mask>
+                        </defs>
+                        <g fill="var(--primary)">
+                            <g class="pl1__g">
+                                <g transform="translate(20,20) rotate(0,44,44)">
+                                    <g class="pl1__rect-g">
+                                        <rect height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                        <rect transform="translate(0,48)" height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                    </g>
+                                    <g transform="rotate(180,44,44)" class="pl1__rect-g">
+                                        <rect height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                        <rect transform="translate(0,48)" height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g mask="url(#pl-mask)" fill="hsl(343,90%,50%)">
+                            <g class="pl1__g">
+                                <g transform="translate(20,20) rotate(0,44,44)">
+                                    <g class="pl1__rect-g">
+                                        <rect height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                        <rect transform="translate(0,48)" height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                    </g>
+                                    <g transform="rotate(180,44,44)" class="pl1__rect-g">
+                                        <rect height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                        <rect transform="translate(0,48)" height="40" width="40" ry="8" rx="8" class="pl1__rect"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </main>
+                <p style="margin: 0;">Search Results</p>
+            </div>
         </div>
     </div>
     <hr>
     <div class="article-list">
-        <div class="article">
-            <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
-            <div class="article-content">
-                <h5>News</h5>
-                <h2>What Elon Musk did that NASA could not to bring back Sunita Williams</h2>
-                <p>BY Cyril Christopher</p>
-                <p style="font-size: 12px;">March 22, 2025</p>
-            </div>
+        {% for item in search %}
+        <div class="article-wrapper" data-category="{{ item.category }}" data-slug="{{ item.slug }}">
+            <a href="#" class="dynamic-link" style="text-decoration: none;">
+                <div class="article">
+                    <img src="{{ item.cover_image.url }}" alt="Vogue Magazine Cover">
+                    <div class="article-content">
+                        <h5>{{ item.category }}</h5>
+                        <h2>{{ item.title }}</h2>
+                        <p>BY {{ item.author }}</p>
+                        <p style="font-size: 12px;">{{ item.published_at|date:"M d, Y" }}</p>
+                    </div>
+                </div>
+            </a>
         </div>
         <hr>
-        <div class="article">
-            <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
-            <div class="article-content">
-                <h5>Startups</h5>
-                <h2>How To Become The Next Tech Unicorn</h2>
-                <p>BY </p>
-                <p style="font-size: 12px;">March 22, 2025</p>
-            </div>
-        </div>
-        <hr>
+        {% endfor %}
     </div>
 </div>
 
@@ -188,6 +323,19 @@ hr {
 
 
 {% block page_js %}
-.
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('.article-wrapper');
 
+        links.forEach(function (wrapper) {
+            const category = wrapper.getAttribute('data-category').toLowerCase();
+            const slug = wrapper.getAttribute('data-slug');
+            const aTag = wrapper.querySelector('.dynamic-link');
+
+            // Build the URL dynamically, like /fashion/slug/
+            // Or you can map categories to named paths
+            aTag.href = `/${category}/${slug}/`;  // adjust as per your URL structure
+        });
+    });
+</script>
 {% endblock page_js %}

@@ -343,7 +343,7 @@ h3 {
 
 .slider-item img {
   width: 188px;
-  height: auto; 
+  height: auto;
 }
 
 @keyframes slide {
@@ -358,14 +358,14 @@ h3 {
 
 @media (max-width: 768px) {
   .slider-item img {
-    width: 131px; 
+    width: 131px;
   }
 }
 
 /* Hide the slider */
 @media (min-width: 769px) {
   .slider-container {
-    display: none; 
+    display: none;
   }
 }
 
@@ -411,10 +411,8 @@ display: block;
 <div class="ad-container">
   <div class="ad-banner">
       <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-          <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
-
+          <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
       </a>
-
   </div>
 </div>
 
@@ -433,7 +431,7 @@ display: block;
         <div class="sidebar">
           <div class="sticky">
               <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                  <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                  <!--<img src="{% static 'img/26JUNE.png' %}" style="width: 100%;" alt="">-->
               </a>
           </div>
           <div class="sticky">
@@ -482,7 +480,7 @@ display: block;
             <a href="{% url 'news_detail' item.slug %}" style='text-decoration: none;'>
               <img src="{{ item.cover_image.url }}" alt="Main Article Image">
               <h2>{{ item.title }}</h2>
-              <h3 style='font-size: 0.75rem'>BY Cyril Christopher</h3>
+              <h3 style='font-size: 0.75rem'>BY {{ item.author }}</h3>
               <p class="lastupdate" style='font-size: 11px;'>{{ item.published_at|date:"M d, Y" }}</p>
             </a>
           </div>
@@ -600,7 +598,7 @@ display: block;
         <div class="sidebar sticky-box">
           <div class="sticky">
               <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                  <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                  <!--<img src="{% static 'img/26JUNE.png' %}" style="width: 100%;" alt="">-->
               </a>
           </div>
           <div class="sticky">

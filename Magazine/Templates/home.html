@@ -284,6 +284,7 @@ h5 {
 
 .box-body {
     padding: 16px;
+    height: 300px;
 }
 
 .box-text {
@@ -352,6 +353,8 @@ h5 {
 
     .box-body {
         padding: 12px;
+        height: 219px !important;
+
     }
 
     .box-text {
@@ -450,7 +453,7 @@ h5 {
     font-size: 12px;
     color: black;
 
-   
+
 
 }
 
@@ -694,12 +697,12 @@ h5 {
             padding: 5px;
             justify-content: center;
 
-            margin-top: calc(5vh + 5px);
+            margin-top: calc(2vh + 5px);
             flex-wrap: wrap;
             text-align: center;
 
         }
-        {% comment %} margin-top: calc(20vh + 80px);  {% endcomment %}
+        {% comment %} margin-top: calc(5vh + 5px);  for with top addvertisement add..{% endcomment %}
 
         .firstmagazine-cover img {
             width: 80px;
@@ -812,6 +815,9 @@ h5 {
         flex: 0 0 auto;
         width: 20%;
 }
+.col-lg-3 {
+    display: block;
+}
 
 }
 
@@ -820,6 +826,9 @@ h5 {
         width: 100%;
         padding-left: 0;
         margin-top: 20px;
+    }
+    .col-lg-3 {
+        display: none;
     }
 
     .col-lg-3 .sidebar {
@@ -1540,7 +1549,7 @@ h5 {
 
         }
 
-{% comment %} 
+{% comment %}
         .featured p {
             padding: 10px 10px 10px 10px;
 
@@ -1581,7 +1590,7 @@ h5 {
            font-style: normal;
            text-decoration: none;
            padding: 5px 5px 5px 5px;
-          
+
 
         }
         .main-news h2:hover {
@@ -1676,8 +1685,8 @@ h5 {
             font-weight: bold;
         }
         .most-recent img {
-            width: 90px;
-            height: 100px;
+            width: 103px;
+            height: 108px;
 
         }
 
@@ -1697,6 +1706,18 @@ h5 {
         @media screen and (max-width: 480px) {
             .most-recent h3 {
                 font-size: 14px;
+            }
+
+            .most-recent li {
+                padding: 0px;
+            }
+            .most-recent {
+                padding: 0px;
+
+            }
+            .most-recent img {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -2109,8 +2130,18 @@ h5 {
         width: 98%;
         margin-top: -19px;
     }
+
+    .video-ad-container{
+        margin: 0px auto -22px auto;
+        height: 175px;
+    }
+    .video-ad-banner video {
+        width: 100%;
+        height: 56%;
 }
 
+
+}
 
 {% comment %} demo ads {% endcomment %}
 
@@ -2134,7 +2165,7 @@ h5 {
 
 .slider-item img {
   width: 188px;
-  height: auto; 
+  height: auto;
 }
 
 @keyframes slide {
@@ -2149,7 +2180,7 @@ h5 {
 
 @media (max-width: 768px) {
   .slider-item img {
-    width: 131px; 
+    width: 131px;
   }
 }
 
@@ -2182,24 +2213,14 @@ h5 {
 <div class="ad-container">
     <div class="ad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
 
         </a>
 
     </div>
 </div>
-{% comment %} <div class="ad-container">
-    <div class="ad-banner">
-        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
-        </a>
-    </div>
-    <div class="ad-banner ad-square">
-        <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/FTVOL1.JPg' %}" alt="Advertisement 2">
-        </a>
-    </div>
-</div> {% endcomment %}
+
+{% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
 
 
@@ -2212,7 +2233,7 @@ h5 {
 <hr>
 <div class="firstsubscription-container">
     <div class="firstmagazine-cover">
-        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+        <img src="{% static '/img/FTS_Volume1_issue2_img1.jpg' %}" alt="Magazine Cover">
     </div>
     <div class="firsttext">
         Future Technologies</div>
@@ -2232,7 +2253,7 @@ h5 {
         <a href="{{ item_url }}" style="text-decoration: none;">
             <div class="secondcard">
                 <img src="{{ item.cover_image.url }}" alt="Card Image" class="box-img">
-                <div class="box-body" style="height: 300px;">
+                <div class="box-body" >
                     <small class="catagory-link" >{{ item.category }}</small>
                     <h3 class="title" style="font-size: 18px; color:black; text-decoration: none; font-weight: 600;">{{ item.title }}</h3>
                     <p class="box-text">
@@ -2260,11 +2281,17 @@ h5 {
    <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
 
        </div>
    </div>
+
+   {% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
+
+
+
+
 
 
 {% comment %} 3rd container {% endcomment %}
@@ -2423,14 +2450,9 @@ h5 {
                 <div class="sidebar">
                     <div class="sticky">
                         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-                            <img src="{% static 'img/FTS-Event-2025_2.webp' %}" style="width: 100%;" alt="">
+                            {% comment %} <img src="{% static 'img/26JUNE.png' %}" style="width: 100%;" alt=""> {% endcomment %}
                         </a>
                     </div>
-                    {% comment %} <div class="sticky">
-                        <a href="https://www.softlabsgroup.com/" target="_blank">
-                            <img src="{% static 'img/FTVOL1.jpg' %}" style="width: 100%;" alt="">
-                        </a>
-                    </div> {% endcomment %}
                 </div>
 
             </div>
@@ -2445,13 +2467,24 @@ h5 {
 
 
 
-<div class="sndad-container">
+ <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
     </div>
 </div>
+
+{% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
+
+
+
+
+
+
+
+
+
 
 
 {% comment %} big advertise section {% endcomment %}
@@ -2459,7 +2492,7 @@ h5 {
 <hr>
 <div class="subscription-container">
     <div class="magazine-cover">
-        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+        <img src="{% static '/img/FTS_Volume1_issue2_img1.jpg' %}" alt=" Magazine Cover">
     </div>
     <div class="text">
         Future Technologies</div>
@@ -2508,13 +2541,14 @@ h5 {
     </div>
 </div>
 
- <div class="sndad-container">
+  <div class="sndad-container">
     <div class="sndad-banner">
         <a href="https://www.futuretechnologiessummit.com/" target="_blank">
-            <img src="{% static 'img/advertisement.png' %}" alt="Advertisement">
+            <img src="{% static 'img/26JUNE.png' %}" alt="Advertisement">
         </a>
     </div>
 </div>
+{% comment %} NEED TO ADD NEW Advertisement {% endcomment %}
 
 
 
@@ -2538,7 +2572,7 @@ h5 {
 {% comment %} <hr>
 <div class="subscription-container">
     <div class="magazine-cover">
-        <img src="{% static '/img/magazine.jpg' %}" alt="Vogue Magazine Cover">
+        <img src="{% static '/img/FTS_Volume1_issue2_img1.jpg' %}" alt=" Magazine Cover">
     </div>
     <div class="text">
         Future Technologies</div>
@@ -2588,7 +2622,7 @@ h5 {
       <div class="slider-item"><a href="https://www.futuretechnologiessummit.com/"><img src="{% static 'img/FT_summit.avif' %}" alt="ads"></a></div>
     </div>
 </div>
-  
+
 
 
 

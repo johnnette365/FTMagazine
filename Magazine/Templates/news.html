@@ -71,13 +71,17 @@ h4 {
 }
 
 /* Extra small screen adjustments */
+{% comment %} h2{
+        text-align: left; {% endcomment %}
+
+
 @media (max-width: 480px) {
     h1{
         font-size: 1.5rem;
         margin-top: 36px;
     }
     h2{
-        text-align: left;
+        
         font-size: 19px;
     }
     h3{
@@ -217,12 +221,27 @@ cursor: pointer;
     color: #ff4081;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .share-container {
         flex-direction: column;
         align-items: flex-start;
     }
+} */
+
+
+
+@media (max-width: 480px) {
+
+.share-container {
+    flex-direction: column;
+    align-items: center;
 }
+
+.icons {
+    align-items: center;
+}
+}
+
 
 .ad-container {
     position: relative;
@@ -291,10 +310,11 @@ p{
         margin: 5px 10px 0px 0px !important;
         width: 50% !important;
     }
-    .smlbtn{
-        margin-bottom: 20px;
-    }
+   
 }
+{% comment %}  .smlbtn{
+        margin-bottom: 20px;
+    } {% endcomment %}
 
 @media screen and (max-width: 480px) {
     .ad-container {
@@ -312,6 +332,29 @@ p{
 }
 
 
+
+@media screen and (max-width: 480px) {
+    .footer-container .footer-section {
+        margin-left: 0px !important;
+
+    }
+    .footer-section h2 {
+        text-align: cente !important;
+    }
+    .footer-bottom p {
+        text-align: center!important;
+    }
+    .footer-section p {
+        text-align: center!important;
+    }
+  }
+
+  .footer-bottom p {
+    text-align: center !important;
+  }
+
+
+  
 
 
 
@@ -399,7 +442,7 @@ p{
                     <div class="share-container">
                         <div class="smlbtn">
                             <small class="likeit">Like it?</small>
-                            <a class="overlay" href="#"><span class="arrow-btn"> Support Us</span></a>
+                            {% comment %} <a class="overlay" href="#"><span class="arrow-btn"> Support Us</span></a> {% endcomment %}
                         </div>
                         <div class="icons">
                             <h5 class="share-title">Share:</h5>

@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+{% block meta_tags %}
+{% endblock meta_tags %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=GFS+Didot&family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+<style>
+
+    .bg-video {
+        position: absolute;
+        top: -219px;
+    left: 0;
+    width: 100%;
+    
+    object-fit: cover;
+    z-index: -1;
+    }
+
+
+
+    .bg-video-small {
+        display: none;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        margin-top: 17%;
+        max-width: 1521px;
+        height: 636px;
+        
+    }
+    
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .divider {
+        width: 50px;
+    height: 3px;
+    background-color: #ffcc00;
+    margin: 26px auto 30px
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card {
+        background: #fff;
+        color: #000;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    .coming-soon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    
+
+    .card img {
+        width: 100%;
+        
+        display: block;
+        height: 78%;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+    }
+ 
+
+    
+
+    @media (max-width: 768px) {
+        .bg-video-large {
+            display: none;
+            top: 0;
+            height: 100vh;
+        }
+    
+        .bg-video-small {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+    
+        .container {
+            margin-top: 32%;
+            height: auto;
+            padding: 20px;
+        }
+    
+        .cards {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+    
+        .card {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+
+
+        .card img {
+            height: auto;
+        }
+    
+        h1 {
+            font-size: 28px;
+        }
+    }
+    
+
+
+
+    @media screen and (max-width: 480px) {
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            height: 63%;
+        }
+
+
+
+        .coming-soon {
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            width: 77%;
+            text-align: center;
+            font-size: 6px;
+        }
+        
+
+        .card h3 {
+            font-size: 10px;  
+    }
+    
+    .bg-video-small {
+
+        height: 61vh;
+}
+.card-content {
+    padding: 8px;
+    text-align: center;
+}
+    }
+
+</style>
+{% endblock page_css %}
+
+
+
+
+{% block content %}
+
+
+
+
+<div class="container">
+    <video autoplay muted loop class="bg-video bg-video-large">
+        <source src="{% static 'videos/galaxyvideo2.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <video autoplay muted loop class="bg-video bg-video-small">
+        <source src="{% static 'videos/smallback.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>CARD</h1>
+    <div class="divider"></div>
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'img/spaceed.jpg' %}" alt="background">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="card-content">
+                <h3>Space ED</h3>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/CubeSat.webp' %}" alt="background">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="card-content">
+                <h3>Cube Sats</h3>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/chandrayaan-3.webp' %}" alt="background">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="card-content">
+                <h3>Sub-System For Chandaryan</h3>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/neemdrone.jpg' %}" alt="background">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="card-content">
+                <h3>Neem Vaccum Drone</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+
+
+{% block page_js %}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    
+
+
+
+
+  
+
+
+    </script>
+
+{% endblock page_js %}
